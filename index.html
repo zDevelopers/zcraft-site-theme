@@ -38,7 +38,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand brand" href=""><img src="img/logo.png" alt="Zcraft" id="main_logo" /></a>
+                    <div class="navbar-brand brand" href=""><a href="#" id="main_logo"><img src="img/logo.png" alt="Zcraft" /></a></div>
                 </div>
                 <div id="main-nav" class="navbar-collapse collapseee">
                     <ul class="nav navbar-nav">
@@ -47,9 +47,48 @@
                         <li><a href="#">Mumble</a></li>
                         <li><a href="#">IRC</a></li>
                     </ul>
+
                     <ul class="nav navbar-nav pull-right">
-                        <li><a href="https://map.zcraft.fr">Notre monde</a></li>
-                        <li><a href="#">Guides <span class="caret"></span></a></li>
+                        <li>
+                            <a href="https://map.zcraft.fr">Notre monde <span class="caret"></span></a>
+
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li><a href="https://map.zcraft.fr">Carte interactive</a></li>
+                                <li><a href="#">Toponymie</a></li>
+
+                                <li class="divider" role="separator"></li>
+
+                                <li class="dropdown-header">Histoire</li>
+                                <li><a href="#">L'Histoire de Zcraft</a></li>
+                                <li><a href="#">...à travers ses membres</a></li>
+                                <li><a href="#">Anciennes actualités</a></li>
+
+                                <li class="divider" role="separator"></li>
+
+                                <li class="dropdown-header">Constructions remarquables</li>
+                                <li><a href="#">Vessinque</a></li>
+                                <li><a href="#">Veycatre</a></li>
+                                <li><a href="#">Vétroy</a></li>
+                                <li><a href="#">Vai-Dheu</a></li>
+                                <li><a href="#">Vehunh</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#">Guides <span class="caret"></span></a>
+
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li><a href="#">Comment faire une candidature</a></li>
+                                <li><a href="#">Guide de survie</a></li>
+                                <li><a href="#">Guide McMMO du débutant</a></li>
+                                <li><a href="#">Consignes de mise à jour</a></li>
+
+                                <li class="divider" role="separator"></li>
+
+                                <li><a href="#">Aider Zcraft financièrement</a></li>
+                            </ul>
+                        </li>
+
                         <li><a href="#">L'équipe</a></li>
                         <li><a href="#">Charte</a></li>
                     </ul>
@@ -202,7 +241,6 @@
     <hr class="featurette-divider" />
 
     <footer>
-        <p class="pull-right"><a href="#">Anciennes cartes</a> &middot; <a href="#">Anciennes actualités</a></p>
         <p>&copy; 2016 Zcraft &middot; Creative Commons BY SA</p>
     </footer>
 </div>
