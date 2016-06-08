@@ -23,6 +23,9 @@ $(function()
     $.getJSON('https://amaury.carrade.eu/tools/minecraft/ping/json?ip=' + server_ip)
         .always(function(ping)
         {
+            var $online_list = $('#zcraft-online-list');
+            var tooltip_attributes = 'data-toggle="tooltip" data-placement="bottom"';
+
             if (ping.status != "ok")
             {
                 $('#zcraft-online-offline').show();
@@ -31,7 +34,7 @@ $(function()
                 // Brrrrr
                 if (Math.random() <= 0.0001)
                 {
-                    $('#zcraft-online-list').append('<li title="Herobrine"><img src="https://minotar.net/helm/Herobrine/28" alt="Herobrine" /></li>');
+                    $online_list.append('<li title="Herobrine" ' + tooltip_attributes + '><img src="https://minotar.net/helm/Herobrine/28" alt="Herobrine" /></li>');
                 }
             }
             else
@@ -46,11 +49,13 @@ $(function()
                     if (ping.data.players.hasOwnProperty(i))
                     {
                         var player_name = ping.data.players[i];
-                        players_list += '<li title="' + player_name + '"><img src="https://minotar.net/helm/' + player_name + '/28" alt="' + player_name + '" /></li>';
+                        players_list += '<li title="' + player_name + '" ' + tooltip_attributes + '><img src="https://minotar.net/helm/' + player_name + '/28" alt="' + player_name + '" /></li>';
                     }
                 }
 
-                $('#zcraft-online-list').append(players_list).show();
+                $online_list.append(players_list).show();
             }
+
+            $online_list.find('li').tooltip();
         });
 });
