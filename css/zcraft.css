@@ -1,0 +1,209 @@
+/* FONTS
+-------------------------------------------------- */
+
+@font-face {
+    font-family: "Minecraft";
+    src: url('../fonts/Minecraftia-Regular.ttf');
+}
+
+
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+    padding-bottom: 40px;
+    color: #5a5a5a;
+}
+
+
+/* NAVBAR
+-------------------------------------------------- */
+
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 20;
+}
+
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper > .container {
+    padding-right: 0;
+    padding-left: 0;
+}
+.navbar-wrapper .navbar {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.navbar-wrapper .navbar .container {
+    width: auto;
+}
+
+
+#main-nav {
+    border-bottom: solid 1px white;
+}
+
+#main-nav > ul > li > a {
+    color: #fff !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+}
+
+#main-nav > ul > li a:hover {
+    color: #fff !important;
+    background-color: transparent !important;
+}
+
+.brand {
+    height: 64px;
+    width: 100%;
+
+    position: absolute;
+    top: -30px;
+    left: 0;
+
+    margin: auto !important;
+    text-align: center;
+}
+
+#main_logo {
+    /*
+    background-color: rgba(255, 255, 255, 0.34);
+    border-radius: 100%;
+    box-shadow: 10px 5px 5px rgba(255, 255, 255, 0.17), 10px -5px 5px rgba(255, 255, 255, 0.17),
+                5px 10px 5px rgba(255, 255, 255, 0.17), -5px 10px 5px rgba(255, 255, 255, 0.17);
+                */
+}
+
+.brand img {
+    height: 64px;
+    display: inline !important;
+}
+
+
+/* HOMEPAGE HEADER
+-------------------------------------------------- */
+
+.homepage-header {
+    height: 500px;
+    margin-bottom: 60px;
+}
+
+.homepage-header-caption {
+    position: absolute;
+    right: 15%;
+    left: 15%;
+    z-index: 10;
+    padding-top: 100px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 0 2em rgba(26, 26, 26, 0.84), 0 0 2em rgb(0, 0, 0), 0 0 2em rgb(0, 0, 0);
+}
+
+.homepage-header > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 500px;
+    width: 100%;
+    background-color: #fff;
+}
+
+
+/* PRESENTATION
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the carousel */
+.big-presentation .col-lg-4 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+.big-presentation h2 {
+    font-weight: normal;
+}
+.big-presentation .col-lg-4 p {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+    margin: 80px 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -1px;
+
+    margin-top: -30px;
+    margin-bottom: 20px;
+}
+
+
+/* IP
+------------------------- */
+
+.zcraft-ip {
+    font-size: xx-large;
+    font-family: "Minecraft", "Lucida Console", "Courier New", serif;
+
+    color: white;
+    background: url('../img/minecraft-dirt-background.png') repeat;
+
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    position: absolute;
+    left: 0;
+    width: 100%;
+}
+
+/* TODO improve... */
+.zcraft-ip-pad {
+    height: 78px;
+}
+
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+    /* Navbar positioning foo */
+    .navbar-wrapper {
+        margin-top: 20px;
+    }
+    .navbar-wrapper .container {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    .navbar-wrapper .navbar {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    /* The navbar becomes detached from the top, so we round the corners */
+    .navbar-wrapper .navbar {
+        border-radius: 4px;
+    }
+
+    /* Bump up size of carousel content */
+    .homepage-header-caption p {
+        margin-bottom: 20px;
+        font-size: 21px;
+        line-height: 1.4;
+    }
+
+    .featurette-heading {
+        font-size: 50px;
+    }
+}
