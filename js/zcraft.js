@@ -16,12 +16,6 @@ $(function()
             {
                 $('#zcraft-online-offline').show();
                 $('#zcraft-online-status').removeClass('unknown').addClass('offline');
-
-                // Brrrrr
-                if (Math.random() <= 0.0001)
-                {
-                    $online_list.append('<li title="Herobrine" ' + tooltip_attributes + '><img src="https://minotar.net/helm/Herobrine/28" alt="Herobrine" /></li>');
-                }
             }
             else
             {
@@ -38,6 +32,12 @@ $(function()
                 {
                     players_list += '<li title="' + player_name + '" ' + tooltip_attributes + '><img src="https://minotar.net/helm/' + player_name + '/28" alt="' + player_name + '" /></li>';
                 });
+
+                // Brrrr...
+                if (ping.data.players.length == 0 && Math.random() <= 0.0001)
+                {
+                    players_list += '<li title="Herobrine" ' + tooltip_attributes + '><img src="img/herobrine-head.png" alt="Herobrine" /></li>';
+                }
 
                 $online_list.append(players_list).show();
             }
