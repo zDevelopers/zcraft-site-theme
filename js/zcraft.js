@@ -39,7 +39,8 @@ $(function()
                     players_list += '<li title="Herobrine" ' + tooltip_attributes + '><img src="img/herobrine-head.png" alt="Herobrine" /></li>';
                 }
 
-                $online_list.append(players_list).show();
+                if (players_list)
+                    $online_list.append(players_list).show();
             }
 
             $online_list.find('li').tooltip();

@@ -223,7 +223,7 @@ ul.navbar-nav > li:hover > ul > li > a:hover {
 
 .homepage-online .minecraft-dirt-large-area .online-title {
     width: 50%;
-    margin: auto auto 10px;
+    margin: auto;
 }
 
 .online-ip {
@@ -258,7 +258,7 @@ ul.navbar-nav > li:hover > ul > li > a:hover {
 .online-list {
     text-align: left;
     width: 57%;
-    margin: auto;
+    margin: 10px auto auto;
 }
 .online-list li {
     display: inline-block;
