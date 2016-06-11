@@ -19,6 +19,12 @@ body {
     overflow-x: hidden;
 }
 
+#global-wrapper {
+    /* Required for full-width blocks on mobile */
+    overflow: hidden;
+    position:relative;
+}
+
 
 /* NAVBAR
 -------------------------------------------------- */
@@ -115,11 +121,11 @@ ul.navbar-nav > li:hover > ul > li > a:hover {
 }
 
 
-/* HOMEPAGE HEADER
+/* HEADERS
 -------------------------------------------------- */
 
 .homepage-header {
-    height: 500px;
+    height: 480px;
     margin-bottom: 60px;
 }
 
@@ -131,13 +137,13 @@ ul.navbar-nav > li:hover > ul > li > a:hover {
     text-shadow: 0 0 2em rgba(26, 26, 26, 0.84), 0 0 2em rgb(0, 0, 0), 0 0 2em rgb(0, 0, 0);
 }
 
-#homepage-header-background {
+#header-background {
     position: absolute;
     top: 0;
     left: 0;
 
     width: 100%;
-    height: 400px;
+    height: 384px;
     overflow: hidden;
     z-index: -1000;
 
