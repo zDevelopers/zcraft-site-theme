@@ -125,7 +125,7 @@ ul.navbar-nav > li:hover > ul > li > a:hover {
 -------------------------------------------------- */
 
 .homepage-header {
-    height: 480px;
+    height: 440px;
     margin-bottom: 60px;
 }
 
@@ -211,7 +211,7 @@ ul.navbar-nav > li:hover > ul > li > a:hover {
 }
 
 .homepage-online {
-    margin-top: 65px;
+    margin-top: 13px;
 }
 
 .homepage-online .minecraft-dirt-large-area {
