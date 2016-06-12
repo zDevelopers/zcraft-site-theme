@@ -25,9 +25,9 @@
 </head>
 
 
-<body>
+<body id="homepage">
 <div id="global-wrapper">
-    <div class="navbar-wrapper">
+    <header class="navbar-wrapper">
         <div class="container">
             <nav class="navbar nav nav-pills navbar-static-top">
                 <div class="container">
@@ -35,12 +35,12 @@
                         <a class="navbar-toggle" type="button" data-toggle="collapse" href="#main-nav" aria-expanded="false" aria-controls="main-nav">
                             Menu <span class="caret"></span>
                         </a>
-                        <div class="navbar-brand brand" href=""><a href="#" id="main_logo"><img src="img/logo.png" alt="Zcraft" /></a></div>
+                        <div class="navbar-brand brand" href=""><a href="index.html" id="main_logo"><img src="img/logo.png" alt="Zcraft" /></a></div>
                     </div>
 
                     <div id="main-nav" class="collapse">
                         <ul class="nav navbar-nav">
-                            <li><a href="#">Accueil</a></li>
+                            <li><a href="index.html">Accueil</a></li>
                             <li><a href="https://forum.zcraft.fr">Forum</a></li>
                             <li><a href="#">Mumble</a></li>
                             <li><a href="#">IRC</a></li>
@@ -77,7 +77,7 @@
 
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     <li><a href="#">Comment faire une candidature</a></li>
-                                    <li><a href="#">Guide de survie</a></li>
+                                    <li><a href="guide-survie.html">Guide de survie</a></li>
                                     <li><a href="#">Guide McMMO du débutant</a></li>
                                     <li><a href="#">Consignes de mise à jour</a></li>
 
@@ -94,7 +94,7 @@
                 </div>
             </nav>
         </div>
-    </div>
+    </header>
 
     <div id="header-background"></div>
 
@@ -233,9 +233,7 @@
         <p class="text-center">(Minecraft 1.9.2)</p>
         <p class="lead text-center">Pour contribuer, nous demandons aux membres de faire <a href="#">une candidature sur notre forum</a>.</p>
 
-        <hr class="featurette-divider" />
-
-        <footer>
+        <footer id="page-footer">
             <p>&copy; 2016 Zcraft &middot; Creative Commons BY SA</p>
         </footer>
     </div>
@@ -244,7 +242,9 @@
 
 <script src="js/vendor/jquery.min.js"></script>
 <script src="js/vendor/bootstrap.min.js"></script>
+
 <script src="js/zcraft.js"></script>
+<script src="js/homepage.js"></script>
 
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="js/vendor/ie10-viewport-bug-workaround.js"></script>
