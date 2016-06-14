@@ -144,13 +144,23 @@ ul.navbar-nav > li:hover > ul > li > a:hover {
     overflow: hidden;
     z-index: -1000;
 
-    background: radial-gradient(ellipse 150% 74px at 50% 25%, rgba(255, 255, 255, 0) 46%, rgba(255, 255, 255, 1)) 0 0 no-repeat, url('../img/top-banner.png') center top;
+    background-position: center top;
     background-size: cover;
+
+    background-image: url('../img/top-banner.png');
+}
+
+#header-background-border {
+    background: radial-gradient(ellipse 150% 74px at 50% 25%, rgba(255, 255, 255, 0) 46%, rgba(255, 255, 255, 1)) 0 0 no-repeat;
+    margin: 0;
+
+    width: 100%;
+    height: 100%;
 }
 
 body#homepage #header-background {
     height: 384px;
-    background: url('../img/accueil-place-flou.png') center top;
+    background-image: url('../img/accueil-place-flou.png');
 }
 
 
@@ -272,18 +282,17 @@ body#homepage #header-background {
 /* CONTENT
 -------------------------------------------------- */
 
-#main-content {
-
-}
-
 .article-header {
+    margin-top: 38px;
     margin-bottom: 44px;
+
+    color: #222222;
 }
 
 article p, article h1, article h2, article h3, article h4, article h5, article h6,
 article li, article dl, article dd, article dt, article .caption {
     color: #1d1d1d;
-    font-family: "PT Serif", Georgia, sans-serif;
+    /*font-family: "PT Serif", Georgia, sans-serif;*/
 }
 
 article p, article li, article .caption {
