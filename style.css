@@ -1,9 +1,29 @@
+/*
+Theme Name: Zcraft Moderne
+Theme URI: https://zcraft.fr
+Author: Amaury Carrade
+Author URI: https://amaury.carrade.eu
+Description: Un thème plus moderne pour le site de Zcraft
+Version: 1.0
+License: CeCILL v2
+License URI: http://www.cecill.info/licences/Licence_CeCILL_V2-fr.html
+Tags: zcraft one-page
+Text Domain: zcraft
+*/
+
+
+/* PLUGINS COMPATIBILITY
+-------------------------------------------------- */
+
+@import url('css/compatibility/toc-plus.css');
+
+
 /* FONTS
 -------------------------------------------------- */
 
 @font-face {
     font-family: "Minecraft";
-    src: url('../fonts/Minecraftia-Regular.ttf');
+    src: url('fonts/Minecraftia-Regular.ttf');
 }
 
 
@@ -147,7 +167,7 @@ ul.navbar-nav > li:hover > ul > li > a:hover {
     background-position: center top;
     background-size: cover;
 
-    background-image: url('../img/top-banner.png');
+    background-image: url('img/top-banner.png');
 }
 
 #header-background-border {
@@ -160,7 +180,7 @@ ul.navbar-nav > li:hover > ul > li > a:hover {
 
 body#homepage #header-background {
     height: 384px;
-    background-image: url('../img/accueil-place-flou.png');
+    background-image: url('img/accueil-place-flou.png');
 }
 
 
@@ -206,7 +226,7 @@ body#homepage #header-background {
     font-family: "Minecraft", "Lucida Console", "Courier New", serif;
 
     color: white;
-    background: url('../img/minecraft-dirt-background.png') repeat;
+    background: url('img/minecraft-dirt-background.png') repeat;
 
     padding-top: 15px;
     padding-bottom: 15px;
@@ -292,37 +312,61 @@ body#homepage #header-background {
 article p, article h1, article h2, article h3, article h4, article h5, article h6,
 article li, article dl, article dd, article dt, article .caption {
     color: #1d1d1d;
-    /*font-family: "PT Serif", Georgia, sans-serif;*/
 }
 
 article p, article li, article .caption {
     font-size: 1.2em;
 }
 
-article h3 {
+article li li {
+    font-size: 1em;
+}
+
+article h2:first-child, article h3:first-child, article h4:first-child, article h5:first-child, article h6:first-child {
+    margin-top: 0;
+}
+
+article h2 {
     margin-top: 45px;
     margin-bottom: 15px;
 
     padding-bottom: 5px;
     border-bottom: solid 1px #ccc;
 
-    font-size: 26px;
+    font-size: 1.9em;
 }
 
-article h4 {
+article h3 {
     margin-top: 35px;
     margin-bottom: 20px;
 
-    font-size: 22px;
+    font-size: 1.7em;
+}
+
+article h4 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+
+    font-size: 1.5em;
+    font-style: italic;
 }
 
 article h5 {
     margin-top: 30px;
     margin-bottom: 20px;
 
-    font-size: 18px;
+    font-size: 1.2em;
     font-style: italic;
 }
+
+article h6 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+
+    font-size: 1.1em;
+    font-style: italic;
+}
+
 
 article dl {
     margin: 20px 0 20px 15px;
@@ -338,8 +382,8 @@ article dd {
 }
 
 code {
-    color: #d60d41;
-    background-color: #fcf5f7;
+    color: #0e3007;
+    background-color: #f4fff2;
 }
 
 .thumbnail .caption {
@@ -353,9 +397,30 @@ code {
     margin-top: 0;
 }
 
+.wp-caption {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 5px;
+
+    border: 1px solid #d6d6d6;
+    border-radius: 5px;
+}
+
+.wp-caption-text {
+    text-align: center;
+    font-style: italic;
+
+    margin: 0;
+    padding: 0;
+}
+
 .toc-list ul {
     font-size: 0.95em;
     list-style-type: none;
+}
+
+.aside-short-link {
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
 }
 
 #page-footer {

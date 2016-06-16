@@ -1,0 +1,43 @@
+/*
+ * CSS file for TOC+ integration
+ * http://dublue.com/plugins/toc/
+ */
+
+.toc_widget {
+    margin-top: 30px;
+}
+
+.toc_widget h2.widget-title {
+    font-size: 24px;
+}
+
+.toc_widget > ul {
+    padding-left: 0;
+}
+
+.toc_widget > ul li a {
+    display: block;
+    padding: 10px 15px;
+
+    font-size: 1.15em;
+
+    border-radius: 5px;
+}
+
+.toc_widget > ul li a:hover {
+    text-decoration: none;
+
+    color: #23527c;
+    background-color: #eee;
+}
+
+.toc_widget > ul li ul a {
+    padding: 0;
+    font-size: 0.95em;
+
+    border-radius: 0;
+}
+
+.toc_widget > ul li a:hover {
+    background-color: transparent;
+}
