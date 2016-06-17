@@ -425,8 +425,179 @@ code {
 
 #page-footer {
     margin-top: 60px;
-    padding-top: 10px;
+    padding-top: 40px;
     border-top: solid #ccc 1px;
+
+    padding-left: 6%;
+    padding-right: 6%;
+}
+
+
+/* COMMENTS
+-------------------------------------------------- */
+
+#comments {
+    margin-top: 100px;
+
+    border-top: 2px dotted #cecece;
+}
+
+#comments h2 {
+    margin-bottom: 40px;
+}
+
+#comments ol, #comments ul {
+    list-style-type: none;
+}
+
+#comments > .comment-list {
+    padding: 0;
+}
+
+#comments article {
+    padding-top: 15px;
+    margin-bottom: 15px;
+
+    border-top: solid 1px #ccc;
+}
+
+#comments > .comment-list .comment:first-child article {
+    border-top: none;
+}
+
+#comments ol ul {
+    margin-left: 40px;
+    padding-left: 0;
+    border-left: 4px solid #4cae4c;
+}
+
+#comments article .comment-author {
+    float: left;
+    width: 16%;
+}
+
+#comments article .comment-author img {
+    display: block;
+    width: 56px;
+    margin: auto;
+}
+#comments article .comment-author .fn {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+}
+#comments article .comment-meta .says {
+    display: none;
+}
+
+#comments article .comment-metadata time {
+    color: #696969;
+}
+#comments article .comment-metadata a:hover {
+    text-decoration: none;
+}
+
+#comments article .comment-metadata .edit-link {
+    display: block;
+    float: right;
+}
+#comments article .comment-metadata .edit-link a {
+    color: #696969;
+}
+#comments article .comment-metadata .edit-link a:hover {
+    color: #525252;
+}
+
+#comments article .comment-content {
+    margin-top: 14px;
+    font-size: 0.95em;
+
+    padding-left: 16%;
+}
+
+#comments article .reply {
+    text-align: right;
+}
+
+
+.comment-respond {
+    margin-top: 30px;
+}
+
+.comment .comment-respond {
+    margin-left: 16%;
+}
+
+.comment-respond .comment-notes, .comment-respond .logged-in-as {
+    font-style: italic;
+}
+
+.comment-respond .logged-in-as a:first-child {
+    color: #5a5a5a;
+}
+.comment-respond .logged-in-as a:first-child:hover {
+    color: #313131;
+    text-decoration: none;
+}
+
+.comment-respond label {
+    cursor: pointer;
+}
+
+.comment-respond input:not([type=submit]), .comment-respond textarea {
+    padding: 5px;
+}
+
+.comment-respond .comment-form-comment label {
+    display: block;
+}
+.comment-respond .comment-form-comment textarea {
+    display: block;
+    width: 100%;
+}
+
+.comment-respond .required {
+    color: red;
+}
+
+.comment-respond .comment-form-author label,
+.comment-respond .comment-form-email label,
+.comment-respond .comment-form-url label {
+    display: inline-block;
+    width: 40%;
+}
+
+.comment-respond .comment-form-author input,
+.comment-respond .comment-form-email input,
+.comment-respond .comment-form-url input {
+    display: inline-block;
+    width: 58%;
+}
+
+.comment-respond .form-submit {
+    margin-top: 32px;
+}
+
+
+/* ARCHIVES
+-------------------------------------------------- */
+
+.archive-in-list {
+    border: solid 1px #ccc;
+    border-radius: 5px;
+
+    margin-top: 20px;
+    margin-bottom: 40px;
+    padding: 15px;
+}
+
+.archive-in-list header {
+    margin: 0 0 15px;
+}
+
+.archive-in-list h1 {
+    margin-top: 0;
+    font-size: 1.4em;
 }
 
 

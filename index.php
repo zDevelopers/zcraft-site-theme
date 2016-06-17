@@ -1,23 +1,23 @@
 <?php get_header(); ?>
 
 <div class="container" id="main-content">
-    <?php if ( have_posts() ) : ?>
 
-        <header class="article-header">
-            <h1>Guide de survie</h1>
-            <p class="lead">À l'attention des nouveaux Zcraftiens</p>
-        </header>
+    <?php
+    while (have_posts())
+    {
+        the_post();
 
-        <div class="row">
-            <article class="col-md-8">
+        // Include the page content template.
+        get_template_part('content', get_post_type());
 
-            </article>
-            <aside class="col-md-4">
+        // If comments are open or we have at least one comment, load up the comment template.
+        if (comments_open() || get_comments_number())
+        {
+            comments_template();
+        }
+    }
+    ?>
 
-            </aside>
-        </div>
-
-    <?php endif; ?>
-</div>
+</div><!-- .content-area -->
 
 <?php get_footer(); ?>

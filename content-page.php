@@ -38,11 +38,7 @@
                     </aside>
                 <?php endif; ?>
 
-                <?php if (is_active_sidebar('sidebar-page')) : ?>
-                    <div id="widget-area" class="widget-area" role="complementary">
-                        <?php dynamic_sidebar('sidebar-page'); ?>
-                    </div>
-                <?php endif; ?>
+                <?php zcraft_inject_widgets('sidebar-page', 'complementary'); ?>
             </div>
         </div>
     </div>
