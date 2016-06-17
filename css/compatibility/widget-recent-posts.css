@@ -1,0 +1,42 @@
+/*
+ * CSS file for the last entries widget.
+ */
+
+.widget_recent_entries ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.widget_recent_entries ul li a {
+    display: block;
+}
+
+.widget_recent_entries ul li {
+    display: block;
+    padding: 10px 15px;
+
+    font-size: 1.15em;
+
+    border-radius: 5px;
+}
+
+.widget_recent_entries ul li:hover, .widget_recent_entries ul li a:hover {
+    text-decoration: none;
+
+    color: #23527c;
+    background-color: #eee;
+}
+
+.widget_recent_entries ul li .post-date {
+    display: block;
+    font-size: 0.9em;
+
+    position: relative;
+    left: -1px;
+
+    color: #5a5a5a;
+}
+
+.widget_recent_entries ul li:hover .post-date {
+    color: #5a5a5a;
+}

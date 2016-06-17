@@ -18,6 +18,8 @@
     }
     ?>
 
+    <?php zcraft_inject_pagination(); ?>
+
 </div><!-- .content-area -->
 
 <?php get_footer(); ?>

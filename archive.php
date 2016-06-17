@@ -17,19 +17,14 @@
                     </article>
                 <?php endwhile; ?>
 
-                <?php
-                    the_posts_pagination(array(
-                        'prev_text'          => __('Page précédente', 'zcraft'),
-                        'next_text'          => __('Page suivante', 'zcraft'),
-                        'before_page_number' => '<span class="meta-nav sr-only">' . __( 'Page', 'zcraft' ) . ' </span>',
-                    ));
-                ?>
+                <?php zcraft_inject_pagination(); ?>
+
             <?php else: ?>
                 <p class="lead muted text-center">Rien à afficher</p>
             <?php endif; ?>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-4 sidebar">
             <?php zcraft_inject_widgets('sidebar-archive', 'complementary'); ?>
         </div>
     </div>

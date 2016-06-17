@@ -17,7 +17,7 @@
                 ?>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-4 sidebar">
                 <div class="sidebar-content">
                     <?php zcraft_inject_widgets('sidebar-post', 'complementary'); ?>
                 </div>

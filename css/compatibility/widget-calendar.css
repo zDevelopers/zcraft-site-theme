@@ -1,0 +1,34 @@
+/*
+ * CSS file for the calendar widget.
+ */
+
+.widget_calendar table {
+    width: 80%;
+    margin: auto;
+}
+
+.widget_calendar table tr {
+    height: 2.1em;
+}
+
+.widget_calendar table tr td, .widget_calendar table tr th {
+    border-radius: 5px;
+    text-align: center;
+
+    vertical-align: middle;
+}
+
+.widget_calendar table tr td:hover {
+    background: #e0e0e0;
+}
+.widget_calendar table tr td.pad:hover {
+    background: transparent;
+}
+.widget_calendar table tr td#prev:hover, .widget_calendar table tr td#next:hover {
+    background: #eee;
+}
+
+.widget_calendar caption {
+    text-align: center;
+    text-transform: capitalize;
+}

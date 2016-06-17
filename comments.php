@@ -42,10 +42,7 @@ if ( post_password_required() ) {
 
     <?php endif; ?>
 
-    <?php
-    // If comments are closed and there are comments, let's leave a little note, shall we?
-    if ( ! comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
-        ?>
+    <?php if (!comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments')): ?>
         <p class="no-comments">Les commentaires sont fermés.</p>
     <?php endif; ?>
 
@@ -53,4 +50,4 @@ if ( post_password_required() ) {
         'class_submit' => 'btn btn-default'
     )); ?>
 
-</div><!-- .comments-area -->
+</div>

@@ -27,7 +27,7 @@
             <?php edit_post_link(__('Modifier', 'zcraft'), '<footer class="pull-right"><span class="edit-link">', '</span></footer>', 0, 'btn btn-default'); ?>
         </article>
 
-        <div class="col-md-4">
+        <div class="col-md-4 sidebar">
             <div class="sidebar-content">
                 <?php
                 $short_link = get_post_meta($post->ID, 'short-link', true);

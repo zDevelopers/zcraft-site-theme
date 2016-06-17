@@ -94,6 +94,16 @@ function zcraft_widgets_init()
         'after_title'   => '</h2>',
     ));
 
+    register_sidebar(array(
+        'name'          => __('À droite des recherches', 'zcraft'),
+        'id'            => 'sidebar-search',
+        'description'   => __('Widgets affichés à droite des résultats de recherche', 'zcraft'),
+        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</aside>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
+    ));
+
 
     /* ---  Footers  --- */
 
@@ -184,4 +194,12 @@ function zcraft_inject_widgets($area_name, $role = "")
         </div>
         <?php
     }
+}
+
+function zcraft_inject_pagination() {
+    the_posts_pagination(array(
+        'prev_text'          => __('Page précédente', 'zcraft'),
+        'next_text'          => __('Page suivante', 'zcraft'),
+        'before_page_number' => '<span class="meta-nav sr-only">' . __( 'Page', 'zcraft' ) . ' </span>',
+    ));
 }

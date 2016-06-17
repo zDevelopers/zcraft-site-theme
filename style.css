@@ -12,10 +12,13 @@ Text Domain: zcraft
 */
 
 
-/* PLUGINS COMPATIBILITY
+/* PLUGINS & WIDGETS COMPATIBILITY
 -------------------------------------------------- */
 
-@import url('css/compatibility/toc-plus.css');
+@import url('css/compatibility/widget-search.css');
+@import url('css/compatibility/widget-recent-posts.css');
+@import url('css/compatibility/widget-calendar.css');
+@import url('css/compatibility/widget-toc-plus.css');
 
 
 /* FONTS
@@ -521,11 +524,12 @@ code {
 
 
 .comment-respond {
-    margin-top: 30px;
+    margin-top: 62px;
 }
 
 .comment .comment-respond {
     margin-left: 16%;
+    margin-top: 32px;
 }
 
 .comment-respond .comment-notes, .comment-respond .logged-in-as {
@@ -579,6 +583,25 @@ code {
 }
 
 
+/* WIDGETS
+-------------------------------------------------- */
+
+.widget {
+    margin-top: 60px;
+}
+.widget:first-child {
+    margin-top: 0;
+}
+
+.widget .widget-title {
+    font-size: 26px;
+}
+
+.container > .row > .sidebar, .container > .post > .row > .sidebar {
+    padding-top: 38px;
+}
+
+
 /* ARCHIVES
 -------------------------------------------------- */
 
@@ -597,7 +620,19 @@ code {
 
 .archive-in-list h1 {
     margin-top: 0;
-    font-size: 1.4em;
+    font-size: 1.6em;
+}
+
+
+/* SEARCH RESULTS
+-------------------------------------------------- */
+
+.search-result h2 {
+    border: none;
+}
+
+.search-result h2 a, .search-result h2 a:hover {
+    color: #1d1d1d;
 }
 
 
