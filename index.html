@@ -14,6 +14,7 @@
     <link href="css/zcraft.css" rel="stylesheet" />
     <link href="css/homepage.css" rel="stylesheet" />
     <link href="css/vendor/font-awesome.css" rel="stylesheet" />
+    <script type="text/javascript" src="js/zcraft.js"></script>
 </head>
 <body id="homepage">
     <header>
@@ -26,7 +27,8 @@
                 <li><a class="fa-hashtag" href="#">IRC</a></li>
                 <span id="secondary-menu-button" data-title="" class="fa-list"></span>
             </ul>
-            <ul id="secondary-menu">
+            <div id="secondary-menu-dropdown"></div>
+            <ul id="secondary-menu" data-dropdown="secondary-menu-dropdown" data-title="Menu secondaire">
                 <li>
                     <a class="fa-globe header" href="#">Notre monde</a>
                     <ul>
