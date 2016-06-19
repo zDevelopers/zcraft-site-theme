@@ -1,0 +1,61 @@
+#homepage #page-headings {
+    border-bottom: solid 1px #193c09;
+}
+
+#homepage #presentation {
+    margin-top: 1em;
+    color: white;
+    background: rgba(0,0,0,.6);
+    display: inline-block;
+    
+    border-top: solid 1px #193c09;
+    border-radius: 30px 30px 0 0 / 10px;
+}
+
+#homepage #presentation h4 {
+    font-size: x-large;
+    font-weight: normal;
+    color: #ccc<;
+}
+
+#homepage #presentation ul {
+    list-style-type: none;
+    font-size: x-large;
+}
+
+#homepage #presentation ul li {
+    display: inline-block;
+    padding: .5em;
+    
+    padding-left: 0;
+}
+
+#homepage #presentation ul li:before {
+    display: inline-block;
+    content: "●";
+    padding-right: 1em;
+    color: #3f9718;
+    font-size: .6em;
+    margin-top: -0.4em;
+    vertical-align: middle;
+}
+
+#homepage #presentation ul li:first-child:before {
+    content: "";
+}
+
+#homepage #presentation ul li:last-child:before {
+    content: "…";
+    font-size: 1.5em;
+    padding-right: .5em;
+    line-height: .1em;
+}
+
+#homepage #presentation .acces-candidature {
+    display: inline-block;
+    background: #3f9718;
+    border-radius: 5px;
+    padding: .3em .5em;
+    margin: .5em;
+    box-shadow: 0 0 5px rgba(0,50,0,.7);
+}
