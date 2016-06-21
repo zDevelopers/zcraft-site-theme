@@ -2,56 +2,27 @@
     border-bottom: solid 1px #193c09;
 }
 
-#homepage #presentation {
-    margin-top: 1em;
+#homepage #serveur-details {
+    /*margin-top: 1em;*/
     color: white;
-    background: rgba(0,0,0,.6);
     display: inline-block;
     
-    border-top: solid 1px #193c09;
-    border-radius: 30px 30px 0 0 / 10px;
+    /*border-top: solid 1px #193c09;
+    background: rgba(0,0,0,.1);
+    border-radius: 30px 30px 0 0 / 10px;*/
 }
 
-#homepage #presentation h4 {
-    font-size: x-large;
-    font-weight: normal;
-    color: #ccc<;
-}
-
-#homepage #presentation ul {
-    list-style-type: none;
-    font-size: x-large;
-}
-
-#homepage #presentation ul li {
-    display: inline-block;
+#homepage #serveur-details .valeurs {
+    font-size: 1.2em;
     padding: .5em;
-    
-    padding-left: 0;
+    font-weight: normal;
+    color: white;
+    text-shadow: 1px 1px 0px black, 0 0 2px black;
+    background: rgba(0,0,0,.6);
+    border-radius: 0 0 20px 20px / 10px;
 }
 
-#homepage #presentation ul li:before {
-    display: inline-block;
-    content: "●";
-    padding-right: 1em;
-    color: #3f9718;
-    font-size: .6em;
-    margin-top: -0.4em;
-    vertical-align: middle;
-}
-
-#homepage #presentation ul li:first-child:before {
-    content: "";
-}
-
-#homepage #presentation ul li:last-child:before {
-    content: "…";
-    font-size: 1.5em;
-    padding-right: .5em;
-    line-height: .1em;
-}
-
-#homepage #presentation .acces-candidature {
+#homepage #serveur-details .acces-candidature {
     display: inline-block;
     background: #3f9718;
     border-radius: 5px;
@@ -59,3 +30,125 @@
     margin: .5em;
     box-shadow: 0 0 5px rgba(0,50,0,.7);
 }
+
+#homepage #online-status {
+    padding: .5em 25%;
+    box-shadow: 0 0 20px black;
+}
+
+#homepage #online-status > * {
+    padding: .3em .5em;
+}
+
+#homepage #online-status dd {
+    float: left;
+    clear: left;
+}
+
+#homepage #online-status dt {
+    text-align: right;
+}
+
+#homepage #online-status p:after {
+    display: inline-block;
+    vertical-align: .7em;
+    content: "";
+    width: .7em;
+    height: .7em;
+    background: green;
+    border-radius: 100%;
+    margin: 0 1em;
+    box-shadow: 0 0 1em green;
+}
+
+#homepage #online-status ul {
+    clear: both;
+    display: block;
+    list-style-type: none;
+    font-size: 0;
+    text-align: left;
+}
+
+#homepage #online-status ul li {
+    display: inline-block;
+    padding: 3px 7px;
+    font-size: medium;
+}
+
+#homepage #online-status ul li img {
+    box-shadow: 0 0 5px rgba(0,0,0,1);
+}
+
+#homepage #serveur-presentation {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: top;
+    justify-content: center;
+    text-align: center;
+    list-style-type: none;
+    vertical-align: middle;
+    margin: 3em 1%;
+}
+
+#homepage #serveur-presentation li {
+    position: relative;
+    z-index: 0;
+    flex-basis: 33%;
+}
+
+#homepage #serveur-presentation li strong {
+    display: block;
+    font-size: 1.9em;
+    font-weight: normal;
+    color: #2a640f;
+}
+
+#homepage #serveur-presentation li img {
+    display: block;
+    margin: .5em auto;
+    width: 140px;
+    height: 140px;
+    border-radius: 100%;
+    border: solid 1px #3f9718;
+    background: #3f9718;
+    box-shadow: 0 0 10px rgba(0,0,0,.5);
+}
+
+#homepage #serveur-presentation li p {
+    font-size: 14px;
+    color: #555;
+    padding: .5em 2.3em;
+    line-height: 1.42857143;
+}
+
+@media (max-width: 1000px) {
+    #homepage #serveur-presentation li {
+        flex-basis: 50%;
+    }
+}
+
+@media (max-width: 600px) {
+    #homepage #online-status {
+        padding: .5em;
+    }
+    
+    #homepage #serveur-presentation {
+        display: block;
+    }
+    
+    #homepage #serveur-presentation li img {
+        position: absolute;
+        height: 105px;
+        width: 105px;
+        z-index: -5;
+        opacity: .2;
+        top: 50%;
+        margin-top: -52px;
+    }
+    
+    #homepage #serveur-presentation li p {
+        padding: .5em;
+        color: #222;
+    }
+}
+

@@ -34,7 +34,7 @@
 }
 
 html, body {
-    font-family: Verdana, Arial, sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #222;
     height: 100%;
     width: 100%;
@@ -44,6 +44,31 @@ a {
     text-decoration: none;
 }
 
+/* GLOBAL MINECRAFT STYLE
+-------------------------------------------------- */
+
+.minecraft-style {
+    background: url("../img/minecraft-dirt-background.png");
+    font-family: Minecraft;
+    color: white;
+    text-rendering: optimizeLegibility;
+}
+
+.minecraft-style [data-tooltip] {
+    position: relative;
+}
+
+.minecraft-style [data-tooltip]:hover:after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 0;
+    top: 115%;
+    background: rgba(0,0,20,.9);
+    padding: .1em .5em;
+    height: 1.5em;
+    border: solid 3px #26035d;
+    border-radius: 5px;
+}
 
 /* NAVBAR
 -------------------------------------------------- */
@@ -148,7 +173,9 @@ header nav ul li:hover, #secondary-menu-button:hover, header nav > ul > li > ul 
     
 
 header nav h1 {
+    position: relative;
     order: 2;
+    top: .5em;
 }
 
 header nav h1 a {
@@ -279,7 +306,6 @@ header nav ul hr {
         position: absolute;
         display: inline-block;
         left: 1em;
-        top: .5em;
     }
     
     #secondary-menu-dropdown {
@@ -398,6 +424,7 @@ header nav ul hr {
 
 @media (max-width: 600px) {
     
+    
     header nav {
         justify-content: stretch;
     }
@@ -436,7 +463,7 @@ header nav ul hr {
 
 header {
     display: block;
-    background: black url('../img/accueil-place.png') center top no-repeat;
+    background: black url('../img/accueil-place.jpg') center center no-repeat;
     text-rendering: optimizeLegibility;
     text-align: center;
     box-shadow: 0 0 20px rgba(0,0,0,.8);
@@ -463,4 +490,10 @@ header {
     font-weight: normal;
     padding: .2em;
     letter-spacing: .03em;
+}
+
+@media (max-width: 600px) {
+    header {
+        background-size: cover;
+    }
 }
