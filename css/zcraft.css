@@ -40,6 +40,11 @@ html, body {
     width: 100%;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+}
+
 a {
     text-decoration: none;
 }
@@ -463,7 +468,7 @@ header nav ul hr {
 
 header {
     display: block;
-    background: black url('../img/accueil-place.jpg') center center no-repeat;
+    background: black url('../img/accueil-place-flou.jpg') center center no-repeat;
     text-rendering: optimizeLegibility;
     text-align: center;
     box-shadow: 0 0 20px rgba(0,0,0,.8);
@@ -482,13 +487,15 @@ header {
 #page-headings > h2 {
     font-size: xx-large;
     padding: .5em;
+    padding-bottom: .1em;
     letter-spacing: .05em;
 }
 
 #page-headings > h3 {
     font-size: x-large;
     font-weight: normal;
-    padding: .2em;
+    padding: .5em;
+    padding-top: .1em;
     letter-spacing: .03em;
 }
 
@@ -496,4 +503,66 @@ header {
     header {
         background-size: cover;
     }
+}
+
+/* PAGE CONTENTS
+-------------------------------------------------- */
+
+#page-content {
+    display: flex;
+    max-width: 70em;
+    margin: 2em auto;
+    flex: 1;
+}
+
+#page-content > section {
+    order: 1;
+    flex: 1;
+    padding: .5em;
+    box-shadow: 0 0 15px rgba(0,0,0,.05);
+}
+
+#page-content > aside {
+    order: 2;
+    align-self: flex-start;
+    margin: 2em 0 2em 2em;
+    box-shadow: 0 0 9px rgba(0,0,0,.1);
+    border-radius: 9px 9px 3px 3px;
+    overflow: hidden;
+    border: solid 1px #3f9718;
+    width: 22em;
+}
+
+#page-content > aside h3 {
+    font-size: large;
+    font-weight: normal;
+    padding: .5em 1.5em;
+    background: #3f9718;
+    color: white;
+}
+
+#page-content > aside ul {
+    list-style-type: none;
+    
+}
+
+#page-content > aside > ul {
+    
+}
+
+#page-content > aside > ul ul {
+    padding-left: 2em;
+    font-size: .9em;
+}
+
+#page-content > aside > ul a {
+    display: block;
+    color: #222;
+    padding: .5em 1.3em;
+}
+
+#page-content > aside > ul a:hover {
+    background-color: #fafafa;
+    color: #3f9718;
+    text-decoration: underline;
 }
