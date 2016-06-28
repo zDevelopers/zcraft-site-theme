@@ -1,9 +1,43 @@
 (function() {
 'use strict';
 
+var drawers = {};
+
+var Dropdown = {
+    id: "main-dropdown",
+    timeout: 2000,
+    element: document.createElement("div"),
+    _timeoutId: null,
+    
+    init: function()
+    {
+        Dropdown.element.id = Dropdown.id;
+        Dropdown.element.addEventListener("click", closeAll);
+    },
+    
+    open: function()
+    {
+        document.body.appendChild(Dropdown.element);
+        Dropdown.element.className = "visible";
+        if(Dropdown._timeoutId)
+            clearTimeout(Dropdown._timeoutId);
+    },
+    
+    close: function()
+    {
+        Dropdown.element.className = "";
+        Dropdown._timeoutId = setTimeout(Dropdown._onAnimationEnd, Dropdown.timeout);
+    },
+    
+    _onAnimationEnd: function()
+    {
+        document.body.removeChild(Dropdown.element);
+        Dropdown._timeoutId = null;
+    }
+};
+
 var NavigationDrawer = {
     id: '',
-    dropdown_id: '',
     
     get element() 
     {
@@ -11,18 +45,9 @@ var NavigationDrawer = {
             || console.error("Invalid drawer id: %s", this.id);
     },
     
-    get dropdown()
-    {
-        return document.getElementById(this.dropdown_id) 
-            || console.error("Invalid dropdown id: %s", this.id);
-    },
-    
     new: function(drawer_id) {
         var obj = Object.create(this);
         obj.id = drawer_id;
-        obj.dropdown_id = obj.element.getAttribute("data-dropdown");
-        obj.dropdown.addEventListener("click", function() {obj.open = false;});
-        console.log("%o", obj);
         return obj;
     },
     
@@ -34,11 +59,8 @@ var NavigationDrawer = {
     set open(isOpen)
     {
         this.element.className = isOpen ? "visible" : "";
-        this.dropdown.className = isOpen ? "visible" : "";
     }
 };
-
-var drawers = {};
 
 function getDrawer(drawer_id) 
 {
@@ -53,12 +75,31 @@ function getDrawer(drawer_id)
     return drawer;
 }
 
+function openDrawer()
+{
+    getDrawer(this.getAttribute("data-drawer")).open = true;
+    Dropdown.open();
+}
+
+function closeAll()
+{
+    for(var drawer_id in drawers)
+    {
+        drawers[drawer_id].open = false;
+    }
+    Dropdown.close();
+}
+
 window.addEventListener("load", function() {
     
-    document.getElementById("secondary-menu-button").addEventListener("click", function() {
-        getDrawer("secondary-menu").open = true;
-    });
+    Dropdown.init();
     
+    var drawerButtons = document.querySelectorAll("[data-drawer]");
+    
+    for(var i = 0, c = drawerButtons.length; i < c; ++i)
+    {
+        drawerButtons[i].addEventListener("click", openDrawer);
+    }
 });
 
 })();

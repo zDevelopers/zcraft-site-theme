@@ -24,10 +24,9 @@
                 <li><a class="fa-comments-o" href="#">Forum</a></li>
                 <li><a class="fa-microphone" href="#">Mumble</a></li>
                 <li><a class="fa-hashtag" href="#">IRC</a></li>
-                <span id="secondary-menu-button" data-title="" class="fa-list"></span>
+                <span id="secondary-menu-button" data-title="" data-drawer="secondary-menu" class="fa-list"></span>
             </ul>
-            <div id="secondary-menu-dropdown"></div>
-            <ul id="secondary-menu" data-dropdown="secondary-menu-dropdown" data-title="Menu secondaire">
+            <ul id="secondary-menu" data-title="Menu secondaire">
                 <li>
                     <a class="fa-globe header" href="#">Notre monde</a>
                     <ul>
@@ -83,8 +82,8 @@
     </header>
     <div id="page-content">
         <aside>
-            <h3>Table des matières</h3>
-            <ul>
+            <h3>Table des matières <span data-drawer="table-of-contents"></span></h3>
+            <ul id="table-of-contents" data-title="Table des matières">
                 <li><a href="#">Quelles sont les commandes disponibles ?</a></li>
                 <li><a href="#">Où me loger ?</a></li>
                 <li><a href="#">Comment me nourrir ?</a></li>
