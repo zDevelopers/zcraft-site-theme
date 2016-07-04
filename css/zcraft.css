@@ -162,7 +162,6 @@ header nav ul li:hover, #secondary-menu-button:hover, header nav > ul > li > ul 
 header nav h1 {
     position: relative;
     order: 2;
-    top: .5em;
 }
 
 header nav h1 a {
@@ -175,7 +174,7 @@ header nav h1 img {
     display: block;
     position: relative;
     font-size: medium;
-    height: 64px;
+    height: 88px;
     vertical-align: middle;
 }
 
@@ -483,7 +482,7 @@ header {
     }
 }
 
-/* PAGE CONTENTS
+/* PAGE CONTENTS (Table of contents)
 -------------------------------------------------- */
 
 #page-content {
@@ -640,5 +639,107 @@ header {
         padding: .5em;
         margin-bottom: 1em;
         box-shadow: 0 0 10px rgba(0,0,0,.5);
+    }
+}
+
+/* PAGE CONTENTS (Actual contents)
+-------------------------------------------------- */
+
+#page-content > section a {
+    color: #3f9718;
+}
+
+#page-content > section a:hover {
+    color: #2a640f;
+}
+
+#page-content > section p, #page-content > section dl, #page-content > section ul {
+    margin: 1em;
+}
+
+#page-content > section ul li {
+    margin-left: 40px;
+    list-style-type: none;
+    position: relative;
+}
+
+#page-content > section ul li:before {
+    position: absolute;
+    content: "-";
+    color: #2a640f;
+    left: -1em;
+}
+
+#page-content > section dl dd {
+    margin-left: 2em;
+    margin-bottom: 1em;
+}
+
+#page-content > section dl dt {
+}
+
+#page-content > section code {
+    margin: .1em;
+    padding: .3em;
+    background: #efefef;
+    border-left: solid 2px #2a640f;
+}
+
+#page-content > section .info-box {
+    margin-left: 2em;
+    margin-right: 2em;
+    padding: .5em 1em;
+    border: solid 1px #3f9718;
+    border-radius: 9px;
+    box-shadow: 0 0 9px rgba(0,0,0,.1);
+}
+
+#page-content > section img {
+    max-width: 100%;
+    height: auto;
+}
+
+#page-content > section h3 {
+    color: #2a640f;
+    font-size: x-large;
+    padding: .5em;
+    margin: 1em 0;
+    border-bottom: solid 1px #ccc;
+}
+
+#page-content > section h4 {
+    color: #2a640f;
+    font-size: large;
+    padding: .5em;
+    margin: .5em 0 .5em 2em;
+    border-bottom: solid 1px #eee;
+}
+
+#page-content > section h5 {
+    color: #2a640f;
+    padding: .1em;
+    margin-left: 4em;
+}
+
+#page-content > section figure {
+    margin: 2em;
+    border: solid 1px #2a640f;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#page-content > section figure figcaption {
+    display: block;
+    text-align: center;
+    font-style: oblique;
+    color: #555;
+}
+
+@media (max-width: 600px) {
+    #page-content > section h3 {
+        font-size: large;
+    }
+    #page-content > section h4 {
+        font-size: 1.05em;
     }
 }
