@@ -65,10 +65,9 @@ a {
 
 .minecraft-style [data-tooltip] {
     position: relative;
-    text-align: center;
 }
 
-.minecraft-style [data-tooltip]:hover:after {
+.minecraft-style [data-tooltip]:hover:before {
     content: attr(data-tooltip);
     position: absolute;
     left: -5%;
@@ -78,6 +77,13 @@ a {
     height: 1.5em;
     border: solid 3px #26035d;
     border-radius: 5px;
+    white-space: nowrap;
+    z-index: 9001;
+}
+
+.minecraft-style [data-tooltip].tooltip-for-text:hover:before {
+    left: 0%;
+    top: 85%;
 }
 
 

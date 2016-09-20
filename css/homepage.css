@@ -40,6 +40,18 @@
     padding: .3em .5em;
 }
 
+#homepage #online-status > :last-child {
+    padding-bottom: 0;
+}
+
+#homepage #online-status > :not(:last-child) ul:not(:empty) li:last-child {
+    padding-bottom: 1em;
+}
+
+#homepage #online-status > :last-child ul:not(:empty) li:last-child {
+    padding-bottom: .3em;
+}
+
 #homepage #online-status dd {
     float: left;
     clear: left;
@@ -55,10 +67,20 @@
     content: "";
     width: .7em;
     height: .7em;
-    background: green;
+    background: #444;
     border-radius: 100%;
     margin: 0 1em;
+    box-shadow: 0 0 1em #444;
+}
+
+#homepage #online-status p.online:after {
+    background: green;
     box-shadow: 0 0 1em green;
+}
+
+#homepage #online-status p.offline:after {
+    background: red;
+    box-shadow: 0 0 1em red;
 }
 
 #homepage #online-status ul {
