@@ -2,7 +2,7 @@
 {
     'use strict';
 
-    var minecraft_ping_API = 'https://amaury.carrade.eu/minecraft/ping/{ip}/json';
+    var minecraft_ping_API = 'https://amaury.carrade.eu/minecraft/ping/{ip}/json?players_only';
 
     var update_delay = 60; // seconds
 
