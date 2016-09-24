@@ -49,7 +49,13 @@ body {
 
 a {
     text-decoration: none;
+    color: #3f9718;
 }
+
+a:hover {
+    color: #2a640f;
+}
+
 
 
 
@@ -163,7 +169,7 @@ header nav ul li a, #secondary-menu-button:after {
     z-index: 5000;
 }
 
-header nav ul li:hover, #secondary-menu-button:hover, header nav > ul > li > ul li a:hover {
+header nav > ul > li:hover > a, #secondary-menu-button:hover, header nav > ul > li > ul li a:hover {
     color: white;
     background: #3f9718;
 }
@@ -693,14 +699,6 @@ header {
 
 /* PAGE CONTENTS (Actual contents)
 -------------------------------------------------- */
-
-#page-content > section a {
-    color: #3f9718;
-}
-
-#page-content > section a:hover {
-    color: #2a640f;
-}
 
 #page-content > section p, #page-content > section dl, #page-content > section ul {
     margin: 1em;
