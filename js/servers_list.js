@@ -2,9 +2,11 @@
 {
     'use strict';
 
-    var minecraft_ping_API = 'https://amaury.carrade.eu/minecraft/ping/{ip}/json';
+    var minecraft_ping_API = 'https://amaury.carrade.eu/minecraft/ping/{ip}/json?players_only';
 
-    var herobrine_probability = 0.005;
+    var update_delay = 60; // seconds
+
+    var herobrine_probability = 0.0008;
     var herobrine_ghost_list_item = '<li data-tooltip="Herobrine"><img src="img/herobrine-head.png" alt="Herobrine" /></li>';
 
 
@@ -22,6 +24,9 @@
             if (httpRequest.readyState === XMLHttpRequest.DONE)
             {
                 var ping = JSON.parse(httpRequest.responseText);
+                
+	            element_count.classList.remove('online');
+    	        element_count.classList.remove('offline');
 
                 if (httpRequest.status === 200 && ping.status == 'ok')
                 {
@@ -70,12 +75,13 @@
     }
 
 
-    var servers_status = document.getElementById('online-status').getElementsByTagName('dd');
+    var servers_status_elmts = document.getElementById('online-status').getElementsByTagName('dd');
+    var servers = [];
 
-    for (var i = 0; i < servers_status.length; i++)
+    for (var i = 0; i < servers_status_elmts.length; i++)
     {
-        var server = servers_status[i];
-        var server_ip = server.getAttribute('data-hostname');
+        var server       = servers_status_elmts[i];
+        var server_ip    = server.getAttribute('data-hostname');
         var server_block = server.nextElementSibling;
 
         // Add tooltip with IP if it differs from the displayed title
@@ -89,5 +95,17 @@
         var server_list = server_block.appendChild(document.createElement('ul'));
 
         load_server(server_ip, server_count, server_list);
+        
+        servers.push([server_ip, server_count, server_list]);
     }
+
+
+    setInterval(function()
+    {
+    	for (var i = 0; i < servers.length; i++)
+    	{
+    		load_server(servers[i][0], servers[i][1], servers[i][2]);
+    	}
+    }, update_delay * 1000);
 })();
+
