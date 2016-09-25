@@ -150,7 +150,7 @@
     background-position: center center;
     background-size: cover;
     padding: 5em 0 5em 0;
-    box-shadow: 0 0 20px black inset;
+    box-shadow: 0 0 20px rgba(0,0,0,.7) inset;
 }
 
 #homepage #featurettes article > div {
@@ -196,7 +196,6 @@
         background-size: cover;
         padding: 10em 0 0 0;
         clear: both;
-        box-shadow: 0 0 9px rgba(0,0,0,.5);
     }
     
     #homepage #featurettes article > div {
@@ -205,6 +204,7 @@
         text-align: left;
         float: left;
         padding: 0 5% 1em 5% !important;
+        box-shadow: none;
     }
     
     #homepage #featurettes article > div > h2 {
