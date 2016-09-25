@@ -50,7 +50,7 @@
                         players_list += herobrine_ghost_list_item;
                     }
 
-                    if (players_list) element_list.innerHTML = players_list;
+                    element_list.innerHTML = players_list ? players_list : '';
                 }
                 else
                 {
