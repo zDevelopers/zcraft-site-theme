@@ -3,13 +3,8 @@
 }
 
 #homepage #serveur-details {
-    /*margin-top: 1em;*/
     color: white;
     display: inline-block;
-    
-    /*border-top: solid 1px #193c09;
-    background: rgba(0,0,0,.1);
-    border-radius: 30px 30px 0 0 / 10px;*/
 }
 
 #homepage #serveur-details .valeurs {
@@ -29,6 +24,7 @@
     padding: .5em .7em;
     margin: 2em 0;
     box-shadow: 0 0 8px rgba(0,50,0,.8);
+    color: white;
 }
 
 #homepage #online-status {
@@ -145,9 +141,74 @@
     line-height: 1.42857143;
 }
 
+#homepage #featurettes {
+    box-shadow: 0 0 21px rgba(0,0,0,.7);
+    border-top: solid 1px #3f9718;
+}
+
+#homepage #featurettes article {
+    background-position: center center;
+    background-size: cover;
+    padding: 5em 0 5em 0;
+    box-shadow: 0 0 20px black inset;
+}
+
+#homepage #featurettes article > div {
+    display: inline-block;
+    position: relative;
+    max-width: 50%;
+    background: rgba(255,255,255,.85);
+    padding: 0 1% 1em 5%;
+    box-shadow: 0 0 9px rgba(0,0,0,.5);
+}
+
+#homepage #featurettes article > div > p {
+    margin: .5em 0;
+}
+
+#homepage #featurettes article div > h2 {
+    color: #2a640f;
+    font-weight: normal;
+    font-size: 1.9em;
+    padding: .5em 1% .5em 5%;
+}
+
+#homepage #featurettes article div > h2 em {
+    font-size: .9em;
+    color: #666;
+    white-space: nowrap;
+}
+
+#homepage #featurettes article:nth-child(even) {
+    text-align: right;
+}
+
+#homepage #featurettes article:nth-child(even) > div {
+    padding: 0 5% 1em 1%;
+}
+
 @media (max-width: 1000px) {
     #homepage #serveur-presentation li {
         flex-basis: 50%;
+    }
+    
+    #homepage #featurettes article {
+        background-size: cover;
+        padding: 10em 0 0 0;
+        clear: both;
+        box-shadow: 0 0 9px rgba(0,0,0,.5);
+    }
+    
+    #homepage #featurettes article > div {
+        max-width: 90%;
+        width: 90%;
+        text-align: left;
+        float: left;
+        padding: 0 5% 1em 5% !important;
+    }
+    
+    #homepage #featurettes article > div > h2 {
+        text-align: center;
     }
 }
 
