@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -12,242 +11,130 @@
 
     <title>Zcraft : serveur communautaire francophone !</title>
 
-    <link href="../css/vendor/bootstrap.min.css" rel="stylesheet" />
-    <link href="../css/vendor/ie10-viewport-bug-workaround.css" rel="stylesheet" />
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <link href="../style.css" rel="stylesheet" />
+    <link href="css/zcraft.css" rel="stylesheet" />
+    <link href="css/homepage.css" rel="stylesheet" />
+    <link href="css/vendor/font-awesome.css" rel="stylesheet" />
 </head>
-
-
 <body id="homepage">
-<div id="global-wrapper">
-    <header class="navbar-wrapper">
-        <div class="container">
-            <nav class="navbar nav nav-pills navbar-static-top">
-                <div class="container">
-                    <div class="navbar-header">
-                        <a class="navbar-toggle" type="button" data-toggle="collapse" href="#main-nav" aria-expanded="false" aria-controls="main-nav">
-                            Menu <span class="caret"></span>
-                        </a>
-                        <div class="navbar-brand brand" href=""><a href="index.html" id="main_logo"><img src="../img/logo.png" alt="Zcraft" /></a></div>
-                    </div>
-
-                    <div id="main-nav" class="collapse">
-                        <ul class="nav navbar-nav">
-                            <li><a href="index.html">Accueil</a></li>
-                            <li><a href="https://forum.zcraft.fr">Forum</a></li>
-                            <li><a href="#">Mumble</a></li>
-                            <li><a href="#">IRC</a></li>
-                        </ul>
-
-                        <ul class="nav navbar-nav pull-right">
-                            <li>
-                                <a href="https://map.zcraft.fr">Notre monde <span class="caret"></span></a>
-
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a href="https://map.zcraft.fr">Carte interactive</a></li>
-                                    <li><a href="#">Toponymie</a></li>
-
-                                    <li class="divider" role="separator"></li>
-
-                                    <li class="dropdown-header">Histoire</li>
-                                    <li><a href="#">L'Histoire de Zcraft</a></li>
-                                    <li><a href="#">...à travers ses membres</a></li>
-                                    <li><a href="#">Anciennes actualités</a></li>
-
-                                    <li class="divider" role="separator"></li>
-
-                                    <li class="dropdown-header">Constructions remarquables</li>
-                                    <li><a href="#">Vessinque</a></li>
-                                    <li><a href="#">Veycatre</a></li>
-                                    <li><a href="#">Vétroy</a></li>
-                                    <li><a href="#">Vai-Dheu</a></li>
-                                    <li><a href="#">Vehunh</a></li>
-                                </ul>
-                            </li>
-
-                            <li>
-                                <a href="#">Guides <span class="caret"></span></a>
-
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a href="#">Comment faire une candidature</a></li>
-                                    <li><a href="guide-survie.html">Guide de survie</a></li>
-                                    <li><a href="#">Guide McMMO du débutant</a></li>
-                                    <li><a href="#">Consignes de mise à jour</a></li>
-
-                                    <li class="divider" role="separator"></li>
-
-                                    <li><a href="#">Aider Zcraft financièrement</a></li>
-                                </ul>
-                            </li>
-
-                            <li><a href="#">L'équipe</a></li>
-                            <li><a href="#">Charte</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </div>
+    <header>
+        <nav>
+            <h1><a href="index.html"><img src="img/logo.png" alt="Zcraft.fr"/></a></h1>
+            <ul id="primary-menu">
+                <li><a class="fa-home" href="index.html">Accueil</a></li>
+                <li><a class="fa-comments-o" href="#">Forum</a></li>
+                <li><a class="fa-microphone" href="#">Mumble</a></li>
+                <li><a class="fa-hashtag" href="#">IRC</a></li>
+                <span id="secondary-menu-button" data-title="" data-drawer="secondary-menu" class="fa-list"></span>
+            </ul>
+            <ul id="secondary-menu" data-title="Menu secondaire">
+                <li>
+                    <a class="fa-globe header" href="#">Notre monde</a>
+                    <ul>
+                        <li><a href="#1">Un</a></li>
+                        <li><a href="#2">Deux</a></li>
+                        <li>
+                            <a class="header" href="#3">Trois</a>
+                            <ul>
+                                <li>
+                                    <a class="header" href="#31">Trois-un</a>
+                                    <ul>
+                                        <li><a href="#31">Trois-un-un</a></li>
+                                        <li><a href="#31">Trois-un-deux</a></li>
+                                        <li><a href="#31">Trois-un-trois</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#31">Trois-deux</a></li>
+                                <li><a href="#31">Trois-trois</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="header">Trois</span>
+                            <ul>
+                                <li><a href="#31">Trois-un</a></li>
+                                <li><a href="#31">Trois-deux</a></li>
+                                <li><a href="#31">Trois-trois</a></li>
+                            </ul>
+                        </li>
+                        <li><span class="header">Quatre</span></li>
+                        <li><a href="#2">Cinq</a></li>
+                        <li><a href="#2">Six</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="fa-book header" href="#">Guides</a>
+                    <ul>
+                        <li><a href="#">Comment faire une candidature</a></li>
+                        <li><a href="guide-survie.html">Guide de survie</a></li>
+                        <li><a href="#">Guide McMMO du débutant</a></li>
+                        <li><a href="#">Consignes de mise à jour</a></li>
+                        <li><hr /></li>
+                        <li><a href="#">Aider Zcraft financièrement</a></li>
+                    </ul>
+                </li>
+                <li><a class="fa-group" href="#">L'équipe</a></li>
+                <li><a class="fa-file-text-o" href="#">Charte</a></li>
+            </ul>
+        </nav>
+        <section id="page-headings">
+            <h2>Bienvenue sur Zcraft !</h2>
+            <h3>Le serveur communautaire semi-RP francophone.</h3>
+        </section>
+        <section id="serveur-details">
+            <p class="valeurs">Nos valeurs : respect, partage, maturité… et humour !</p>
+            <a href="#" class="acces-candidature">Accès libre sur simple candidature</a>
+        </section>
     </header>
+    <dl id="online-status" class="minecraft-style">
+        <dd data-hostname="zcraft.fr">zcraft.fr</dd><dt></dt>
+    </dl>
+    <ul id="serveur-presentation">
+        <li><img src="img/homepage/banque.jpg" alt=""/><strong>Partage et entraide</strong>
+        <p>Sur Zcraft, on partage ce qu'on a de meilleur : nos talents, notre temps, nos ressources.
+        Les projets se font dans la confiance, le grief est quasi-inexistant.</p></li>
+        <li><img src="img/homepage/nouvea.jpg" alt=""/><strong>Près de six ans</strong>
+        <p>Un des serveurs les plus pérennes de la galaxie Minecraft, avec une équipe stable d'administrateurs dévoués.</p></li>
+        <li><img src="img/homepage/irl.jpg" alt=""/><strong>Des rencontres IRL !</strong>
+        <p>Zcraft c'est plus qu'un serveur : de joueurs, on devient potes. Des rencontres réelles ont lieu régulièrement.</p></li>
+        <li><img src="img/homepage/grammar-nazi.jpg" alt=""/><strong>Respect et français</strong>
+        <p>Sur Zcraft, pas de liste blanche : un processus simple mais efficace pour évaluer les candidatures.
+        Résultat : des membres de qualité, qui savent s'exprimer, collaborer et se respecter.</p></li>
+        <li><img src="img/homepage/imageonmap.jpg" alt=""/><strong>Des produits du terroir</strong>
+        <p>De nombreux zcraftiens mettent leurs talents au service de la cause minecraftienne !
+        Constructeurs, développeurs, animateurs enrichissent le jeu de l'intérieur avec des plugins et autres constructions réalisées spécialement pour le serveur.</p></li>
+        <li><img src="img/homepage/belovedblocks.jpg" alt=""/><strong>Un jeu qui colle à l'original</strong>
+        <p>Sur Zcraft, on aime construire à la sueur de notre front, tout en récoltant des ressources à la dure et en évitant les monstres : survival saupoudré de RP, c'est comme ça qu'on s'amuse !<br />
+        Coller à l'original ne nous empêche cela dit pas de l'enrichir de diverses manières.</p></li>
+    </ul>
 
-    <div id="header-background"></div>
-
-    <div class="homepage-header">
-        <div class="container">
-            <div class="homepage-header-caption">
-                <h1>Bienvenue sur Zcraft</h1>
-                <p>
-                    Le serveur communautaire semi-RP francophone.<br />
-                    Nos valeurs : respect, partage, maturité, et… humour !
-                </p>
-                <p>
-                    Accès libre sur simple candidature.
-                </p>
+    <section id="featurettes">
+        <article style="background-image: url('img/accueil-tentacles.png');">
+            <div>
+                <h2>Zcraft ? Une grande famille !</h2>
+                <p>Qui tourne depuis le 20 octobre 2010 dans une très belle ambiance amicale.</p>
+                <p>Nous encourageons la <strong>communication</strong> entre nos joueurs et le <strong>partage</strong> des ressources.</p>
+                <p><strong>Nous ne vendons rien</strong>, Zcraft est 100% gratuit. Aucun privilège ne peut être obtenu par paiement.</p>
+                <p>Nous recrutons <strong>uniquement sur candidature</strong>.</p>
             </div>
-
-            <div class="homepage-online">
-                <div class="minecraft-dirt-large-area text-center">
-                    <div class="online-title">
-                        <div class="online-status">
-                            <span id="zcraft-online-count" aria-hidden="true" style="display: none;"></span>
-                            <span id="zcraft-online-offline" aria-hidden="true" style="display: none;">Hors-ligne</span>
-
-                            <span id="zcraft-online-status" class="online-status-dot unknown"></span>
-                        </div>
-                        <div class="online-ip">zcraft.fr</div>
-                    </div>
-                    <ul id="zcraft-online-list" class="online-list clearfix" style="display: none;"></ul>
-                </div>
+        </article>
+        <article style="background-image: url('img/accueil-evt-vehsyhss.png');">
+            <div>
+                <h2>Un jeu essentiellement en survie. <em>Saupoudré de RP.</em></h2>
+                <p>Le jeu, en survie, se déroule dans une <strong>ambiance semi-<em>role-play</em> communautaire</strong>.</p>
+                <p>La plupart des ressources sont <strong>mises en commun</strong> dans une banque commune, et les projets de construction collective sont fréquents.</p>
+                <p>Une <a href="#">équipe motivée et sympathique</a> administre, modère et coordonne.</p>
             </div>
-        </div>
-    </div>
-
-
-    <div class="container big-presentation">
-
-        <div class="row">
-            <div class="col-lg-4">
-                <img class="img-circle" src="../img/accueil-banque.png" alt="La banque" width="140" height="140">
-                <h2>Partage et entraide</h2>
-                <p>Sur Zcraft, on partage ce qu'on a de meilleur : nos talents, notre temps, nos ressources. Les projets se font dans la confiance, le grief est quasi-inexistant.</p>
+        </article>
+        <article style="background-image: url('img/accueil-elytres.png');">
+            <div>
+                <h2>Proche de l'original… <em>sans s'y limiter.</em></h2>
+                <p>Nous tâchons de coller au maximum à l’esprit du jeu original (<a href="#">voir la liste des plugins actifs</a>), mais nous l'enrichissons également de manière cohérente.</p>
+                <p><a href="#">Notre monde</a>, vieux de plusieurs années, regorge de surprises.</p>
+                <p>Et si tu prèfères l’image aux mots, <a href="#">tu peux regarder quelques vidéos sur notre serveur</a>.</p>
             </div>
+        </article>
+    </section>
 
-            <div class="col-lg-4">
-                <img class="img-circle" src="../img/Hotel-de-ville-Nouvéa.jpg" alt="Un serveur solide" width="140" height="140">
-                <h2>Près de six ans</h2>
-                <p>Un des serveurs les plus pérennes de la galaxie Minecraft, avec une équipe stable d'administrateurs dévoués.</p>
-            </div>
-
-            <div class="col-lg-4">
-                <img class="img-circle" src="../img/accueil-IRL.jpg" alt="Des IRLs" width="140" height="140">
-                <h2>Des rencontres IRL !</h2>
-                <p>Zcraft c'est plus qu'un serveur : de joueurs, on devient potes. Des rencontres réelles ont lieu régulièrement.</p>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-4">
-                <img class="img-circle" src="../img/accueil-grammar-nazi.jpg" alt="Un soupçon de grammar nazisme" width="140" height="140">
-                <h2>Respect et français</h2>
-                <p>Sur Zcraft, pas de liste blanche : un processus simple mais efficace pour évaluer les candidatures. Résultat : des membres de qualité, qui savent s'exprimer, collaborer et se respecter.</p>
-            </div>
-
-            <div class="col-lg-4">
-                <img class="img-circle" src="../img/accueil-imageonmap.jpg" alt="Le terroir" width="140" height="140">
-                <h2>Des produits du terroir</h2>
-                <p>De nombreux zcraftiens mettent leurs talents au service de la cause minecraftienne ! Constructeurs, développeurs, animateurs enrichissent le jeu de l'intérieur avec des plugins et autres constructions réalisées spécialement pour le serveur.</p>
-            </div>
-
-            <div class="col-lg-4">
-                <img class="img-circle" src="../img/accueil-bblocks.png" alt="Proche de l'original" width="140" height="140">
-                <h2>Un jeu qui colle à l'original</h2>
-                <p>Sur Zcraft, on aime construire à la sueur de notre front, tout en récoltant des ressources à la dure et en évitant les monstres : survival saupoudré de RP, c'est comme ça qu'on s'amuse !<br />Coller à l'original ne nous empêche cela dit pas de l'enrichir de diverses manières.</p>
-            </div>
-        </div>
-
-
-        <hr class="featurette-divider">
-
-        <div class="row">
-            <div class="col-md-7">
-                <h2 class="featurette-heading">Zcraft ? Une grande famille !</h2>
-                <p class="lead">
-                    Qui tourne depuis le 20 octobre 2010 dans une très belle ambiance amicale.<br />
-                    Nous encourageons la <strong>communication</strong> entre nos joueurs et le <strong>partage</strong> des ressources.
-                </p>
-                <p class="lead"><strong>Nous ne vendons rien</strong>, Zcraft est 100% gratuit. Aucun privilège ne peut être obtenu par paiement.</p>
-                <p class="lead">Nous recrutons <strong>uniquement sur candidature</strong>.</p>
-            </div>
-            <div class="col-md-5 thumbnail">
-                <img class="img-responsive center-block" src="../img/accueil-tentacles.png" alt="" />
-            </div>
-        </div>
-
-        <hr class="featurette-divider">
-
-        <div class="row">
-            <div class="col-md-7 col-md-push-5">
-                <h2 class="featurette-heading">Un jeu essentiellement en survie. <span class="text-muted">Saupoudré de RP.</span></h2>
-                <p class="lead">Le jeu, en survie, se déroule <strong>dans une ambiance semi-<em>role-play</em> communautaire</strong>.</p>
-                <p class="lead">La plupart des ressources sont <strong>mises en commun</strong> dans une banque commune, et les projets de construction collective sont fréquents.</p>
-                <p class="lead">Une <a href="#">équipe motivée et sympathique</a> administre, modère et coordonne.</p>
-            </div>
-            <div class="col-md-5 col-md-pull-7 thumbnail">
-                <img class="img-responsive center-block" src="../img/accueil-evt-vehsyhss.png" alt="" />
-            </div>
-        </div>
-
-        <hr class="featurette-divider">
-
-        <div class="row">
-            <div class="col-md-7">
-                <h2 class="featurette-heading">Proche de l'original... <span class="text-muted">sans s'y limiter.</span></h2>
-                <p class="lead">Nous tâchons de coller au maximum à l’esprit du jeu original (<a href="#">voir la liste des plugins actifs</a>), mais nous l'enrichissons également de manière cohérente.</p>
-                <p class="lead"><a href="#">Notre monde</a>, vieux de plusieurs années, regorge de surprises.</p>
-                <p class="lead">Et si tu prèfères l’image aux mots, <a href="#">tu peux regarder quelques vidéos sur notre serveur</a>.</p>
-            </div>
-            <div class="col-md-5 thumbnail">
-                <img class="img-responsive center-block" src="../img/accueil-elytres.png" alt="" />
-            </div>
-        </div>
-
-        <hr class="featurette-divider" />
-
-        <div class="row">
-            <div class="col-md-12">
-                <p class="lead text-center">Zcraft s’adresse à un public plutôt adulte. Son accès est donc <strong>déconseillé aux moins de 15 ans</strong>.</p>
-            </div>
-        </div>
-
-        <hr class="featurette-divider" />
-
-        <h2 class="featurette-heading text-center" id="rejoindre">Intéressé ?</h2>
-        <p class="lead text-center">Tout le monde peut visiter le serveur en se connectant à</p>
-        <p class="minecraft-dirt-large-area zcraft-ip text-center">zcraft.fr</p>
-        <p class="text-center">(Minecraft 1.9.2)</p>
-        <p class="lead text-center">Pour contribuer, nous demandons aux membres de faire <a href="#">une candidature sur notre forum</a>.</p>
-    </div>
-
-    <footer id="page-footer">
-        <p>&copy; 2016 Zcraft &middot; Creative Commons BY SA</p>
-    </footer>
-</div>
-
-
-<script src="../js/vendor/jquery.min.js"></script>
-<script src="../js/vendor/bootstrap.min.js"></script>
-
-<script src="../js/zcraft.js"></script>
-<script src="../js/homepage.js"></script>
-
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="../js/vendor/ie10-viewport-bug-workaround.js"></script>
-
+    <script type="text/javascript" src="js/zcraft.js"></script>
+    <script type="text/javascript" src="js/servers_list.js"></script>
 </body>
 </html>
