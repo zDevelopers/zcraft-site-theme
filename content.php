@@ -1,11 +1,12 @@
-<header class="article-header">
-    <?php the_title('<h1 class="entry-title">', '</h1>'); ?>
-    <?php
-    $short_link = get_post_meta($post->ID, 'subtitle', true);
-    if ($short_link): ?><p class="lead"><?php echo $short_link; ?></p><?php endif; ?>
-</header>
-
 <?php echo get_post_meta($post->ID, 'page-head-code', true); ?>
+
+<?php
+$short_link = get_post_meta($post->ID, 'short-link', true);
+if ($short_link): ?>
+    <p class="info-box">
+        Page accessible via ce raccourci : <a href="<?php echo $short_link; ?>" class="post-short-link post-<?php the_ID(); ?>-short-link"><?php echo $short_link; ?></a>
+    </p>
+<?php endif; ?>
 
 <?php the_content(); ?>
 

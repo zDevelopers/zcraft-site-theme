@@ -181,6 +181,39 @@ add_filter('the_content', 'zcraft_filter_add_class_to_all_tables');
 
 
 
+/* **  SHORTCODES ** */
+
+
+add_shortcode('zcraft_home_presentations', function($atts, $content)
+{
+    return '<ul id="serveur-presentation">' . do_shortcode($content) . '</ul>';
+});
+
+add_shortcode('zcraft_home_presentation', function($atts, $content)
+{
+    $a = shortcode_atts(['image' => '', 'title' => ''], $atts);
+
+    return '<li><img src="' . $a['image'] . '" alt="" role="presentation" aria-hidden="true" /><strong>' . $a['title'] . '</strong><p>' . do_shortcode($content) . '</p></li>';
+});
+
+add_shortcode('zcraft_home_featurettes', function($atts, $content)
+{
+    return '<section id="featurettes">' . do_shortcode($content) . '</section>';
+});
+
+add_shortcode('zcraft_home_featurette', function($atts, $content)
+{
+    $a = shortcode_atts(['image' => '', 'title' => '', 'subtitle' => ''], $atts);
+
+    return '<article'
+        . (!empty($a['image']) ? ' style="background-image: url(\'' . $a['image'] . '\');"' : '')
+        . '><div><h2>' . $a['title'] . (!empty($a['subtitle']) ? '<em>' . $a['subtitle'] . '</em>' : '') . '</h2>'
+        . do_shortcode($content)
+        . '</div></article>';
+});
+
+
+
 /* **  UTILITIES  ** */
 
 

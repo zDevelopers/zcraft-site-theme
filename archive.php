@@ -1,34 +1,34 @@
 <?php get_header(); ?>
 
-<div class="container" id="main-content">
+    <section id="page-headings">
+        <h2><?php single_cat_title(); ?></h2>
+        <h3>Liste des articles</h3>
+    </section>
+</header>
 
-    <div class="row">
-        <div class="col-md-8">
-            <?php if (have_posts()): ?>
-                <?php while (have_posts()): the_post(); ?>
-                    <article class="archive-in-list archive-in-list-<?php echo get_post_type(); ?>">
-                        <aside class="pull-right">
-                            <a href="<?php the_permalink(); ?>">
-                                <span class="glyphicon glyphicon-link"></span>
-                                <span class="sr-only">Permalien</span>
-                            </a>
-                        </aside>
-                        <?php get_template_part('content', get_post_type()); ?>
-                    </article>
-                <?php endwhile; ?>
+<div id="page-content">
+    <aside>
+        <?php zcraft_inject_widgets('sidebar-archive', 'complementary'); ?>
+    </aside>
 
-                <?php zcraft_inject_pagination(); ?>
+    <?php if (have_posts()): ?>
+        <?php while (have_posts()): the_post(); ?>
+            <article class="archive-in-list archive-in-list-<?php echo get_post_type(); ?>">
+                <aside class="pull-right">
+                    <a href="<?php the_permalink(); ?>">
+                        <span class="glyphicon glyphicon-link"></span>
+                        <span class="sr-only">Permalien</span>
+                    </a>
+                </aside>
+                <?php get_template_part('content', get_post_type()); ?>
+            </article>
+        <?php endwhile; ?>
 
-            <?php else: ?>
-                <p class="lead muted text-center">Rien à afficher</p>
-            <?php endif; ?>
-        </div>
+        <?php zcraft_inject_pagination(); ?>
 
-        <div class="col-md-4 sidebar">
-            <?php zcraft_inject_widgets('sidebar-archive', 'complementary'); ?>
-        </div>
-    </div>
-
-</div><!-- .content-area -->
+    <?php else: ?>
+        <p class="lead muted text-center">Rien à afficher</p>
+    <?php endif; ?>
+</div>
 
 <?php get_footer(); ?>

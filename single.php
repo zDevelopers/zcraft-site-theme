@@ -1,10 +1,20 @@
 <?php get_header(); ?>
 
-<div class="container" id="main-content">
+<?php while (have_posts()): the_post(); ?>
 
-    <?php while ( have_posts() ) : the_post(); ?>
+    <section id="page-headings">
+        <h2><?php the_title(); ?></h2>
+        <?php
+        $subtitle = get_post_meta($post->ID, 'subtitle', true);
+        if ($subtitle): ?><h3><?php echo $subtitle; ?></h3><?php endif; ?>
+    </section>
+</header>
 
-    <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<div id="page-content">
+    <aside>
+        <?php zcraft_inject_widgets('sidebar-post', 'complementary'); ?>
+    </aside>
+    <section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <div class="row">
             <div class="col-md-8">
                 <article class="single-post">
@@ -23,7 +33,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <?php endwhile; ?>
 

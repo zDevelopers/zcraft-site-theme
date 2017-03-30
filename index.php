@@ -1,6 +1,14 @@
 <?php get_header(); ?>
 
-<div class="container" id="main-content">
+    <section id="page-headings">
+        <h2><?php wp_title(''); ?></h2>
+        <?php if ($GLOBALS['wp_query']->max_num_pages > 1): ?>
+            <h3>Page <?php echo get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1; ?> de <?php echo $GLOBALS['wp_query']->max_num_pages; ?></h3>
+        <?php endif; ?>
+    </section>
+</header>
+
+<div id="page-content">
 
     <?php
     while (have_posts())

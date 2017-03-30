@@ -10,10 +10,16 @@
 
     <?php if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' ); ?>
 
-    <?php wp_enqueue_style('zcraft-vendor-bootstrap-style', get_template_directory_uri() . '/css/vendor/bootstrap.min.css'); ?>
+    <?php wp_enqueue_style('zcraft-vendor-fontawesome-style', get_template_directory_uri() . '/css/vendor/font-awesome.css'); ?>
     <?php wp_enqueue_style('zcraft-vendor-ie10wr-style', get_template_directory_uri() . '/css/vendor/ie10-viewport-bug-workaround.css'); ?>
 
-    <?php wp_enqueue_style('zcraft-generic-style', get_template_directory_uri() . '/style.css', array('zcraft-vendor-bootstrap-style')); ?>
+    <?php wp_enqueue_style('zcraft-generic-style', get_template_directory_uri() . '/style.css', array('zcraft-vendor-fontawesome-style')); ?>
+
+    <?php
+        if (is_front_page() && !is_home()):
+            wp_enqueue_style('zcraft-homepage-style', get_template_directory_uri() . '/css/homepage.css', array('zcraft-vendor-fontawesome-style'));
+        endif;
+    ?>
 
     <?php wp_head(); ?>
 
@@ -26,46 +32,35 @@
 
 <body <?php body_class(); ?><?php if (is_front_page() && !is_home()): ?> id="homepage"<?php endif; ?>>
 
-<div id="global-wrapper">
+    <header>
+        <nav>
+            <h1>
+                <a href="<?php echo home_url(); ?>">
+                    <img src="<?php echo get_theme_mod('zcraft-header-logo', get_stylesheet_directory_uri() . '/img/logo.png'); ?>" alt="<?php bloginfo('name')?>" />
+                </a>
+            </h1>
 
-    <header class="navbar-wrapper">
-        <div class="container">
-            <nav class="navbar nav nav-pills navbar-static-top">
-                <div class="container">
-                    <div class="navbar-header">
-                        <a class="navbar-toggle" type="button" data-toggle="collapse" href="#main-nav" aria-expanded="false" aria-controls="main-nav">
-                            Menu <span class="caret"></span>
-                        </a>
-                        <div class="navbar-brand brand" href=""><a href="<?php echo home_url(); ?>" id="main_logo"><img src="<?php echo get_theme_mod('zcraft-header-logo', get_stylesheet_directory_uri() . '/img/logo.png'); ?>" alt="<?php bloginfo('name')?>" /></a></div>
-                    </div>
+            <?php
+                wp_nav_menu(array(
+                    'menu'              => 'Top Left Menu',
+                    'depth'             => 0,
+                    'container'         => '',
+                    'menu_class'        => '',
+                    'menu_id'           => 'primary-menu',
+                    'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+                    'walker'            => new WP_Bootstrap_Nav_Walker()
+                ));
 
-                    <div id="main-nav" class="collapse">
+                wp_nav_menu(array(
+                    'menu'              => 'Top Right Menu',
+                    'depth'             => 0,
+                    'container'         => '',
+                    'menu_class'        => '',
+                    'menu_id'           => 'secondary-menu',
+                    'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+                    'walker'            => new WP_Bootstrap_Nav_Walker(true)
+                ));
+            ?>
+        </nav>
 
-                        <?php
-                            wp_nav_menu(array(
-                                'menu'              => 'Top Left Menu',
-                                'depth'             => 2,
-                                'container'         => '',
-                                'menu_class'        => 'nav navbar-nav',
-                                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-                                'walker'            => new WP_Bootstrap_Nav_Walker()
-                            ));
-                        ?>
-
-                        <?php
-                            wp_nav_menu(array(
-                                'menu'              => 'Top Right Menu',
-                                'depth'             => 2,
-                                'container'         => '',
-                                'menu_class'        => 'nav navbar-nav pull-right',
-                                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-                                'walker'            => new WP_Bootstrap_Nav_Walker(true)
-                            ));
-                        ?>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </header>
-
-    <div id="header-background"><div id="header-background-border"></div></div>
+        <?php // Page title and </header> in content pages
