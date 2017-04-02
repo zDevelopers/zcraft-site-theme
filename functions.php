@@ -134,7 +134,7 @@ function zcraft_customize_css()
     ?>
     <style type="text/css">
         <?php if (get_theme_mod('zcraft-justify-content', false)): ?>
-        article p {
+        article p, #page-content > section {
             text-align: justify;
             text-justify: inter-word;
         }
@@ -142,7 +142,11 @@ function zcraft_customize_css()
 
         <?php if (!empty(get_theme_mod('zcraft-font-content', ''))): ?>
         article p, article h1, article h2, article h3, article h4, article h5, article h6,
-        article li, article dl, article dd, article dt, article .caption {
+        article li, article dl, article dd, article dt, article .caption,
+        #page-content > section p, #page-content > section h1, #page-content > section h2,
+        #page-content > section h3, #page-content > section h4, #page-content > section h5,
+        #page-content > section h6, #page-content > section li, #page-content > section dl,
+        #page-content > section dd, #page-content > section dt, #page-content > section .caption, {
             font-family: <?php echo get_theme_mod('zcraft-font-content', ''); ?>;
         }
         <?php endif; ?>
@@ -162,77 +166,6 @@ register_nav_menus(array(
     'Top Right Menu' => __('Menu principal droit'),
 ));
 
-
-
-/* **  CONTENT PARSER  ** */
-
-
-function zcraft_filter_add_class_to_all_tables($content)
-{
-    $classes = 'table table-striped table-bordered';
-
-    $content = str_replace('<table class="', '<table class="' . $classes . ' ', $content);
-    $content = str_replace('<table>', '<table class="' . $classes . '">', $content);
-
-    return $content;
-}
-
-add_filter('the_content', 'zcraft_filter_add_class_to_all_tables');
-
-
-
-/* **  SHORTCODES ** */
-
-
-add_shortcode('zcraft_home_presentations', function($atts, $content)
-{
-    return '<ul id="serveur-presentation">' . do_shortcode($content) . '</ul>';
-});
-
-add_shortcode('zcraft_home_presentation', function($atts, $content)
-{
-    $a = shortcode_atts(['image' => '', 'title' => ''], $atts);
-
-    return '<li><img src="' . $a['image'] . '" alt="" role="presentation" aria-hidden="true" /><strong>' . $a['title'] . '</strong><p>' . do_shortcode($content) . '</p></li>';
-});
-
-add_shortcode('zcraft_home_featurettes', function($atts, $content)
-{
-    return '<section id="featurettes">' . do_shortcode($content) . '</section>';
-});
-
-add_shortcode('zcraft_home_featurette', function($atts, $content)
-{
-    $a = shortcode_atts(['image' => '', 'title' => '', 'subtitle' => ''], $atts);
-
-    return '<article'
-        . (!empty($a['image']) ? ' style="background-image: url(\'' . $a['image'] . '\');"' : '')
-        . '><div><h2>' . $a['title'] . (!empty($a['subtitle']) ? '<em>' . $a['subtitle'] . '</em>' : '') . '</h2>'
-        . do_shortcode($content)
-        . '</div></article>';
-});
-
-
-
-/* **  UTILITIES  ** */
-
-
-function zcraft_inject_widgets($area_name, $role = "")
-{
-    if (is_active_sidebar($area_name))
-    {
-        ?>
-        <div id="widget-area-<?php echo $area_name; ?>" class="widget-area widget-area-<?php echo $area_name; ?>"<?php if (!empty($role)): ?> role="<?php echo $role; ?>"<?php endif; ?>>
-            <?php dynamic_sidebar($area_name); ?>
-        </div>
-        <?php
-    }
-}
-
-function zcraft_inject_pagination() {
-    the_posts_pagination(array(
-        'prev_text'          => __('Page précédente', 'zcraft'),
-        'next_text'          => __('Page suivante', 'zcraft'),
-        'before_page_number' => '<span class="meta-nav sr-only">' . __( 'Page', 'zcraft' ) . ' </span>',
-    ));
-}
+include_once(dirname(__FILE__) . '/includes/utilities.php');
+include_once(dirname(__FILE__) . '/includes/shortcodes.php');
+include_once(dirname(__FILE__) . '/includes/admin.php');

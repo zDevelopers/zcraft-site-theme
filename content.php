@@ -8,7 +8,7 @@ if ($short_link): ?>
     </p>
 <?php endif; ?>
 
-<?php the_content(); ?>
+<?php zcraft_the_content(); ?>
 
 <?php
 wp_link_pages(array(

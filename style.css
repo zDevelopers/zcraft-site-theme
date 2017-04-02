@@ -565,7 +565,7 @@ header {
 #page-content > section {
     order: 1;
     flex: 1;
-    padding: .5em;
+    padding: 0;
     margin: .5em;
     box-shadow: 0 0 15px rgba(0,0,0,.05);
 }
@@ -739,6 +739,7 @@ header {
 #page-content > section dl dd {
     margin-left: 2em;
     margin-bottom: 1em;
+    margin-top: .4em;
 }
 
 #page-content > section dl dt {
@@ -752,8 +753,7 @@ header {
 }
 
 #page-content > section .info-box {
-    margin-left: 2em;
-    margin-right: 2em;
+    margin: 1em 2em 2em 2em;
     padding: .5em 1em;
     border: solid 1px #3f9718;
     border-radius: 9px;
@@ -769,7 +769,7 @@ header {
     color: #2a640f;
     font-size: x-large;
     padding: .5em;
-    margin: 1em 0;
+    margin: 1em .5em;
     border-bottom: solid 1px #ccc;
 }
 
@@ -777,15 +777,24 @@ header {
     color: #2a640f;
     font-size: large;
     padding: .5em;
-    margin: .5em 0 .5em 2em;
+    margin: 1em .5em .5em 2em;
     border-bottom: solid 1px #eee;
 }
 
 #page-content > section h5 {
     color: #2a640f;
+    font-size: .9em;
     padding: .1em;
-    margin-left: 4em;
+    margin: 1.4em 0 1em 4em;
 }
+
+#page-content > section h6 {
+    color: #2a640f;
+    font-size: small;
+    padding: .1em;
+    margin: 1em 0 1em 6em;
+}
+
 
 #page-content > section figure {
     margin: 2em;
@@ -800,6 +809,32 @@ header {
     font-style: oblique;
     color: #555;
 }
+
+#page-content > section table {
+    border-collapse: collapse;
+    margin: 1.5em 0;
+}
+
+#page-content > section table th {
+    border-top: solid 2px #2a640f;
+    border-bottom: solid 2px #2a640f;
+    margin: 0;
+    padding: .8em .3em;
+    background: #3f9718;
+    color: white;
+    font-size: medium;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+#page-content > section table td {
+    border-bottom: solid 1px #848484;
+    margin: 0;
+    padding: 0;
+    font-size: medium;
+    padding: .4em .3em;
+}
+
 
 
 @media (max-width: 600px) {
