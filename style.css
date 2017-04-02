@@ -18,7 +18,7 @@ Text Domain: zcraft
 @import url('css/compatibility/widget-search.css');
 @import url('css/compatibility/widget-recent-posts.css');
 @import url('css/compatibility/widget-calendar.css');
-@import url('css/compatibility/widget-toc-plus.css');
+/*@import url('css/compatibility/widget-toc-plus.css');*/
 
 
 /* FONTS
@@ -581,7 +581,7 @@ header {
     width: 22em;
 }
 
-#page-content > aside h3 {
+#page-content > aside > #widget-area-sidebar-post > aside.toc_widget h2 {
     position: relative;
     font-size: large;
     font-weight: normal;
@@ -590,29 +590,29 @@ header {
     color: white;
 }
 
-#page-content > aside h3 [data-drawer] {
+#page-content > aside > #widget-area-sidebar-post > aside.toc_widget h2 [data-drawer] {
     display: none;
 }
 
-#page-content > aside ul {
+#page-content > aside > #widget-area-sidebar-post > aside.toc_widget ul {
     list-style-type: none;
 }
 
-#page-content > aside > ul ul {
+#page-content > aside > #widget-area-sidebar-post > aside.toc_widget > ul ul {
     padding-left: 2em;
     font-size: .9em;
 }
 
-#page-content > aside > ul a {
+#page-content > aside > #widget-area-sidebar-post > aside.toc_widget > ul a {
     display: block;
     color: #222;
     padding: .5em 1.3em;
 }
 
-#page-content > aside > ul a:hover {
+#page-content > aside > #widget-area-sidebar-post > aside.toc_widget > ul a:hover {
     background-color: #fafafa;
     color: #3f9718;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 
@@ -627,11 +627,11 @@ header {
         content: "";
     }
 
-    #page-content > aside {
+    #page-content > aside > #widget-area-sidebar-post > aside.toc_widget {
         width: 17em;
     }
 
-    #page-content > aside > ul a {
+    #page-content > aside > #widget-area-sidebar-post > aside.toc_widget > ul a {
         display: block;
         color: #222;
         padding: .3em 1.1em;
@@ -645,7 +645,7 @@ header {
         display: block;
     }
 
-    #page-content > aside {
+    #page-content > aside > #widget-area-sidebar-post > aside.toc_widget {
         display: block;
         width: inherit;
         min-width: 50%;
@@ -657,22 +657,22 @@ header {
         box-shadow: 0 0 5px rgba(0,0,0,.2), 2px 2px 5px rgba(0,0,0,.3);
     }
 
-    #page-content > aside:hover {
+    #page-content > aside > #widget-area-sidebar-post > aside.toc_widget:hover {
         box-shadow: 0 0 9px rgba(0,0,0,.4), 2px 2px 5px rgba(0,0,0,.3);
     }
 
-    #page-content > aside h3:before {
+    #page-content > aside > #widget-area-sidebar-post > aside.toc_widget h3:before {
         font-family: "FontAwesome";
         padding: 0 .5em 0 0;
         content: "\f03a";
     }
 
-    #page-content > aside h3 {
+    #page-content > aside > #widget-area-sidebar-post > aside.toc_widget h3 {
         cursor: pointer;
         text-align: center;
     }
 
-    #page-content > aside h3 [data-drawer] {
+    #page-content > aside > #widget-area-sidebar-post > aside.toc_widget h3 [data-drawer] {
         display: block;
         position: absolute;
         top: 0;
