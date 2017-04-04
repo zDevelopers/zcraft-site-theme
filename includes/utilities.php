@@ -6,7 +6,11 @@ function zcraft_inject_widgets($area_name, $role = "")
     {
         ?>
         <div id="widget-area-<?php echo $area_name; ?>" class="widget-area widget-area-<?php echo $area_name; ?>"<?php if (!empty($role)): ?> role="<?php echo $role; ?>"<?php endif; ?>>
-            <?php dynamic_sidebar($area_name); ?>
+            <?php
+                ob_start();
+                dynamic_sidebar($area_name);
+                echo apply_filters('zcraft_sidebar_rendered', ob_get_clean(), $area_name);
+            ?>
         </div>
         <?php
     }
@@ -21,6 +25,7 @@ function zcraft_inject_pagination()
     ));
 }
 
+// Inspiration from Weaver-II, large parts of the code for the following shortcode by Bruce Wampler (GPL v2)
 function zcraft_the_content($more = '')
 {
     if (!empty(get_post_meta(get_the_ID(), 'wvr_raw_html', true)) || !empty(get_post_meta(get_the_ID(), 'raw_html', true)))

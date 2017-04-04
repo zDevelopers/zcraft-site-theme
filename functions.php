@@ -169,3 +169,5 @@ register_nav_menus(array(
 include_once(dirname(__FILE__) . '/includes/utilities.php');
 include_once(dirname(__FILE__) . '/includes/shortcodes.php');
 include_once(dirname(__FILE__) . '/includes/admin.php');
+
+include_once(dirname(__FILE__) . '/includes/compatibility-ez-toc.php');

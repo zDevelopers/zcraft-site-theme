@@ -2,8 +2,8 @@
 
 add_action('admin_init', function()
 {
-    /* ----------------- hide visual editor filter ----------------- */
-    function weaverii_disable_visual_editor()
+    // Inspiration from Weaver-II, large parts of the code for the following shortcode by Bruce Wampler (GPL v2)
+    function zcraft_disable_visual_editor()
     {
         global $wp_rich_edit;
 
@@ -18,6 +18,6 @@ add_action('admin_init', function()
             $wp_rich_edit = false;
     }
 
-    add_action('load-page.php', 'weaverii_disable_visual_editor');
-    add_action('load-post.php', 'weaverii_disable_visual_editor');
+    add_action('load-page.php', 'zcraft_disable_visual_editor');
+    add_action('load-post.php', 'zcraft_disable_visual_editor');
 });

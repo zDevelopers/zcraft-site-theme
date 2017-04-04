@@ -529,6 +529,10 @@ header {
     letter-spacing: .05em;
 }
 
+#page-headings > h2:only-child {
+    padding-bottom: .5em;
+}
+
 #page-headings > h3 {
     font-size: x-large;
     font-weight: normal;
@@ -573,15 +577,18 @@ header {
 #page-content > aside {
     order: 2;
     align-self: flex-start;
-    margin: 2em 0 2em 2em;
-    box-shadow: 0 0 9px rgba(0,0,0,.1);
-    border-radius: 9px 9px 3px 3px;
-    overflow: hidden;
-    border: solid 1px #3f9718;
     width: 22em;
 }
 
-#page-content > aside > #widget-area-sidebar-post > aside.toc_widget h2 {
+#page-content > aside > #widget-area-sidebar-post > aside.ez-toc {
+    box-shadow: 0 0 9px rgba(0,0,0,.1);
+    border-radius: 9px 9px 3px 3px;
+    border: solid 1px #3f9718;
+    margin: 1em 0 2em 2em;
+    overflow: hidden;
+}
+
+#page-content > aside > #widget-area-sidebar-post > aside.ez-toc h3 {
     position: relative;
     font-size: large;
     font-weight: normal;
@@ -590,26 +597,26 @@ header {
     color: white;
 }
 
-#page-content > aside > #widget-area-sidebar-post > aside.toc_widget h2 [data-drawer] {
+#page-content > aside > #widget-area-sidebar-post > aside.ez-toc h3 [data-drawer] {
     display: none;
 }
 
-#page-content > aside > #widget-area-sidebar-post > aside.toc_widget ul {
+#page-content > aside > #widget-area-sidebar-post > aside.ez-toc ul {
     list-style-type: none;
 }
 
-#page-content > aside > #widget-area-sidebar-post > aside.toc_widget > ul ul {
+#page-content > aside > #widget-area-sidebar-post > aside.ez-toc > div > ul ul {
     padding-left: 2em;
     font-size: .9em;
 }
 
-#page-content > aside > #widget-area-sidebar-post > aside.toc_widget > ul a {
+#page-content > aside > #widget-area-sidebar-post > aside.ez-toc > div > ul a {
     display: block;
     color: #222;
     padding: .5em 1.3em;
 }
 
-#page-content > aside > #widget-area-sidebar-post > aside.toc_widget > ul a:hover {
+#page-content > aside > #widget-area-sidebar-post > aside.ez-toc > div > ul a:hover {
     background-color: #fafafa;
     color: #3f9718;
     text-decoration: none;
@@ -627,11 +634,11 @@ header {
         content: "";
     }
 
-    #page-content > aside > #widget-area-sidebar-post > aside.toc_widget {
+    #page-content > aside > #widget-area-sidebar-post > aside.ez-toc {
         width: 17em;
     }
 
-    #page-content > aside > #widget-area-sidebar-post > aside.toc_widget > ul a {
+    #page-content > aside > #widget-area-sidebar-post > aside.ez-toc > div > ul a {
         display: block;
         color: #222;
         padding: .3em 1.1em;
@@ -645,7 +652,11 @@ header {
         display: block;
     }
 
-    #page-content > aside > #widget-area-sidebar-post > aside.toc_widget {
+    #page-content > aside {
+        margin: 0 auto;
+    }
+
+    #page-content > aside > #widget-area-sidebar-post > aside.ez-toc {
         display: block;
         width: inherit;
         min-width: 50%;
@@ -657,22 +668,22 @@ header {
         box-shadow: 0 0 5px rgba(0,0,0,.2), 2px 2px 5px rgba(0,0,0,.3);
     }
 
-    #page-content > aside > #widget-area-sidebar-post > aside.toc_widget:hover {
+    #page-content > aside > #widget-area-sidebar-post > aside.ez-toc:hover {
         box-shadow: 0 0 9px rgba(0,0,0,.4), 2px 2px 5px rgba(0,0,0,.3);
     }
 
-    #page-content > aside > #widget-area-sidebar-post > aside.toc_widget h3:before {
+    #page-content > aside > #widget-area-sidebar-post > aside.ez-toc h3:before {
         font-family: "FontAwesome";
         padding: 0 .5em 0 0;
         content: "\f03a";
     }
 
-    #page-content > aside > #widget-area-sidebar-post > aside.toc_widget h3 {
+    #page-content > aside > #widget-area-sidebar-post > aside.ez-toc h3 {
         cursor: pointer;
         text-align: center;
     }
 
-    #page-content > aside > #widget-area-sidebar-post > aside.toc_widget h3 [data-drawer] {
+    #page-content > aside > #widget-area-sidebar-post > aside.ez-toc h3 [data-drawer] {
         display: block;
         position: absolute;
         top: 0;
@@ -719,12 +730,15 @@ header {
 /* PAGE CONTENTS (Actual contents)
 -------------------------------------------------- */
 
-#page-content > section p, #page-content > section dl, #page-content > section ul {
+#page-content > section p, #page-content > section dl, #page-content > section ul, #page-content > section ol {
     margin: 1em;
 }
 
-#page-content > section ul li {
+#page-content > section ul li, #page-content > section ol li {
     margin-left: 40px;
+}
+
+#page-content > section ul li {
     list-style-type: none;
     position: relative;
 }
@@ -835,6 +849,46 @@ header {
     padding: .4em .3em;
 }
 
+
+#page-content > section dl.servers-connection-infos {
+    margin: 2em 2.5em;
+}
+
+#page-content > section dl.servers-connection-infos::before {
+    clear: both;
+    display: block;
+    content: " ";
+}
+
+#page-content > section dl.servers-connection-infos dt {
+    border-left: solid 3px #3F9718;
+    padding: .2em 0 0 .5em;
+    color: #3F9718;
+    font-weight: bold;
+}
+
+#page-content > section dl.servers-connection-infos dd {
+    font-size: x-large;
+    border-left: solid 3px #3F9718;
+    padding: .2em 0 0 .3em;
+    margin: 0 0 .5em !important;
+}
+
+#page-content > section dl.servers-connection-infos dd span.help {
+    display: block;
+    font-size: initial;
+    font-style: italic;
+    color: #444;
+    padding-top: .2em;
+}
+
+
+@media(max-width: 1000px) {
+    #page-content > section .info-box {
+        margin-top: 2em;
+        text-align: center;
+    }
+}
 
 
 @media (max-width: 600px) {
