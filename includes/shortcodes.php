@@ -62,6 +62,25 @@ add_shortcode('server_info', function($args, $content)
         . '</dd>';
 });
 
+add_shortcode('zcraft_gallery', function($args, $content)
+{
+    return '<div class="images_gallery">' . do_shortcode($content) . '</div>';
+});
+
+add_shortcode('image', function($args, $content)
+{
+    $a = shortcode_atts(['alt' => '', 'src' => '', 'link' => ''], $args);
+
+    $content = do_shortcode($content);
+
+    return '<figure>'
+        . '<a href="' . (!empty($a['link']) ? $a['link'] : $a['src']) . '">'
+        . '<img src="' . $a['src'] . '" alt="' . (!empty($a['alt']) ? $a['alt'] : do_shortcode($content)) . '" />'
+        . '</a>'
+        . (!empty($content) ? '<figcaption>' . $content . '</figcaption>' : '')
+        . '</figure>';
+});
+
 
 /* ** ADVANCED SHORTCODES ** */
 

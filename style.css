@@ -815,13 +815,31 @@ header {
     border: solid 1px #2a640f;
     border-radius: 5px;
     padding: 5px;
+
+    text-align: center;
+}
+
+#page-content > section figure img {
+    vertical-align: middle;
 }
 
 #page-content > section figure figcaption {
     display: block;
-    text-align: center;
-    font-style: oblique;
+    margin-top: .4em;
+    font-style: italic;
     color: #555;
+}
+
+#page-content > section .images_gallery {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+}
+
+#page-content > section .images_gallery figure {
+    width: 45%;
+    min-height: 100%;
+    margin: 1em auto;
 }
 
 #page-content > section table {
