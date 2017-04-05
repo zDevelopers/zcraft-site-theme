@@ -191,13 +191,13 @@
     #homepage #serveur-presentation li {
         flex-basis: 50%;
     }
-    
+
     #homepage #featurettes article {
         background-size: cover;
         padding: 10em 0 0 0;
         clear: both;
     }
-    
+
     #homepage #featurettes article > div {
         max-width: 90%;
         width: 90%;
@@ -206,7 +206,7 @@
         padding: 0 5% 1em 5% !important;
         box-shadow: none;
     }
-    
+
     #homepage #featurettes article > div > h2 {
         text-align: center;
     }
@@ -216,11 +216,11 @@
     #homepage #online-status {
         padding: .5em;
     }
-    
+
     #homepage #serveur-presentation {
         display: block;
     }
-    
+
     #homepage #serveur-presentation li img {
         position: absolute;
         height: 105px;
@@ -230,10 +230,9 @@
         top: 50%;
         margin-top: -52px;
     }
-    
+
     #homepage #serveur-presentation li p {
         padding: .5em;
         color: #222;
     }
 }
-

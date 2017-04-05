@@ -18,6 +18,18 @@ function zcraft_customize_register(WP_Customize_Manager $wp_customize)
         'default'    => get_stylesheet_directory_uri() . '/img/logo.png'
     ));
 
+    $wp_customize->add_setting('zcraft-header-banner', array(
+        'default'    => get_stylesheet_directory_uri() . '/img/top-banner.jpg'
+    ));
+
+    $wp_customize->add_setting('zcraft-header-banner-position-vertical', array(
+        'default'    => 'center'
+    ));
+
+    $wp_customize->add_setting('zcraft-header-banner-position-horizontal', array(
+        'default'    => 'center'
+    ));
+
     $wp_customize->add_setting('zcraft-justify-content', array(
         'default'    => false
     ));
@@ -36,6 +48,42 @@ function zcraft_customize_register(WP_Customize_Manager $wp_customize)
         'label'      => __('Icône d\'en-tête', 'zcraft'),
         'section'    => 'zcraft-theme-options',
         'settings'   => 'zcraft-header-logo',
+        'description' => __('Un fond transparent est recommandé.')
+    )));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'zcraft-header-banner-control', array(
+        'label'      => __('Bandeau d\'en-tête', 'zcraft'),
+        'section'    => 'zcraft-theme-options',
+        'settings'   => 'zcraft-header-banner',
+        'description' => __('Idéalement, le bandeau devrait être : <ul style="list-style-type: disc; margin-left: 1em;"><li>assez large pour s\'étendre sur les grandes résolutions ;</li><li>d\'environ 400px de haut ;</li><li>floue, pour que les textes affichés par dessus rendent mieux.</li></ul>')
+    )));
+
+    $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'zcraft-header-banner-position-horizontal-control', array(
+        'label'      => __('Alignement horizontal du bandeau', 'zcraft'),
+        'section'    => 'zcraft-theme-options',
+        'settings'   => 'zcraft-header-banner-position-horizontal',
+        'type'       => 'select',
+        'choices'    => [
+            'left'     => 'À gauche',
+            'center'   => 'Centré',
+            'right'    => 'À droite',
+            'top'      => 'En haut',
+            'bottom'   => 'En bas'
+        ]
+    )));
+
+    $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'zcraft-header-banner-position-vertical-control', array(
+        'label'      => __('Alignement vertical du bandeau', 'zcraft'),
+        'section'    => 'zcraft-theme-options',
+        'settings'   => 'zcraft-header-banner-position-vertical',
+        'type'       => 'select',
+        'choices'    => [
+            'left'     => 'À gauche',
+            'center'   => 'Centré',
+            'right'    => 'À droite',
+            'top'      => 'En haut',
+            'bottom'   => 'En bas'
+        ]
     )));
 
 
@@ -150,6 +198,14 @@ function zcraft_customize_css()
             font-family: <?php echo get_theme_mod('zcraft-font-content', ''); ?>;
         }
         <?php endif; ?>
+
+        header {
+            <?php if (!empty(get_theme_mod('zcraft-header-banner', ''))): ?>
+            background-image: url('<?php echo addslashes(get_theme_mod('zcraft-header-banner', '')); ?>');
+            <?php endif; ?>
+
+            background-position: <?=get_theme_mod('zcraft-header-banner-position-horizontal', 'center') ?> <?=get_theme_mod('zcraft-header-banner-position-vertical', 'center') ?>;
+        }
     </style>
     <?php
 }

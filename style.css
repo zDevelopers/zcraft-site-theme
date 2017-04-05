@@ -507,7 +507,7 @@ header nav ul hr {
 
 header {
     display: block;
-    background: black url('img/accueil-place-flou.jpg') center center no-repeat;
+    background: black url('img/top-banner.jpg') center center no-repeat;
     text-rendering: optimizeLegibility;
     text-align: center;
     box-shadow: 0 0 20px rgba(0,0,0,.8);
