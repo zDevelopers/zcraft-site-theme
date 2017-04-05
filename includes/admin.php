@@ -139,6 +139,9 @@ function zcraft_add_metaboxes()
                             Dans le cas où le nom d'affichage est différent de l'adresse, cette dernière sera affichée dans une infobulle
                             au survol du nom du serveur.
                         </p>
+                        <p>
+                            Pour retirer complètement le bandeau de la page d'accueil, laissez le champ vide.
+                        </p>
                     </td>
                 </tr>
             </tbody>

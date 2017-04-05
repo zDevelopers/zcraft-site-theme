@@ -25,8 +25,13 @@ if (have_posts()):
     </section>
 </header>
 
+<?php
+    $servers_raw = trim(get_post_meta(get_the_ID(), 'zcraft_homepage_servers', true));
+    if (!empty($servers_raw)):
+?>
+
 <dl id="online-status" class="minecraft-style">
-    <?php foreach (explode("\n", get_post_meta(get_the_ID(), 'zcraft_homepage_servers', true)) AS $server): ?>
+    <?php foreach (explode("\n", $servers_raw) AS $server): ?>
         <?php
             if (strpos($server, '|') === false)
             {
@@ -42,6 +47,8 @@ if (have_posts()):
         <dd data-hostname="<?php echo $hostname; ?>"><?php echo $name; ?></dd><dt></dt>
     <?php endforeach; ?>
 </dl>
+
+<?php endif; ?>
 
 <?php the_content(); ?>
 
