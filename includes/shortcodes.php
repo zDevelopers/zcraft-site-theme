@@ -25,7 +25,7 @@ add_shortcode('zcraft_home_featurette', function($args, $content)
 
     return '<article'
         . (!empty($a['image']) ? ' style="background-image: url(\'' . $a['image'] . '\');"' : '')
-        . '><div><h2>' . $a['title'] . (!empty($a['subtitle']) ? '<em>' . $a['subtitle'] . '</em>' : '') . '</h2>'
+        . '><div><h2>' . $a['title'] . (!empty($a['subtitle']) ? ' <em>' . $a['subtitle'] . '</em>' : '') . '</h2>'
         . do_shortcode($content)
         . '</div></article>';
 });

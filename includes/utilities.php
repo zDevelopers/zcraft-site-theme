@@ -24,25 +24,3 @@ function zcraft_inject_pagination()
         'before_page_number' => '<span class="meta-nav sr-only">' . __( 'Page', 'zcraft' ) . ' </span>',
     ));
 }
-
-// Inspiration from Weaver-II, large parts of the code for the following shortcode by Bruce Wampler (GPL v2)
-function zcraft_the_content($more = '')
-{
-    if (!empty(get_post_meta(get_the_ID(), 'wvr_raw_html', true)) || !empty(get_post_meta(get_the_ID(), 'raw_html', true)))
-    {
-        $restore_wpautop = has_filter('the_content', 'wpautop');    // have to do this to prevent disabling from nested posts
-        $restore_wptexturize = has_filter('the_content', 'wptexturize');
-
-		if ($restore_wpautop !== false)     remove_filter('the_content', 'wpautop');
-        if ($restore_wptexturize !== false) remove_filter('the_content', 'wptexturize');
-
-        the_content($m);
-
-        if ($restore_wpautop !== false)     add_filter('the_content', 'wpautop');
-        if ($restore_wptexturize !== false) add_filter('the_content', 'wptexturize');
-    }
-    else
-    {
-        the_content($more);
-    }
-}

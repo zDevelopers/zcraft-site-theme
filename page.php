@@ -22,9 +22,8 @@
                 comments_template();
         ?>
     </section>
-
-    <?php endwhile; ?>
-
 </div>
+
+<?php endwhile; ?>
 
 <?php get_footer(); ?>
