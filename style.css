@@ -561,6 +561,7 @@ header {
 
 #page-content {
     display: flex;
+    width: 1100px;
     max-width: 1100px;
     margin: 2em auto;
     flex: 1;
@@ -626,6 +627,7 @@ header {
 @media (max-width: 1150px) {
     #page-content {
         max-width: 990px;
+        width: 990px;
     }
 
     #page-content:after {
@@ -650,6 +652,7 @@ header {
 
     #page-content {
         display: block;
+        width: auto;
     }
 
     #page-content > aside {

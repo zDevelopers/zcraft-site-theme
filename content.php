@@ -20,5 +20,3 @@ wp_link_pages(array(
     'separator'   => '<span class="screen-reader-text">, </span>',
 ));
 ?>
-
-<?php edit_post_link(__('Modifier', 'zcraft'), '<footer class="pull-right"><span class="edit-link">', '</span></footer>', 0, 'btn btn-default'); ?>

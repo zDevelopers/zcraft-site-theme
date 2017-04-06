@@ -33,7 +33,7 @@ class WP_Zcraft_Nav_Walker extends Walker_Nav_Menu
      */
     public function start_lvl(&$output, $depth = 0, $args = array())
     {
-        $output .= "\n" . str_repeat("\t", $depth) . "<ul" . ($depth === 0 ? " role=\"menu\"" : "") . ">\n";
+        $output .= "\n" . str_repeat("\t", $depth) . "<ul>\n";
     }
 
     /**
