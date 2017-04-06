@@ -1,0 +1,3 @@
+#page-content > section > div[class^="su-"] {
+    margin: 1em;
+}

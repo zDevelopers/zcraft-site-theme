@@ -18,7 +18,7 @@ Text Domain: zcraft
 @import url('css/compatibility/widget-search.css');
 @import url('css/compatibility/widget-recent-posts.css');
 @import url('css/compatibility/widget-calendar.css');
-/*@import url('css/compatibility/widget-toc-plus.css');*/
+@import url('css/compatibility/shortcodes-ultimate.css');
 
 
 /* FONTS
@@ -903,6 +903,42 @@ header {
     padding-top: .2em;
 }
 
+#page-content > section ul.players-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    width: 100%;
+    margin: 1em 0 1em 2em;
+}
+
+#page-content > section ul.players-list li {
+    flex-basis: 30%;
+    margin-left: 0;
+    margin-bottom: .8em;
+
+    display: flex;
+    align-items: center;
+}
+
+#page-content > section ul.players-list li::before {
+    content: "";
+    display: none;
+}
+
+#page-content > section ul.players-list li img {
+    display: block;
+    flex-shrink: 1;
+    margin-right: .5em;
+
+    border-radius: 4px;
+}
+
+#page-content > section ul.players-list li span {
+    display: block;
+    flex-shrink: 10;
+    text-align: left;
+}
+
 
 @media(max-width: 1000px) {
     #page-content > section .info-box {
@@ -918,6 +954,10 @@ header {
     }
     #page-content > section h4 {
         font-size: 1.05em;
+    }
+
+    #page-content > section ul.players-list li {
+        flex-basis: 50%;
     }
 }
 
@@ -958,86 +998,108 @@ header {
     border-top: 2px dotted #cecece;
 }
 
-#comments h2 {
-    margin-bottom: 40px;
+#comments h3.comments-title {
+    font-size: 1.3em;
+    margin-top: 0;
+    border: none;
 }
 
-#comments ol, #comments ul {
+#comments ol.comment-list, #comments ul.children {
     list-style-type: none;
 }
 
-#comments > .comment-list {
-    padding: 0;
+#comments ol.comment-list {
+    margin-right: 1em;
 }
 
-#comments article {
-    padding-top: 15px;
-    margin-bottom: 15px;
-
-    border-top: solid 1px #ccc;
+#comments ul.children {
+    margin-right: 0;
 }
 
-#comments > .comment-list .comment:first-child article {
-    border-top: none;
-}
-
-#comments ol ul {
-    margin-left: 40px;
-    padding-left: 0;
-    border-left: 4px solid #4cae4c;
-}
-
-#comments article .comment-author {
-    float: left;
-    width: 16%;
-}
-
-#comments article .comment-author img {
-    display: block;
-    width: 56px;
-    margin: auto;
-}
-#comments article .comment-author .fn {
-    display: block;
-    text-align: center;
-    margin-top: 10px;
-}
-#comments article .comment-meta .says {
+#comments li::before {
+    content: "";
     display: none;
 }
 
-#comments article .comment-metadata time {
-    color: #696969;
-}
-#comments article .comment-metadata a:hover {
-    text-decoration: none;
+#comments ul.children li:not(:first-child) {
+    margin-top: 1em;
 }
 
-#comments article .comment-metadata .edit-link {
-    display: block;
-    float: right;
-}
-#comments article .comment-metadata .edit-link a {
-    color: #696969;
-}
-#comments article .comment-metadata .edit-link a:hover {
-    color: #525252;
+#comments ol.comment-list > li {
+    margin-left: 0;
 }
 
-#comments article .comment-content {
-    margin-top: 14px;
-    font-size: 0.95em;
-
-    padding-left: 16%;
+#comments .comment-body {
+    display: flex;
 }
 
-#comments article .reply {
+#comments .comment-body aside {
+    flex: 3 1 8%;
+}
+
+#comments .comment-body aside img {
+    border: 2px solid transparent;
+    border-radius: 5px;
+}
+
+#comments li:target > .comment-body > aside img {
+    border-color: #ff0c;
+}
+
+#comments .comment-body article {
+    flex: 3 1 92%;
+}
+
+#comments .comment-body article.comment-content p {
+    margin: 0 0 .4em 1em;
+}
+
+#comments .comment-body article.comment-content p:empty {
+    display: none;
+}
+
+#comments .comment-body article.comment-content footer {
+    display: flex;
+    margin-left: 1em;
+    margin-top: 0;
+
+    font-size: small;
+    color: #888;
+}
+
+#comments .comment-body article.comment-content footer a {
+    color: #888;
+}
+
+#comments .comment-body article.comment-content footer .comment-meta {
+    flex-grow: 2;
+    text-overflow: ellipsis;
+}
+
+#comments .comment-body article.comment-content footer .comment-links {
+    flex-grow: 1;
     text-align: right;
+}
+
+#comments ol.comment-list > li:not(:first-child) {
+    border-top: 1px solid #ccc;
+    padding-top: 1em;
+}
+
+#comments ol.comment-list > li:not(:last-child) {
+    padding-bottom: 1em;
 }
 
 
 .comment-respond {
     margin-top: 62px;
+    border-top: 1px solid #ccc;
+}
+
+div#respond.comment-respond > h3.comment-reply-title { /* grmbl specificity */
+    border: none;
+    font-size: 1.3em;
+    margin-top: .3em;
 }
 
 .comment .comment-respond {
@@ -1047,6 +1109,7 @@ header {
 
 .comment-respond .comment-notes, .comment-respond .logged-in-as {
     font-style: italic;
+    margin-top: 0;
 }
 
 .comment-respond .logged-in-as a:first-child {

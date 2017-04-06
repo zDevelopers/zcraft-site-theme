@@ -81,6 +81,27 @@ add_shortcode('image', function($args, $content)
         . '</figure>';
 });
 
+add_shortcode('players_list', function($args, $content)
+{
+    $a = shortcode_atts(['avatar_size' => '32', 'avatar_url' => 'https://minotar.net/helm/{pseudo}/{size}'], $args);
+
+    $output = '<ul class="players-list">';
+    foreach (explode(',', $content) as $raw_player)
+    {
+        $raw_player = explode(':', trim($raw_player));
+        $player_name = trim(array_shift($raw_player));
+        $display_name = trim(count($raw_player) > 0 ? implode(':', $raw_player) : $player_name);
+
+        $output .= '<li>';
+        $output .= '<img src="' . str_replace(['{pseudo}', '{size}'], [$player_name, $a['avatar_size']], $a['avatar_url']) . '" alt="' . $player_name . '" />';
+        $output .= '<span>' . $display_name . '</span>';
+        $output .= '</li>';
+    }
+    $output .= '</ul>';
+
+    return $output;
+});
+
 
 /* ** ADVANCED SHORTCODES ** */
 
