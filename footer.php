@@ -5,7 +5,7 @@
     if (is_front_page() &&!is_home())
     {
         wp_enqueue_script('zcraft-homepage-script', get_template_directory_uri() . '/js/homepage.js');
-        wp_enqueue_script('zcraft-servers-list-script', get_template_directory_uri() . '/js/servers_list.js');
+        wp_enqueue_script('zcraft-servers-list-script', get_template_directory_uri() . '/js/servers_list.js', ['wp-api']);
     }
 ?>
 

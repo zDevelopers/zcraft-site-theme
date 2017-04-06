@@ -2,7 +2,7 @@
 {
     'use strict';
 
-    var minecraft_ping_API = 'https://amaury.carrade.eu/minecraft/ping/{ip}/json?players_only';
+    var minecraft_ping_API = 'index.php/wp-json/zcraft/v1/minecraft-ping/{ip}';
 
     var update_delay = 60; // seconds
 
@@ -13,7 +13,7 @@
     function load_server(server_ip, element_count, element_list)
     {
         var httpRequest = new XMLHttpRequest();
-        if (!httpRequest) 
+        if (!httpRequest)
         {
             console.error('No support for XMLHttpRequest, what\'s that strange browser you\'re using?');
             return;
@@ -24,28 +24,28 @@
             if (httpRequest.readyState === XMLHttpRequest.DONE)
             {
                 var ping = JSON.parse(httpRequest.responseText);
-                
+
 	            element_count.classList.remove('online');
     	        element_count.classList.remove('offline');
 
-                if (httpRequest.status === 200 && ping.status == 'ok')
+                if (httpRequest.status === 200)
                 {
                     element_count.classList.add('online');
-                    element_count.innerHTML = ping.data.online_players + ' / ' + ping.data.max_players;
+                    element_count.innerHTML = ping.online_players + ' / ' + ping.max_players;
 
                     // Players sorted by lower-cased name
-                    ping.data.players.sort(function (a, b) {
+                    ping.players.sort(function (a, b) {
                         return a.toLowerCase().localeCompare(b.toLowerCase());
                     });
 
                     var players_list = '';
-                    ping.data.players.forEach(function(player_name)
+                    ping.players.forEach(function(player_name)
                     {
                         players_list += '<li data-tooltip="' + player_name + '"><img src="https://minotar.net/helm/' + player_name + '/32" alt="' + player_name + '" /></li>';
                     });
 
                     // Brrrr...
-                    if (ping.data.players.length == 0 && Math.random() <= herobrine_probability)
+                    if (ping.players.length == 0 && Math.random() <= herobrine_probability)
                     {
                         players_list += herobrine_ghost_list_item;
                     }
@@ -56,11 +56,7 @@
                 {
                     element_count.classList.add('offline');
                     element_count.innerHTML = 'Hors-ligne';
-
-                    if (ping.status != 'ok')
-                    {
-                        element_count.setAttribute('title', ping.error);
-                    }
+                    element_count.setAttribute('title', ping.data);
 
                     if (Math.random() <= herobrine_probability)
                     {
@@ -95,7 +91,7 @@
         var server_list = server_block.appendChild(document.createElement('ul'));
 
         load_server(server_ip, server_count, server_list);
-        
+
         servers.push([server_ip, server_count, server_list]);
     }
 
@@ -108,4 +104,3 @@
     	}
     }, update_delay * 1000);
 })();
-

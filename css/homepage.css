@@ -96,6 +96,7 @@
 #homepage #online-status ul li img {
     box-shadow: 0 0 5px rgba(0,0,0,1);
     border-radius: 3px;
+    background-color: black;
 }
 
 #homepage #serveur-presentation {

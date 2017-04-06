@@ -48,7 +48,7 @@
                     'menu_class'        => '',
                     'menu_id'           => 'primary-menu',
                     'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-                    'walker'            => new WP_Bootstrap_Nav_Walker()
+                    'walker'            => new WP_Zcraft_Nav_Walker()
                 ));
 
                 wp_nav_menu(array(
@@ -58,7 +58,7 @@
                     'menu_class'        => '',
                     'menu_id'           => 'secondary-menu',
                     'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-                    'walker'            => new WP_Bootstrap_Nav_Walker(true)
+                    'walker'            => new WP_Zcraft_Nav_Walker(true)
                 ));
             ?>
         </nav>

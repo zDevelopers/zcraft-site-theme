@@ -18,9 +18,7 @@ if (have_posts()):
             ?></h3>
     </section>
     <section id="serveur-details">
-        <p class="valeurs">
-            <?php echo get_post_meta(get_the_ID(), 'zcraft_homepage_tagline', true); ?>
-        </p>
+        <p class="valeurs"><?php echo get_post_meta(get_the_ID(), 'zcraft_homepage_tagline', true); ?></p>
         <a href="<?php echo get_post_meta(get_the_ID(), 'zcraft_homepage_button_href', true); ?>" class="acces-candidature"><?php echo get_post_meta(get_the_ID(), 'zcraft_homepage_button', true); ?></a>
     </section>
 </header>
