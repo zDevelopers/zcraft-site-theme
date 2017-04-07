@@ -17,4 +17,7 @@ include_once(dirname(__FILE__) . '/includes/rest.php');
 include_once(dirname(__FILE__) . '/includes/compatibility-ez-toc.php');
 
 if (is_admin())
+{
     include_once(dirname(__FILE__) . '/includes/admin.php');
+    include_once(dirname(__FILE__) . '/includes/admin-help.php');
+}
