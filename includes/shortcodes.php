@@ -47,6 +47,7 @@ add_shortcode('command', function($args, $content)
         . '<dd>' . do_shortcode($content) . '</dd>';
 });
 
+
 add_shortcode('server_infos', function($args, $content)
 {
     return '<dl class="servers-connection-infos">' . do_shortcode($content) . '</dl>';
@@ -61,6 +62,7 @@ add_shortcode('server_info', function($args, $content)
         . (!empty($a['help']) ? '<span class="help">' . do_shortcode($a['help']) . '</span>' : '')
         . '</dd>';
 });
+
 
 add_shortcode('zcraft_gallery', function($args, $content)
 {
@@ -80,6 +82,13 @@ add_shortcode('image', function($args, $content)
         . (!empty($content) ? '<figcaption>' . $content . '</figcaption>' : '')
         . '</figure>';
 });
+
+add_shortcode('illustration', function($args, $content)
+{
+    $a = shortcode_atts(['alt' => ''], $args);
+    return '<img src="' . $content . '" alt="' . $a['alt'] . '" class="article-illustration" />';
+});
+
 
 add_shortcode('players_list', function($args, $content)
 {
@@ -101,6 +110,23 @@ add_shortcode('players_list', function($args, $content)
 
     return $output;
 });
+
+
+add_shortcode('steps', function($args, $content)
+{
+    return '<ol class="help-steps">' . do_shortcode($content) . '</ol>';
+});
+
+add_shortcode('step', function($args, $content)
+{
+    $a = shortcode_atts(['image' => '', 'image_mini' => '', 'image_alt' => 'Illustration'], $args);
+
+    return '<li>'
+        . (!empty($a['image']) ? '<img class="step-image" src="' . (!empty($a['image_mini']) ? $a['image_mini'] : $a['image']) . '" alt="' . $a['image_alt'] . '" data-src-large="' . $a['image'] . '" />' : '')
+        . do_shortcode($content)
+        . '</li>';
+});
+
 
 
 /* ** ADVANCED SHORTCODES ** */

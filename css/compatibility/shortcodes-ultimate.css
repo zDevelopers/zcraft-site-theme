@@ -1,3 +1,31 @@
 #page-content > section > div[class^="su-"] {
     margin: 1em;
 }
+
+.su-tabs.minimal-tabs {
+    background-color: transparent;
+}
+.su-tabs.minimal-tabs .su-tabs-nav {
+    border-bottom: solid 1px #ddd;
+}
+.su-tabs.minimal-tabs .su-tabs-nav span {
+    font-size: 1.05em;
+}
+.su-tabs.minimal-tabs .su-tabs-nav span.su-tabs-current {
+    background-color: #ddd;
+}
+.su-tabs.minimal-tabs .su-tabs-pane {
+    padding: 1em;
+    font-size: 1em;
+    background-color: transparent;
+}
+
+.su-tabs.no-margins .su-tabs-pane {
+    margin: 0;
+    padding: 0;
+}
+
+#page-content > section .su-tabs .su-tabs-pane ol.help-steps {
+    margin: 0;
+    margin-top: 1em;
+}

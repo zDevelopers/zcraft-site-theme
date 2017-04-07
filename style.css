@@ -769,6 +769,16 @@ header {
     border-left: solid 2px #2a640f;
 }
 
+#page-content > section kbd {
+    background-color: black;
+    padding: .3em .5em;
+    border-radius: 5px;
+    color: white;
+
+    position: relative;
+    top: -1px;
+}
+
 #page-content > section .info-box {
     margin: 1em 2em 2em 2em;
     padding: .5em 1em;
@@ -843,6 +853,12 @@ header {
     width: 45%;
     min-height: 100%;
     margin: 1em auto;
+}
+
+#page-content > section img.article-illustration, #page-content > section img.alignright { /* second for backward compatibility */
+    float: right;
+    margin: 1em;
+    margin-top: 0;
 }
 
 #page-content > section table {
@@ -939,6 +955,91 @@ header {
     text-align: left;
 }
 
+#page-content > section ol.help-steps {
+    counter-reset: help-steps;
+    list-style: none;
+    position: relative;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+#page-content > section ol.help-steps li::before {
+    content: counter(help-steps);
+    counter-increment: help-steps;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 100%;
+    width: 30px;
+    padding: 0 10px 0 0;
+
+    color: #999;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 35px;
+
+    text-align: right;
+    border-right: 1px solid #ddd;
+}
+
+#page-content > section ol.help-steps li::after {
+    display: block;
+    content: " ";
+    clear: both;
+}
+
+#page-content > section ol.help-steps li {
+    padding: 5px 0 5px 55px;
+    position: relative;
+    margin-bottom: 10px;
+    margin-left: 20px;
+
+    text-align: left;
+}
+
+#page-content > section ol.help-steps li img.step-image {
+    max-width: 100px;
+    margin: 0 0 0 10px;
+    float: right;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+#page-content > section ol.help-steps li .step-image-large {
+    position: absolute;
+    top: 5px;
+    right: -20px;
+    z-index: 100;
+
+    cursor: pointer;
+}
+
+#page-content > section ol.help-steps li .step-image-large img {
+    position: absolute;
+    top: 0;
+    right: 20px;
+
+    margin: 0;
+    max-width: 600px;
+
+    background-color: white;
+    box-shadow: 0 0 30px rgba(0,0,0,.4);
+}
+
+#page-content > section ol.help-steps li .step-image-large span {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    color: #999;
+    font-size: x-large;
+}
+
+#page-content > section ol.help-steps li .step-image-large:hover span {
+    color: #777;
+}
 
 @media(max-width: 1000px) {
     #page-content > section .info-box {
