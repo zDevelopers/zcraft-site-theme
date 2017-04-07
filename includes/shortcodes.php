@@ -131,10 +131,34 @@ add_shortcode('step', function($args, $content)
 
 /* ** ADVANCED SHORTCODES ** */
 
+// Disables PHP execution when widgets in sidebar retrieve the content.
+// This avoids problems related to duplicated PHP execution (e.g. for declared functions).
+// If a PHP script should run when the content is retrieved by a widget (e.g. PHP scripts
+// generating titles, titles being used by a sidebar TOC), add to the [php] or [weaver_php]
+// shortcode the execute_in_widgets="yes" argument.
+
+$zcraft_php_shortcode_enabled = true;
+
+add_action('dynamic_sidebar_before', function() {
+    global $zcraft_php_shortcode_enabled;
+    $zcraft_php_shortcode_enabled = false;
+});
+
+add_action('dynamic_sidebar_after', function() {
+    global $zcraft_php_shortcode_enabled;
+    $zcraft_php_shortcode_enabled = true;
+});
 
 // Inspiration from Weaver-II, large parts of the code for the following shortcode by Bruce Wampler (GPL v2)
 function zcraft_php_shortcode($args, $content)
 {
+    global $zcraft_php_shortcode_enabled;
+    $a = shortcode_atts(['execute_in_widgets' => 'no'], $args);
+
+    // See comment above
+    if (!$zcraft_php_shortcode_enabled && $a['execute_in_widgets'] != 'yes')
+        return $content;
+
     $char_codes = ['&#8216;', '&#8217;', '&#8220;', '&#8221;', '&#8242;', '&#8243;', '&#8211;', '&#8212;', '&#8230;', '&#215;', '&lsquo;', '&rsquo;', '&nbsp;', '&laquo;', '&raquo;'];
 	$replacements = ["'", "'", '"', '"', "'", '"', '--', '---', '...', 'x', "'", "'", " ", '"', '"'];
 
