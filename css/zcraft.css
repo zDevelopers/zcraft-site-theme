@@ -912,3 +912,19 @@ footer .status-indicator.red::before {
     background: #ab1d1d;
     box-shadow: 0 0 1em #ab1d1d;
 }
+
+@media (max-width: 1000px) {
+    footer {
+        flex-direction: column;
+    }
+
+    footer section {
+        width: 90%;
+        text-align: center;
+        margin: 1em auto;
+    }
+
+    footer section.footer-center {
+        order: -1;
+    }
+}

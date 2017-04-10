@@ -195,8 +195,20 @@
     padding: 0 5% 1em 1%;
 }
 
+#homepage #big-notices {
+    text-align: center;
+    font-size: 1.3em;
+}
+
+#homepage #big-notices article {
+    padding: 5em 0;
+    margin: 0 4em;
+    border-bottom: solid 1px #ddd;
+}
+
 #homepage #join-in {
     text-align: center;
+    margin: 2em 0;
 }
 
 #homepage #join-in p {
@@ -206,7 +218,7 @@
 #homepage #join-in h2 {
     color: #2a640f;
     margin: 1em .5em;
-    font-size: 36px;
+    font-size: 2.2em;
     font-weight: normal;
 }
 
@@ -283,5 +295,6 @@
 
     #homepage #join-in #server-ip em {
         position: initial;
+        margin-top: -14px;
     }
 }
