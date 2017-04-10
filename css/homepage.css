@@ -20,11 +20,18 @@
 #homepage #serveur-details .acces-candidature {
     display: inline-block;
     background: #3f9718;
-    border-radius: 5px;
+    border-radius: 7px;
     padding: .5em .7em;
     margin: 2em 0;
     box-shadow: 0 0 8px rgba(0,50,0,.8);
     color: white;
+    border: solid 1px #3f9718;
+}
+
+#homepage #serveur-details .acces-candidature:hover {
+    background: white;
+    color: #3f9718;
+    border-color: #3f9718;
 }
 
 #homepage #online-status {
@@ -142,8 +149,9 @@
 }
 
 #homepage #featurettes {
-    box-shadow: 0 0 21px rgba(0,0,0,.7);
+    box-shadow: 0 0 21px rgba(0,0,0,.4);
     border-top: solid 1px #3f9718;
+    border-bottom: solid 1px #3f9718;
 }
 
 #homepage #featurettes article {
@@ -187,6 +195,39 @@
     padding: 0 5% 1em 1%;
 }
 
+#homepage #join-in {
+    text-align: center;
+}
+
+#homepage #join-in h2 {
+    color: #2a640f;
+    margin: 1em .5em;
+    font-size: 36px;
+    font-weight: normal;
+}
+
+#homepage #join-in #server-ip {
+    padding: 1em 1em .25em 1em;
+    margin: 1em 0;
+    position: relative;
+    cursor: pointer;
+}
+
+#homepage #join-in #server-ip strong {
+    font-weight: normal;
+    font-size: 2em;
+    display: block;
+}
+
+#homepage #join-in #server-ip em {
+    position: absolute;
+    top: 50%;
+    right: 1.5em;
+    margin-top: -7px;
+    font-style: normal;
+    font-size: 14px;
+}
+
 @media (max-width: 1000px) {
     #homepage #serveur-presentation li {
         flex-basis: 50%;
@@ -206,7 +247,7 @@
         padding: 0 5% 1em 5% !important;
         box-shadow: none;
     }
-    
+
     #homepage #featurettes article > div > h2 {
         text-align: center;
     }
@@ -216,11 +257,11 @@
     #homepage #online-status {
         padding: .5em;
     }
-    
+
     #homepage #serveur-presentation {
         display: block;
     }
-    
+
     #homepage #serveur-presentation li img {
         position: absolute;
         height: 105px;
@@ -230,10 +271,14 @@
         top: 50%;
         margin-top: -52px;
     }
-    
+
     #homepage #serveur-presentation li p {
         padding: .5em;
         color: #222;
+    }
+
+    #homepage #join-in #server-ip em {
+        position: initial;
     }
 }
 

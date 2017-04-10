@@ -50,6 +50,7 @@ body {
 a {
     text-decoration: none;
     color: #3f9718;
+    transition: all .2s ease-in-out; 
 }
 
 a:hover {
@@ -790,4 +791,89 @@ header {
     #page-content > section h4 {
         font-size: 1.05em;
     }
+}
+
+/* FOOTER
+ - ------------------------------------------------- */
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 30px 30px 0 0 / 10px;
+    border-top: solid 1px #3f9718;
+    margin-top: 4em;
+    color: #EFEFEF;
+    background-color: #222;
+    box-shadow: 0 0 20px rgba(0,0,0,.8);
+    text-align: center;
+}
+
+footer section {
+    text-align: left;
+    padding: .5em;
+}
+
+footer section h4 {
+    font-size: 16px;
+    margin: .5em;
+}
+
+footer form.search {
+    display: flex;
+    background: white;
+    margin: 1em 0;
+    border: solid 1px #3f9718;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+footer form.search input {
+    border: 0;
+    padding: .5em;
+    flex: 1;
+}
+
+footer form.search button {
+    font-size: 0;
+    border: 0;
+    background: 0;
+    cursor: pointer;
+    background: #3f9718;
+    border-left: solid 1px #3f9718;
+    color: white;
+    padding: .5em;
+    transition: all .2s ease-in-out;
+}
+
+footer form.search button:before {
+    content: "\f002";
+    font-family: "FontAwesome";
+    padding: 0 .5em;
+    font-size: 14px;
+}
+
+footer form.search button:hover {
+    color: #3f9718;
+    border-left-color: #3f9718;
+    background: white;
+}
+
+footer section ul {
+    list-style-type: none;
+    padding-left: 1em;
+}
+
+footer section a {
+    color: #BBB;
+}
+
+footer section a:hover {
+    color: #3f9718;
+}
+
+footer .copyrights {
+    color: #AAA;
+    font-size: 12px;
+    text-align: center;
 }
