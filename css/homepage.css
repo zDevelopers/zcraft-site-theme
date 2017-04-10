@@ -199,6 +199,10 @@
     text-align: center;
 }
 
+#homepage #join-in p {
+    font-size: 1.3em;
+}
+
 #homepage #join-in h2 {
     color: #2a640f;
     margin: 1em .5em;
@@ -207,7 +211,7 @@
 }
 
 #homepage #join-in #server-ip {
-    padding: 1em 1em .25em 1em;
+    padding: 1em 1em .5em 1em;
     margin: 1em 0;
     position: relative;
     cursor: pointer;
@@ -215,7 +219,7 @@
 
 #homepage #join-in #server-ip strong {
     font-weight: normal;
-    font-size: 2em;
+    font-size: 1.6em;
     display: block;
 }
 
@@ -232,13 +236,13 @@
     #homepage #serveur-presentation li {
         flex-basis: 50%;
     }
-    
+
     #homepage #featurettes article {
         background-size: cover;
         padding: 10em 0 0 0;
         clear: both;
     }
-    
+
     #homepage #featurettes article > div {
         max-width: 90%;
         width: 90%;
@@ -281,4 +285,3 @@
         position: initial;
     }
 }
-
