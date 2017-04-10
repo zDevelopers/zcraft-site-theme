@@ -213,6 +213,7 @@
 
 #homepage #join-in p {
     font-size: 1.3em;
+    padding: 0 1em;
 }
 
 #homepage #join-in h2 {
@@ -266,6 +267,10 @@
 
     #homepage #featurettes article > div > h2 {
         text-align: center;
+    }
+
+    #homepage #big-notices article {
+        margin: 0 1em;
     }
 }
 

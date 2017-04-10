@@ -799,9 +799,11 @@ header {
 footer {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     align-items: center;
     border-top: solid 1px #3f9718;
     margin-top: 4em;
+    padding: 0 10em;
     color: #EFEFEF;
     background-color: #222;
     box-shadow: 0 0 20px rgba(0,0,0,.8);
@@ -811,6 +813,15 @@ footer {
 footer section {
     text-align: left;
     padding: .5em;
+}
+
+footer section:not(.footer-center) {
+    flex: 2;
+    display: flex;
+}
+
+footer section:last-of-type {
+    flex-direction: row-reverse;
 }
 
 footer section h4 {
@@ -913,6 +924,18 @@ footer .status-indicator.red::before {
     box-shadow: 0 0 1em #ab1d1d;
 }
 
+@media (max-width: 1600px) {
+    footer {
+        padding: 0 5em;
+    }
+}
+
+@media (max-width: 1400px) {
+    footer {
+        padding: 0 1em;
+    }
+}
+
 @media (max-width: 1000px) {
     footer {
         flex-direction: column;
@@ -922,6 +945,10 @@ footer .status-indicator.red::before {
         width: 90%;
         text-align: center;
         margin: 1em auto;
+    }
+
+    footer section:not(.footer-center) {
+        display: block;
     }
 
     footer section.footer-center {
