@@ -25,6 +25,10 @@ add_action('admin_menu', function()
                 font-weight: 400;
             }
 
+            .zcraft-admin .zcraft-admin-toc li {
+                margin-bottom: 0;
+            }
+
             .zcraft-admin ul {
                 list-style-type: disc;
                 margin: 1.5em 0 1.5em 2em;
@@ -85,14 +89,50 @@ add_action('admin_menu', function()
                 Il est pensé pour être utilisé avec une page d'accueil statique, mais libre à vous de faire autrement si vous le préférez.
             </p>
 
-            <h2>Configuration du thème, menus</h2>
+            <ol class="zcraft-admin-toc">
+                <li>
+                    <a href="#zcraft-help-theme">Configuration du thème, menus</a>
+                    <ol>
+                        <li><a href="#zcraft-help-theme-menu">Menus</a></li>
+                    </ol>
+                </li>
+                <li>
+                    <a href="#zcraft-help-home">Page d'accueil</a>
+                    <ol>
+                        <li><a href="#zcraft-help-home-bulles">Bulles de présentation</a></li>
+                        <li><a href="#zcraft-help-home-featurettes">Featurettes</a></li>
+                    </ol>
+                </li>
+                <li>
+                    <a href="#zcraft-help-articles">Articles</a>
+                    <ol>
+                        <li>
+                            <a href="#zcraft-help-articles-shortcodes">Shortcodes</a>
+                            <ol>
+                                <li><a href="#zcraft-help-articles-shortcodes-commands">Commandes</a></li>
+                                <li><a href="#zcraft-help-articles-shortcodes-server-infos">Informations de serveur</a></li>
+                                <li><a href="#zcraft-help-articles-shortcodes-images">Images</a></li>
+                                <li><a href="#zcraft-help-articles-shortcodes-gallery">Galeries</a></li>
+                                <li><a href="#zcraft-help-articles-shortcodes-illustration">Illustrations</a></li>
+                                <li><a href="#zcraft-help-articles-shortcodes-players-list">Listes de joueurs</a></li>
+                                <li><a href="#zcraft-help-articles-shortcodes-steps">Étapes à suivre</a></li>
+                                <li><a href="#zcraft-help-articles-shortcodes-php">PHP</a></li>
+                            </ol>
+                        </li>
+                        <li><a href="#zcraft-help-articles-int-su">Intégration avec Shortcodes Ultimate</a></li>
+                        <li><a href="#zcraft-help-articles-int-eztoc">Intégration avec Easy Table of Contents</a></li>
+                    </ol>
+                </li>
+            </ol>
+
+            <h2 id="zcraft-help-theme">Configuration du thème, menus</h2>
 
             <p>
                 <a href="customize.php?return=%2Fwp-admin%2Fthemes.php%3Fpage%3Dzcraft-admin-help">L'écran de configuration du thème</a> comporte des options
                 pour personnaliser les images, en-têtes, logos, etc. Il y a également une série de zones à widgets que vous pouvez utiliser.
             </p>
 
-            <h3>Menus</h3>
+            <h3 id="zcraft-help-theme-menu">Menus</h3>
 
             <p>
                 Les menus se configurent de manière relativement classique, supportant une profondeur théoriquement infinie. Quelques options additionnelles
@@ -120,7 +160,7 @@ add_action('admin_menu', function()
                 </dd>
             </dl>
 
-            <h2>Page d'accueil</h2>
+            <h2 id="zcraft-help-home">Page d'accueil</h2>
 
             <p>La page d'accueil peut contenir&nbsp;: </p>
             <ul style="list-style-type: disc; margin-left: 2em;">
@@ -148,7 +188,7 @@ add_action('admin_menu', function()
                 Pour le reste, il faut utiliser des shortcodes dans le code de la page. Ils sont simple à utiliser.
             </p>
 
-            <h3>Bulles de présentation</h3>
+            <h3 id="zcraft-help-home-bulles">Bulles de présentation</h3>
 
             <dl>
                 <dt><code>[zcraft_home_presentations] ... [/zcraft_home_presentations]</code></dt>
@@ -161,7 +201,7 @@ add_action('admin_menu', function()
                 </dd>
             </dl>
 
-            <h3>Featurettes</h3>
+            <h3 id="zcraft-help-home-featurettes">Featurettes</h3>
 
             <dl>
                 <dt><code>[zcraft_home_featurettes] ... [/zcraft_home_featurettes]</code></dt>
@@ -178,7 +218,7 @@ add_action('admin_menu', function()
                 </dd>
             </dl>
 
-            <h2>Articles</h2>
+            <h2 id="zcraft-help-articles">Articles</h2>
 
             <p>
                 <a class="illustration" href="<?=get_template_directory_uri(); ?>/img/admin/content_attributes.png">
@@ -190,10 +230,10 @@ add_action('admin_menu', function()
                 <code>[php]</code> (voir plus bas).
             </p>
 
-            <h3>Shortcodes</h3>
+            <h3 id="zcraft-help-articles-shortcodes">Shortcodes</h3>
 
             <dl>
-                <dt>
+                <dt id="zcraft-help-articles-shortcodes-commands">
                     <pre>[commands]
     [command usage="/commande arguments"]Texte décrivant la commande[/command]
     [command usage="/autre commande"]Autre description[/command]
@@ -203,7 +243,7 @@ add_action('admin_menu', function()
                     Formatte proprement une liste de commandes, quelles qu'elles soient.
                 </dd>
 
-                <dt>
+                <dt id="zcraft-help-articles-shortcodes-server-infos">
                     <pre>[server_infos]
     [server_info title="Titre d'un bloc d'infos" help="Aide éventuelle à afficher (facultatif)"]Information de connexion[/server_info]
     [server_info title="Aute bloc" help="Autre aide"]Autre info[/server_info]
@@ -217,7 +257,7 @@ add_action('admin_menu', function()
                     De multiples blocs mis ensemble dans un unique <code>[server_infos]</code> seront affichés ensemble.
                 </dd>
 
-                <dt>
+                <dt id="zcraft-help-articles-shortcodes-images">
                     <pre>[image src="chemin/vers/limage" alt="Texte alternatif" link="lien ouvert au clic"]
     Légende de l'image
 [/image]</pre>
@@ -234,7 +274,7 @@ add_action('admin_menu', function()
                     </ul>
                 </dd>
 
-                <dt>
+                <dt id="zcraft-help-articles-shortcodes-gallery">
                     <pre>[zcraft_gallery]
     [image src="chemin/vers/limage"]Légende de l'image[/image]
     [image src="chemin/vers/limage"]Légende de l'image[/image]
@@ -245,7 +285,7 @@ add_action('admin_menu', function()
                     Affiche une galerie d'images sur deux colonnes, ou une seule sur petits écrans.
                 </dd>
 
-                <dt>
+                <dt id="zcraft-help-articles-shortcodes-illustration">
                     <pre>[illustration alt="Texte alternatif"]chemin/vers/l'image.png[/illustration]</pre>
                 </dt>
                 <dd>
@@ -258,7 +298,7 @@ add_action('admin_menu', function()
                     </ul>
                 </dd>
 
-                <dt>
+                <dt id="zcraft-help-articles-shortcodes-players-list">
                     <pre>[players_list]AmauryPi,Black_Lizard,moribus,Jenjeur,ProkopyL,Pileurs,Dada_exe:Dada[/players_list]</pre>
                 </dt>
                 <dd>
@@ -284,7 +324,7 @@ add_action('admin_menu', function()
                     </ul>
                 </dd>
 
-                <dt>
+                <dt id="zcraft-help-articles-shortcodes-steps">
                     <pre>[steps]
     [step image="chemin/vers/une/illustration"]Descriptif de l'étape 1[/step]
     [step image="chemin/vers/une/illustration"]Descriptif de l'étape 2[/step]
@@ -329,7 +369,7 @@ add_action('admin_menu', function()
                     </ul>
                 </dd>
 
-                <dt>
+                <dt id="zcraft-help-articles-shortcodes-php">
                     <pre>[php]
     // Code PHP, sans les délimiteurs &lt;php ... ?&gt;
 [/php]</pre>
@@ -369,7 +409,7 @@ add_action('admin_menu', function()
                 </dd>
             </dl>
 
-            <h3>Intégration avec Shortcodes Ultimate</h3>
+            <h3 id="zcraft-help-articles-int-su">Intégration avec Shortcodes Ultimate</h3>
 
             <p>
                 Un effort a été fait pour intégrer proprement les composants de <em>Shortcodes Ultimage</em>. Ils devraient marcher correctement et s'intégrer
@@ -410,7 +450,7 @@ add_action('admin_menu', function()
                 <figcaption>Étapes dans des onglets</figcaption>
             </figure>
 
-            <h3>Intégration avec Easy Table of Contents</h3>
+            <h3 id="zcraft-help-articles-int-eztoc">Intégration avec Easy Table of Contents</h3>
 
             <p>
                 Ce thème est optimisé pour fonctionner avec le plugin <a href="https://fr.wordpress.org/plugins/easy-table-of-contents/">

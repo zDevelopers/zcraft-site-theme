@@ -11,3 +11,12 @@ add_action('the_post', function($post)
         if (has_filter('the_content', 'wptexturize') !== false) remove_filter('the_content', 'wptexturize');
     }
 });
+
+
+// Un-sticks the admin menu so links are not broken
+add_action('wp_head', function()
+{
+    if (is_admin_bar_showing()):
+        ?><style> #wpadminbar { position: absolute !important; }</style><?php
+    endif;
+}, 1000);

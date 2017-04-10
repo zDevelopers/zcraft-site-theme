@@ -1007,6 +1007,10 @@ header {
     cursor: pointer;
 }
 
+#page-content > section ol.help-steps li p {
+    margin: .8em 0 0 0;
+}
+
 #page-content > section ol.help-steps li .step-image-large {
     position: absolute;
     top: 5px;

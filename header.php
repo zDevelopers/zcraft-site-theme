@@ -31,7 +31,6 @@
 </head>
 
 <body <?php body_class(); ?><?php if (is_front_page() && !is_home()): ?> id="homepage"<?php endif; ?>>
-
     <header>
         <nav>
             <h1>
