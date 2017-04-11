@@ -824,6 +824,10 @@ footer section:last-of-type {
     flex-direction: row-reverse;
 }
 
+footer section:last-of-type div {
+    min-width: 250px; /* Fix to avoid section resize when status is loaded, if using status */
+}
+
 footer section h4 {
     font-size: 16px;
     margin: .5em;
@@ -920,9 +924,17 @@ footer .status-indicator.yellow::before {
     box-shadow: 0 0 1em #bcb90f;
 }
 
+footer .status-indicator.yellow:hover {
+    color: #bcb90f;
+}
+
 footer .status-indicator.red::before {
     background: #ab1d1d;
     box-shadow: 0 0 1em #ab1d1d;
+}
+
+footer .status-indicator.red:hover {
+    color: #ea1313;
 }
 
 @media (max-width: 1600px) {
