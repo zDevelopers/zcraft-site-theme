@@ -18,9 +18,11 @@ var Dropdown = {
     open: function()
     {
         document.body.appendChild(Dropdown.element);
-        Dropdown.element.className = "visible";
         if(Dropdown._timeoutId)
             clearTimeout(Dropdown._timeoutId);
+        setTimeout(function() {
+            Dropdown.element.className = "visible";
+        }, 15);
     },
 
     close: function()
@@ -48,6 +50,13 @@ var NavigationDrawer = {
     new: function(drawer_id) {
         var obj = Object.create(this);
         obj.id = drawer_id;
+
+        var links = obj.element.getElementsByTagName("a");
+
+        for(var i = 0, c = links.length; i < c; ++i) {
+            links[i].addEventListener("click", closeAll);
+        }
+
         return obj;
     },
 
@@ -90,7 +99,7 @@ function closeAll()
     Dropdown.close();
 }
 
-window.addEventListener("load", function() {
+document.addEventListener("DOMContentLoaded", function() {
 
     Dropdown.init();
 
