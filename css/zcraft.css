@@ -124,7 +124,7 @@ header nav ul li {
     color: #2a640f;
 }
 
-header nav ul li a {
+header nav > ul > li > ul li a {
     transition: none;
 }
 
