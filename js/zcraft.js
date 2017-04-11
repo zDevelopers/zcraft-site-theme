@@ -139,11 +139,20 @@ window.addEventListener('load', function()
         {
             if (componentsRequest.readyState === XMLHttpRequest.DONE)
             {
-                var status = JSON.parse(componentsRequest.responseText);
-                var worse_status = 0;
-
                 var className = '';
                 var statusText = 'Impossible de charger l\'état.';
+                var status;
+                var worse_status = 0;
+
+                try
+                {
+                    status = JSON.parse(componentsRequest.responseText);
+                }
+                catch (e)
+                {
+                    indicator.innerHTML = statusText;
+                    return;
+                }
 
                 for (var component_id in status.data)
                 {
@@ -190,39 +199,54 @@ window.addEventListener('load', function()
                 {
                     if (incidentsRequest.readyState === XMLHttpRequest.DONE)
                     {
-                        var incidents = JSON.parse(incidentsRequest.responseText);
+                        var incidents;
 
-                        if (incidents.data.length == 0)
+                        try
+                        {
+                            incidents = JSON.parse(incidentsRequest.responseText);
+
+                            if (incidents.data.length == 0)
+                            {
+                                statusText = 'Tous les signaux sont au vert';
+                                className = 'green';
+                            }
+                            else
+                            {
+                                var worse_incident_status = 5;
+                                for (var incident_id in incidents.data)
+                                {
+                                    var incident_status = parseInt(incidents.data[incident_id].status, 10);
+                                    if (incident_status < worse_incident_status) worse_incident_status = incident_status;
+                                }
+
+                                switch (parseInt(worse_incident_status, 10))
+                                {
+                                    case 1:  // Investigating
+                                        statusText = 'Problème rencontré';
+                                        className = 'red';
+                                        break;
+
+                                    case 2:  // Identified
+                                        statusText = 'Problème en cours de résolution';
+                                        className = 'red';
+                                        break;
+
+                                    case 3:  // Watching
+                                        statusText = 'Problème réglé, sous surveillance';
+                                        className = 'yellow';
+                                        break;
+
+                                    default:
+                                        statusText = 'Tous les signaux sont au vert';
+                                        className = 'green';
+                                        break;
+                                }
+                            }
+                        }
+                        catch (e)
                         {
                             statusText = 'Tous les signaux sont au vert';
                             className = 'green';
-                        }
-                        else
-                        {
-                            var worse_incident_status = 5;
-                            for (var incident_id in status.data)
-                            {
-                                var incident = status.data[incident_id];
-                                if (incident.status < worse_status) worse_status = incident.status;
-                            }
-
-                            switch (parseInt(worse_incident_status, 10))
-                            {
-                                case 1:  // Investigating
-                                    statusText = 'Problème inconnu rencontré';
-                                    className = 'red';
-                                    break;
-
-                                case 2:  // Identified
-                                    statusText = 'Problème en cours de résolution';
-                                    className = 'red';
-                                    break;
-
-                                case 3:  // Watching
-                                    statusText = 'Problème réglé, sous surveillance';
-                                    className = 'yellow';
-                                    break;
-                            }
                         }
 
                         if (className) indicator.classList.add(className);
@@ -230,7 +254,10 @@ window.addEventListener('load', function()
                     }
                 };
 
-                incidentsRequest.open('GET', cachet_api + '/api/v1/incidents?status=1&status=2&status=3');
+                // We get the most recent incidents, assuming taht there will not be old incidents reopened
+                // TODO improve, but this would require three requests (one for each status 1, 2, 3), because
+                // the Cachet API does not support multiple values filter.
+                incidentsRequest.open('GET', cachet_api + '/api/v1/incidents?sort=id&order=desc&per_page=5');
                 incidentsRequest.send();
             }
         };
