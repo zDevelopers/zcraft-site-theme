@@ -154,6 +154,12 @@
     border-bottom: solid 1px #3f9718;
 }
 
+#homepage #featurettes:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 #homepage #featurettes article {
     background-position: center center;
     background-size: cover;
