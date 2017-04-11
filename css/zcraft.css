@@ -124,6 +124,10 @@ header nav ul li {
     color: #2a640f;
 }
 
+header nav ul li a {
+    transition: none;
+}
+
 header nav ul li > .header:after {
     content: "\f0d7";
     font-family: FontAwesome;
