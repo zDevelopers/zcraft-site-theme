@@ -128,6 +128,8 @@ window.addEventListener('load', function()
         var indicator = status_indicators[i];
         var cachet_api = indicator.getAttribute('data-cachet');
 
+        indicator.innerHTML = 'Chargement en cours...';
+
         var componentsRequest = new XMLHttpRequest();
         if (!componentsRequest)
         {
