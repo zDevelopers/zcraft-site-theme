@@ -18,9 +18,11 @@ var Dropdown = {
     open: function()
     {
         document.body.appendChild(Dropdown.element);
-        Dropdown.element.className = "visible";
         if(Dropdown._timeoutId)
             clearTimeout(Dropdown._timeoutId);
+        setTimeout(function() {
+            Dropdown.element.className = "visible";
+        }, 15);
     },
 
     close: function()
@@ -48,6 +50,13 @@ var NavigationDrawer = {
     new: function(drawer_id) {
         var obj = Object.create(this);
         obj.id = drawer_id;
+
+        var links = obj.element.getElementsByTagName("a");
+
+        for(var i = 0, c = links.length; i < c; ++i) {
+            links[i].addEventListener("click", closeAll);
+        }
+
         return obj;
     },
 
@@ -90,7 +99,8 @@ function closeAll()
     Dropdown.close();
 }
 
-window.addEventListener("load", function()
+
+document.addEventListener("DOMContentLoaded", function()
 {
     Dropdown.init();
 
@@ -104,10 +114,13 @@ window.addEventListener("load", function()
 
 })();
 
+
+/* Steps */
+
 (function() {
 'use strict';
 
-window.addEventListener('load', function()
+document.addEventListener("DOMContentLoaded", function()
 {
     var help_step_images = document.querySelectorAll('img.step-image');
 
@@ -143,6 +156,162 @@ window.addEventListener('load', function()
 
             this.parentElement.appendChild(full_image_container);
         });
+    }
+});
+
+
+/* Servers status update */
+
+(function() {
+'use strict';
+
+document.addEventListener("DOMContentLoaded", function()
+{
+    var status_indicators = document.querySelectorAll('.status-indicator');
+
+    for (var i = 0, c = status_indicators.length; i < c; ++i)
+    {
+        var indicator = status_indicators[i];
+        var cachet_api = indicator.getAttribute('data-cachet');
+
+        indicator.innerHTML = 'Chargement en cours...';
+
+        var componentsRequest = new XMLHttpRequest();
+        if (!componentsRequest)
+        {
+            console.error('No support for XMLHttpRequest, what\'s that strange browser you\'re using?');
+            return;
+        }
+
+        componentsRequest.onreadystatechange = function()
+        {
+            if (componentsRequest.readyState === XMLHttpRequest.DONE)
+            {
+                var className = '';
+                var statusText = 'Impossible de charger l\'état.';
+                var status;
+                var worse_status = 0;
+
+                try
+                {
+                    status = JSON.parse(componentsRequest.responseText);
+                }
+                catch (e)
+                {
+                    indicator.innerHTML = statusText;
+                    return;
+                }
+
+                for (var component_id in status.data)
+                {
+                    var component = status.data[component_id];
+                    if (component.status > worse_status) worse_status = component.status;
+                }
+
+                if (worse_status != 1)
+                {
+                    switch (parseInt(worse_status, 10))
+                    {
+                        case 1:  // Operational
+                            statusText = 'Tous les signaux sont au vert';
+                            className = 'green';
+                            break;
+
+                        case 2:  // Performance Issues
+                            statusText = 'Problèmes de performances';
+                            className = 'yellow';
+                            break;
+
+                        case 3:  // Partial Outage
+                            statusText = 'Panne partielle';
+                            className = 'yellow';
+                            break;
+
+                        case 4:  // Major Outage
+                            statusText = 'Panne majeure';
+                            className = 'red';
+                            break;
+                    }
+
+                    if (className) indicator.classList.add(className);
+                    indicator.innerHTML = statusText;
+
+                    return;
+                }
+
+
+                // Status is green, we check for ongoing incidents.
+
+                var incidentsRequest = new XMLHttpRequest();
+                incidentsRequest.onreadystatechange = function()
+                {
+                    if (incidentsRequest.readyState === XMLHttpRequest.DONE)
+                    {
+                        var incidents;
+
+                        try
+                        {
+                            incidents = JSON.parse(incidentsRequest.responseText);
+
+                            if (incidents.data.length == 0)
+                            {
+                                statusText = 'Tous les signaux sont au vert';
+                                className = 'green';
+                            }
+                            else
+                            {
+                                var worse_incident_status = 5;
+                                for (var incident_id in incidents.data)
+                                {
+                                    var incident_status = parseInt(incidents.data[incident_id].status, 10);
+                                    if (incident_status < worse_incident_status) worse_incident_status = incident_status;
+                                }
+
+                                switch (parseInt(worse_incident_status, 10))
+                                {
+                                    case 1:  // Investigating
+                                        statusText = 'Problème rencontré';
+                                        className = 'red';
+                                        break;
+
+                                    case 2:  // Identified
+                                        statusText = 'Problème en cours de résolution';
+                                        className = 'red';
+                                        break;
+
+                                    case 3:  // Watching
+                                        statusText = 'Problème réglé, sous surveillance';
+                                        className = 'yellow';
+                                        break;
+
+                                    default:
+                                        statusText = 'Tous les signaux sont au vert';
+                                        className = 'green';
+                                        break;
+                                }
+                            }
+                        }
+                        catch (e)
+                        {
+                            statusText = 'Tous les signaux sont au vert';
+                            className = 'green';
+                        }
+
+                        if (className) indicator.classList.add(className);
+                        indicator.innerHTML = statusText;
+                    }
+                };
+
+                // We get the most recent incidents, assuming taht there will not be old incidents reopened
+                // TODO improve, but this would require three requests (one for each status 1, 2, 3), because
+                // the Cachet API does not support multiple values filter.
+                incidentsRequest.open('GET', cachet_api + '/api/v1/incidents?sort=id&order=desc&per_page=5');
+                incidentsRequest.send();
+            }
+        };
+
+        componentsRequest.open('GET', cachet_api + '/api/v1/components');
+        componentsRequest.send();
     }
 });
 
