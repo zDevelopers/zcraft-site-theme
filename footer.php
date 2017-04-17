@@ -27,17 +27,6 @@
     </section>
 </footer>
 
-<!--
-<footer id="page-footer">
-    <div class="pull-right">
-        <?php zcraft_inject_widgets('sidebar-footer-right'); ?>
-    </div>
-    <div class="pull-left">
-        <?php zcraft_inject_widgets('sidebar-footer-left'); ?>
-    </div>
-</footer>
--->
-
 <?php wp_footer(); ?>
 
 </body>
