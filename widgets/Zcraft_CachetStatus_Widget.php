@@ -1,13 +1,8 @@
 <?php
 
-/**
- * Adds Foo_Widget widget.
- */
-class CachetStatus_Widget extends WP_Widget
+class Zcraft_CachetStatus_Widget extends Zcraft_Widget
 {
-    private $default_values;
-
-	/**
+    /**
 	 * Register widget with WordPress.
 	 */
 	function __construct()
@@ -50,14 +45,12 @@ class CachetStatus_Widget extends WP_Widget
 
 		echo $args['before_widget'];
 
-		if (!empty( $instance['title']))
+		if (!empty($instance['title']))
         {
 			echo $args['before_title'];
             echo apply_filters('widget_title', $instance['title'], $instance, $instance['id']);
             echo $args['after_title'];
 		}
-
-		//echo esc_html__('Hello, World!', 'text_domain');
 
         ?>
         <ul>
@@ -87,7 +80,7 @@ class CachetStatus_Widget extends WP_Widget
 	public function form($instance)
     {
 		$this->display_option($instance, 'Titre', 'title');
-    	$this->display_option($instance, 'Adresse du site de statut Cachet', 'cachet-url', null, true);
+    	$this->display_option($instance, 'Adresse du site de statut Cachet', 'cachet-url', null, true, 'url');
 
         ?><h4>Textes affichés</h4><?php
 
@@ -107,56 +100,5 @@ class CachetStatus_Widget extends WP_Widget
         $this->display_option($instance, 'Enquête en cours', 'text-investigating');
         $this->display_option($instance, 'Identifié', 'text-identified');
         $this->display_option($instance, 'Sous surveillance', 'text-watching');
-	}
-
-    private function display_option($instance, $title, $key, $default = null, $required = false, $form_field_type = 'text')
-    {
-        $default = $default === null ? $this->default_values[$key] : $default;
-        $value = !empty($instance[$key]) ? $instance[$key] : esc_html__($default, 'zcraft');
-        ?>
-
-		<p>
-    		<label for="<?php echo esc_attr($this->get_field_id($key)); ?>">
-                <?php esc_attr_e($title, 'zcraft'); ?>
-            </label>
-    		<input class="widefat"
-                    id="<?php echo esc_attr($this->get_field_id($key)); ?>"
-                    name="<?php echo esc_attr($this->get_field_name($key)); ?>"
-                    type="<?php echo $form_field_type; ?>"
-                    value="<?php echo esc_attr($value); ?>"
-                    <?php if ($required): ?>required="required"<?php endif; ?>
-            />
-		</p>
-
-		<?php
-    }
-
-	/**
-	 * Sanitize widget form values as they are saved.
-	 *
-	 * @see WP_Widget::update()
-	 *
-	 * @param array $new_instance Values just sent to be saved.
-	 * @param array $old_instance Previously saved values from database.
-	 *
-	 * @return array Updated safe values to be saved.
-	 */
-	public function update($new_instance, $old_instance)
-    {
-		$instance = array();
-
-        $fields = [
-            'title', 'cachet-url',
-            'text-initial', 'text-loading', 'text-no-status',
-            'text-operational', 'text-performances-issues', 'text-partial-outage', 'text-major-outage',
-            'text-investigating', 'text-identified', 'text-watching'
-        ];
-
-        foreach ($fields as $key => $field_name)
-        {
-            $instance[$field_name] = !empty($new_instance[$field_name]) ? strip_tags($new_instance[$field_name]) : '';
-        }
-
-		return $instance;
 	}
 }
