@@ -94,9 +94,9 @@ class WP_Zcraft_Nav_Walker extends Walker_Nav_Menu
             $output .= $indent . '<li' . $id . $value . $class_names .'>';
 
             $atts = array();
-            $atts['title']  = !empty($item->title)	? $item->title	: '';
-            $atts['target'] = !empty($item->target)	? $item->target	: '';
-            $atts['rel']    = !empty($item->xfn)    ? $item->xfn	: '';
+            $atts['title']  = !empty($item->title)    ? $item->title    : '';
+            $atts['target'] = !empty($item->target)    ? $item->target    : '';
+            $atts['rel']    = !empty($item->xfn)    ? $item->xfn    : '';
 
             $atts['class']  = !empty($item->attr_title) && substr($item->attr_title, 0, 3) == 'fa-' ? $item->attr_title : '';
             if ($args->has_children) $atts['class'] .= " header";
@@ -104,8 +104,8 @@ class WP_Zcraft_Nav_Walker extends Walker_Nav_Menu
             // If item has_children add atts to a.
             if ($args->has_children && $depth === 0)
             {
-                $atts['href']   		= !empty($item->url) ? $item->url : '';
-                $atts['aria-haspopup']	= 'true';
+                $atts['href']           = !empty($item->url) ? $item->url : '';
+                $atts['aria-haspopup']    = 'true';
             }
             else
             {

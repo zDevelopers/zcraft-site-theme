@@ -25,8 +25,8 @@
             {
                 var ping = JSON.parse(httpRequest.responseText);
 
-	            element_count.classList.remove('online');
-    	        element_count.classList.remove('offline');
+                element_count.classList.remove('online');
+                element_count.classList.remove('offline');
 
                 if (httpRequest.status === 200)
                 {
@@ -98,9 +98,9 @@
 
     setInterval(function()
     {
-    	for (var i = 0; i < servers.length; i++)
-    	{
-    		load_server(servers[i][0], servers[i][1], servers[i][2]);
-    	}
+        for (var i = 0; i < servers.length; i++)
+        {
+            load_server(servers[i][0], servers[i][1], servers[i][2]);
+        }
     }, update_delay * 1000);
 })();

@@ -189,28 +189,28 @@ function zcraft_php_shortcode($args, $content)
         return $content;
 
     $char_codes = ['&#8216;', '&#8217;', '&#8220;', '&#8221;', '&#8242;', '&#8243;', '&#8211;', '&#8212;', '&#8230;', '&#215;', '&lsquo;', '&rsquo;', '&nbsp;', '&laquo;', '&raquo;'];
-	$replacements = ["'", "'", '"', '"', "'", '"', '--', '---', '...', 'x', "'", "'", " ", '"', '"'];
+    $replacements = ["'", "'", '"', '"', "'", '"', '--', '---', '...', 'x', "'", "'", " ", '"', '"'];
 
-	$php = str_replace($char_codes, $replacements, $content); // untexturize
-	$php .= ';';
+    $php = str_replace($char_codes, $replacements, $content); // untexturize
+    $php .= ';';
 
-	$err_level = error_reporting(0);
-	$out = '';
+    $err_level = error_reporting(0);
+    $out = '';
 
-	ob_start();
+    ob_start();
 
-	if(version_compare(PHP_VERSION, '5.0.0', '>'))
+    if(version_compare(PHP_VERSION, '5.0.0', '>'))
     {
-	   try { eval($php); } catch(Exception $e) {}
-	}
+       try { eval($php); } catch(Exception $e) {}
+    }
     else
     {
-		eval($php);
-	}
+        eval($php);
+    }
 
-	$out .= ob_get_clean();
-	error_reporting($err_level);
-	return $out;
+    $out .= ob_get_clean();
+    error_reporting($err_level);
+    return $out;
 }
 
 add_shortcode('php', 'zcraft_php_shortcode');

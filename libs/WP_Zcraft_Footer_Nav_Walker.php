@@ -54,10 +54,10 @@ class WP_Zcraft_Footer_Nav_Walker extends Walker_Nav_Menu
 
         $atts = [];
 
-        $atts['title']  = !empty($item->title)	? $item->title	: '';
-        $atts['target'] = !empty($item->target)	? $item->target	: '';
-        $atts['rel']    = !empty($item->xfn)    ? $item->xfn	: '';
-        $atts['href'] = !empty($item->url) ? $item->url : '';
+        $atts['title']  = !empty($item->title)  ? $item->title  : '';
+        $atts['target'] = !empty($item->target) ? $item->target : '';
+        $atts['rel']    = !empty($item->xfn)    ? $item->xfn    : '';
+        $atts['href']   = !empty($item->url)    ? $item->url    : '';
 
         $atts = apply_filters('nav_menu_link_attributes', $atts, $item, $args);
 
