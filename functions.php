@@ -1,6 +1,7 @@
 <?php
 
 require_once(dirname(__FILE__) . '/libs/WP_Zcraft_Nav_Walker.php');
+require_once(dirname(__FILE__) . '/libs/WP_Zcraft_Footer_Nav_Walker.php');
 
 
 add_action('after_setup_theme', function()

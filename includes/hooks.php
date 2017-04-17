@@ -20,3 +20,15 @@ add_action('wp_head', function()
         ?><style> #wpadminbar { position: absolute !important; }</style><?php
     endif;
 }, 1000);
+
+
+// Adds a custom walker to widget menus
+add_filter('wp_nav_menu_args', function($args)
+{
+    if ($args['menu'] instanceof WP_Term)
+    {
+        $args['walker'] = new WP_Zcraft_Footer_Nav_Walker();
+    }
+
+    return $args;
+});
