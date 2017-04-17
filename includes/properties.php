@@ -146,20 +146,30 @@ function zcraft_widgets_init()
         'name'          => __('Pied de page (gauche)', 'zcraft'),
         'id'            => 'sidebar-footer-left',
         'description'   => __('Widgets affichés en bas de page dans le pied, à gauche', 'zcraft'),
-        'before_widget' => '<div id="%1$s" class="widget %2$s">',
-        'after_widget'  => '</div>',
-        'before_title'  => '<h2 class="widget-title">',
-        'after_title'   => '</h2>',
+        'before_widget' => '',
+        'after_widget'  => '',
+        'before_title'  => '<h4>',
+        'after_title'   => '</h4>',
+    ));
+
+    register_sidebar(array(
+        'name'          => __('Pied de page (centre)', 'zcraft'),
+        'id'            => 'sidebar-footer-center',
+        'description'   => __('Widgets affichés en bas de page dans le pied, au centre', 'zcraft'),
+        'before_widget' => '',
+        'after_widget'  => '',
+        'before_title'  => '<h4>',
+        'after_title'   => '</h4>',
     ));
 
     register_sidebar(array(
         'name'          => __('Pied de page (droite)', 'zcraft'),
         'id'            => 'sidebar-footer-right',
         'description'   => __('Widgets affichés en bas de page dans le pied, à droite', 'zcraft'),
-        'before_widget' => '<div id="%1$s" class="widget %2$s">',
-        'after_widget'  => '</div>',
-        'before_title'  => '<h2 class="widget-title">',
-        'after_title'   => '</h2>',
+        'before_widget' => '',
+        'after_widget'  => '',
+        'before_title'  => '<h4>',
+        'after_title'   => '</h4>',
     ));
 }
 

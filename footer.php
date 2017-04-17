@@ -9,6 +9,25 @@
     }
 ?>
 
+<footer>
+    <section>
+        <div>
+            <?php zcraft_inject_widgets('sidebar-footer-left'); ?>
+        </div>
+    </section>
+    <section class="footer-center">
+        <div>
+            <?php zcraft_inject_widgets('sidebar-footer-center'); ?>
+        </div>
+    </section>
+    <section>
+        <div>
+            <?php zcraft_inject_widgets('sidebar-footer-right'); ?>
+        </div>
+    </section>
+</footer>
+
+<!--
 <footer id="page-footer">
     <div class="pull-right">
         <?php zcraft_inject_widgets('sidebar-footer-right'); ?>
@@ -17,6 +36,7 @@
         <?php zcraft_inject_widgets('sidebar-footer-left'); ?>
     </div>
 </footer>
+-->
 
 <?php wp_footer(); ?>
 

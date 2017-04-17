@@ -171,12 +171,17 @@ document.addEventListener("DOMContentLoaded", function()
 {
     var status_indicators = document.querySelectorAll('.status-indicator');
 
+    function get_text(indicator, key)
+    {
+        return indicator.getAttribute('data-text-' + key);
+    }
+
     for (var i = 0, c = status_indicators.length; i < c; ++i)
     {
         var indicator = status_indicators[i];
         var cachet_api = indicator.getAttribute('data-cachet');
 
-        indicator.innerHTML = 'Chargement en cours...';
+        indicator.innerHTML = get_text(indicator, 'loading');
 
         var componentsRequest = new XMLHttpRequest();
         if (!componentsRequest)
@@ -190,7 +195,7 @@ document.addEventListener("DOMContentLoaded", function()
             if (componentsRequest.readyState === XMLHttpRequest.DONE)
             {
                 var className = '';
-                var statusText = 'Impossible de charger l\'état.';
+                var statusText = get_text(indicator, 'no-status');
                 var status;
                 var worse_status = 0;
 
@@ -215,22 +220,22 @@ document.addEventListener("DOMContentLoaded", function()
                     switch (parseInt(worse_status, 10))
                     {
                         case 1:  // Operational
-                            statusText = 'Tous les signaux sont au vert';
+                            statusText = get_text(indicator, 'operational');
                             className = 'green';
                             break;
 
                         case 2:  // Performance Issues
-                            statusText = 'Problèmes de performances';
+                            statusText = get_text(indicator, 'performances-issues');
                             className = 'yellow';
                             break;
 
                         case 3:  // Partial Outage
-                            statusText = 'Panne partielle';
+                            statusText = get_text(indicator, 'partial-outage');
                             className = 'yellow';
                             break;
 
                         case 4:  // Major Outage
-                            statusText = 'Panne majeure';
+                            statusText = get_text(indicator, 'major-outage');
                             className = 'red';
                             break;
                     }
@@ -257,7 +262,7 @@ document.addEventListener("DOMContentLoaded", function()
 
                             if (incidents.data.length == 0)
                             {
-                                statusText = 'Tous les signaux sont au vert';
+                                statusText = get_text(indicator, 'operational');
                                 className = 'green';
                             }
                             else
@@ -272,22 +277,22 @@ document.addEventListener("DOMContentLoaded", function()
                                 switch (parseInt(worse_incident_status, 10))
                                 {
                                     case 1:  // Investigating
-                                        statusText = 'Problème rencontré';
+                                        statusText = get_text(indicator, 'investigating');
                                         className = 'red';
                                         break;
 
                                     case 2:  // Identified
-                                        statusText = 'Problème en cours de résolution';
+                                        statusText = get_text(indicator, 'identified');
                                         className = 'red';
                                         break;
 
                                     case 3:  // Watching
-                                        statusText = 'Problème réglé, sous surveillance';
+                                        statusText = get_text(indicator, 'watching');
                                         className = 'yellow';
                                         break;
 
                                     default:
-                                        statusText = 'Tous les signaux sont au vert';
+                                        statusText = get_text(indicator, 'operational');
                                         className = 'green';
                                         break;
                                 }
@@ -295,7 +300,7 @@ document.addEventListener("DOMContentLoaded", function()
                         }
                         catch (e)
                         {
-                            statusText = 'Tous les signaux sont au vert';
+                            statusText = get_text(indicator, 'operational');
                             className = 'green';
                         }
 

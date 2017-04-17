@@ -12,6 +12,7 @@ add_action('after_setup_theme', function()
 include_once(dirname(__FILE__) . '/includes/utilities.php');
 include_once(dirname(__FILE__) . '/includes/properties.php');
 include_once(dirname(__FILE__) . '/includes/shortcodes.php');
+include_once(dirname(__FILE__) . '/includes/widgets.php');
 include_once(dirname(__FILE__) . '/includes/hooks.php');
 include_once(dirname(__FILE__) . '/includes/rest.php');
 include_once(dirname(__FILE__) . '/includes/compatibility-ez-toc.php');
