@@ -117,7 +117,7 @@ a:hover {
 /* NAVBAR
 -------------------------------------------------- */
 
-header nav {
+body > header nav {
     border-bottom: solid 2px #3f9718;
     display: flex;
     justify-content: space-around;
@@ -133,7 +133,7 @@ header nav {
     margin-bottom: 4em;
 }
 
-header nav ul {
+body > header nav ul {
     list-style-type: none;
 
     align-items: stretch;
@@ -141,17 +141,17 @@ header nav ul {
     order: 2;
 }
 
-header nav ul li {
+body > header nav ul li {
     display: flex;
     position: relative;
     color: #2a640f;
 }
 
-header nav > ul > li > ul li a {
+body > header nav > ul > li > ul li a {
     transition: none;
 }
 
-header nav ul li > .header:after {
+body > header nav ul li > .header:after {
     content: "\f0d7";
     font-family: FontAwesome;
     padding-left: .3em;
@@ -159,7 +159,7 @@ header nav ul li > .header:after {
     font-size: 14px;
 }
 
-header nav ul li a:before, #secondary-menu-button:before {
+body > header nav ul li a:before, #secondary-menu-button:before {
     font-family: FontAwesome;
     align-items: center;
     display: flex;
@@ -175,7 +175,7 @@ header nav ul li a:before, #secondary-menu-button:before {
 }
 
 
-header nav ul li a, #secondary-menu-button:after {
+body > header nav ul li a, #secondary-menu-button:after {
     display: flex;
     position: relative;
     align-items: center;
@@ -195,23 +195,23 @@ header nav ul li a, #secondary-menu-button:after {
     transition: all .15s ease-out;
 }
 
-header nav > ul > li:hover > a, #secondary-menu-button:hover, header nav > ul > li > ul li a:hover {
+body > header nav > ul > li:hover > a, #secondary-menu-button:hover, body > header nav > ul > li > ul li a:hover {
     color: white;
     background: #3f9718;
 }
 
-header nav h1 {
+body > header nav h1 {
     position: relative;
     order: 2;
 }
 
-header nav h1 a {
+body > header nav h1 a {
     display: block;
     position: relative;
     z-index: 142;
 }
 
-header nav h1 img {
+body > header nav h1 img {
     display: block;
     position: relative;
     font-size: medium;
@@ -220,7 +220,7 @@ header nav h1 img {
     padding: 12px;
 }
 
-header nav h1 a:before {
+body > header nav h1 a:before {
     content: "";
     position: absolute;
     width: 64px;
@@ -235,7 +235,7 @@ header nav h1 a:before {
     transition: all .2s ease-in-out;
 }
 
-header nav h1 a:hover:before {
+body > header nav h1 a:hover:before {
     width: 72px;
     height: 72px;
     top: 6px;
@@ -245,11 +245,11 @@ header nav h1 a:hover:before {
     border-color: rgba(63,151,24,1);
 }
 
-/*header nav ul*/ #primary-menu {
+/*body > header nav ul*/ #primary-menu {
     order: 1;
 }
 
-/*header nav ul*/ #secondary-menu {
+/*body > header nav ul*/ #secondary-menu {
     order: 3;
 }
 
@@ -258,11 +258,11 @@ header nav h1 a:hover:before {
     transition: all .15s ease-out;
 }
 
-header nav > ul > li ul {
+body > header nav > ul > li ul {
     display: block;
 }
 
-header nav ul hr {
+body > header nav ul hr {
     border: none;
     height: 1px;
     background-color: #ccc;
@@ -271,15 +271,15 @@ header nav ul hr {
 
 
 @media (min-width: 1000px) {
-    header nav > ul > li ul ul a {
+    body > header nav > ul > li ul ul a {
         padding-left: 4em !important;
     }
 
-    header nav > ul > li ul ul ul a {
+    body > header nav > ul > li ul ul ul a {
         padding-left: 6em !important;
     }
 
-    header nav > ul > li > ul {
+    body > header nav > ul > li > ul {
         position: absolute;
         top: 100%;
         right: 0;
@@ -292,21 +292,21 @@ header nav ul hr {
         z-index: 100;
     }
 
-    header nav > ul > li:hover > ul {
+    body > header nav > ul > li:hover > ul {
         visibility: visible;
     }
 
-    header nav > ul > li > ul li {
+    body > header nav > ul > li > ul li {
         display: block;
         text-align: left;
         color: #222;
     }
 
-    header nav > ul > li > ul li:hover {
+    body > header nav > ul > li > ul li:hover {
         background: 0;
     }
 
-    header nav > ul > li > ul li a, header nav > ul > li > ul li span {
+    body > header nav > ul > li > ul li a, body > header nav > ul > li > ul li span {
         display: block;
         position: relative;
         text-align: left;
@@ -316,13 +316,13 @@ header nav ul hr {
         z-index: 190;
     }
 
-    header nav > ul > li > ul li span {
+    body > header nav > ul > li > ul li span {
         color: #666;
         font-size: .95em;
         padding: .2em 2em;
     }
 
-    header nav > ul > li > ul li .header:after {
+    body > header nav > ul > li > ul li .header:after {
         padding: 0;
         content: "";
         border-top: solid 1px #ccc;
@@ -334,13 +334,13 @@ header nav ul hr {
         left: 0;
     }
 
-    header nav > ul > li > ul ul li .header:after {
+    body > header nav > ul > li > ul ul li .header:after {
         width: 80%;
         height: 100%;
         left: 20%;
     }
 
-    header nav > ul > li > ul li a:before {
+    body > header nav > ul > li > ul li a:before {
         font-size: 1em;
         width: 2em;
         left: inherit;
@@ -363,12 +363,12 @@ header nav ul hr {
 
 @media (max-width: 1001px) {
 
-    header nav {
+    body > header nav {
         justify-content: center;
         overflow: hidden;
     }
 
-    header nav h1 {
+    body > header nav h1 {
         position: absolute;
         display: inline-block;
         left: 1em;
@@ -484,11 +484,11 @@ header nav ul hr {
 
 @media (max-width: 600px) {
 
-    header nav {
+    body > header nav {
         justify-content: stretch;
     }
 
-    header nav h1 {
+    body > header nav h1 {
         left: 50%;
         top: 32px;
         margin-left: -44px;
@@ -501,7 +501,7 @@ header nav ul hr {
         color: #2a640f;
     }
 
-    header nav ul li a, header nav ul li h2, #secondary-menu-button:after {
+    body > header nav ul li a, body > header nav ul li h2, #secondary-menu-button:after {
         min-width: 0;
         padding: 0;
     }
@@ -522,7 +522,7 @@ header nav ul hr {
 /* HEADERS
 -------------------------------------------------- */
 
-header {
+body > header {
     display: block;
     background: black url('img/top-banner.jpg') center center no-repeat;
     text-rendering: optimizeLegibility;
@@ -559,7 +559,7 @@ header {
 }
 
 @media (max-width: 600px) {
-    header {
+    body > header {
         background-size: cover;
     }
 
@@ -1354,7 +1354,7 @@ div#respond.comment-respond > h3.comment-reply-title { /* grmbl specificity */
 /* FOOTER
  - ------------------------------------------------- */
 
-footer {
+body > footer {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -1368,30 +1368,30 @@ footer {
     text-align: center;
 }
 
-footer section {
+body > footer section {
     text-align: left;
     padding: .5em;
 }
 
-footer section:not(.footer-center) {
+body > footer section:not(.footer-center) {
     flex: 2;
     display: flex;
 }
 
-footer section:last-of-type {
+body > footer section:last-of-type {
     flex-direction: row-reverse;
 }
 
-footer section:last-of-type div {
+body > footer section:last-of-type div {
     min-width: 250px; /* Fix to avoid section resize when status is loaded, if using status */
 }
 
-footer section h4 {
+body > footer section h4 {
     font-size: 16px;
     margin: .5em;
 }
 
-footer form.search {
+body > footer form.search {
     display: flex;
     background: white;
     margin: 1em 0;
@@ -1400,13 +1400,13 @@ footer form.search {
     overflow: hidden;
 }
 
-footer form.search input {
+body > footer form.search input {
     border: 0;
     padding: .5em;
     flex: 1;
 }
 
-footer form.search button {
+body > footer form.search button {
     font-size: 0;
     border: 0;
     background: 0;
@@ -1418,50 +1418,50 @@ footer form.search button {
     transition: all .2s ease-in-out;
 }
 
-footer form.search button:before {
+body > footer form.search button:before {
     content: "\f002";
     font-family: "FontAwesome";
     padding: 0 .5em;
     font-size: 14px;
 }
 
-footer form.search button:hover {
+body > footer form.search button:hover {
     color: #3f9718;
     border-left-color: #3f9718;
     background: white;
 }
 
-footer section ul {
+body > footer section ul {
     list-style-type: none;
     padding-left: .5em;
 }
 
-footer section li {
+body > footer section li {
     display: inline-block;
     padding-right: 1em;
     padding-bottom: .4em;
     color: #BBB;
 }
 
-footer section ul li span[class^="fa"] {
+body > footer section ul li span[class^="fa"] {
     font-family: "FontAwesome";
 }
 
-footer section a {
+body > footer section a {
     color: #BBB;
 }
 
-footer section a:hover {
+body > footer section a:hover {
     color: #3f9718;
 }
 
-footer .copyrights {
+body > footer .copyrights {
     color: #AAA;
     font-size: 12px;
     text-align: center;
 }
 
-footer .status-indicator::before {
+body > footer .status-indicator::before {
     display: inline-block;
     content: "";
     width: .7em;
@@ -1472,57 +1472,57 @@ footer .status-indicator::before {
     box-shadow: 0 0 1em #444;
 }
 
-footer .status-indicator.green::before {
+body > footer .status-indicator.green::before {
     background: #005a00;
     box-shadow: 0 0 1em #005a00;
 }
 
-footer .status-indicator.yellow::before {
+body > footer .status-indicator.yellow::before {
     background: #bcb90f;
     box-shadow: 0 0 1em #bcb90f;
 }
 
-footer .status-indicator.yellow:hover {
+body > footer .status-indicator.yellow:hover {
     color: #bcb90f;
 }
 
-footer .status-indicator.red::before {
+body > footer .status-indicator.red::before {
     background: #ab1d1d;
     box-shadow: 0 0 1em #ab1d1d;
 }
 
-footer .status-indicator.red:hover {
+body > footer .status-indicator.red:hover {
     color: #ea1313;
 }
 
 @media (max-width: 1600px) {
-    footer {
+    body > footer {
         padding: 0 5em;
     }
 }
 
 @media (max-width: 1400px) {
-    footer {
+    body > footer {
         padding: 0 1em;
     }
 }
 
 @media (max-width: 1000px) {
-    footer {
+    body > footer {
         flex-direction: column;
     }
 
-    footer section {
+    body > footer section {
         width: 90%;
         text-align: center;
         margin: 1em auto;
     }
 
-    footer section:not(.footer-center) {
+    body > footer section:not(.footer-center) {
         display: block;
     }
 
-    footer section.footer-center {
+    body > footer section.footer-center {
         order: -1;
     }
 }
