@@ -30,6 +30,35 @@ add_shortcode('zcraft_home_featurette', function($args, $content)
         . '</div></article>';
 });
 
+add_shortcode('zcraft_home_big_notices', function($args, $content)
+{
+    return '<section id="big-notices">' . do_shortcode($content) . '</section>';
+});
+
+add_shortcode('zcraft_home_big_notice', function($args, $content)
+{
+    return '<article>' . do_shortcode($content) . '</article>';
+});
+
+add_shortcode('zcraft_home_join_in', function($args, $content)
+{
+    $a = shortcode_atts(['title' => ''], $args);
+    return '<section id="join-in">'
+        . (!empty($a['title']) ? '<h2>' . do_shortcode($a['title']) . '</h2>' : '')
+        . do_shortcode($content)
+        . '</section>';
+});
+
+add_shortcode('zcraft_home_join_in_ip', function($args, $content)
+{
+    $a = shortcode_atts(['version' => ''], $args);
+    return '<p id="server-ip" class="minecraft-style"><strong>'
+        . do_shortcode($content)
+        . '</strong>'
+        . (!empty($a['version']) ? ' <em>' . do_shortcode($a['version']) . '</em>' : '')
+        . '</p>';
+});
+
 
 
 /* ** ARTICLES SHORTCODES ** */

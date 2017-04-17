@@ -101,6 +101,8 @@ add_action('admin_menu', function()
                     <ol>
                         <li><a href="#zcraft-help-home-bulles">Bulles de présentation</a></li>
                         <li><a href="#zcraft-help-home-featurettes">Featurettes</a></li>
+                        <li><a href="#zcraft-help-home-big-notices">Grandes notes</a></li>
+                        <li><a href="#zcraft-help-home-ip">Adresse du serveur</a></li>
                     </ol>
                 </li>
                 <li>
@@ -178,7 +180,11 @@ add_action('admin_menu', function()
                     des <em>featurettes</em>, sections en pleine largeur illustrées pour mettre différemment des choses en avant&nbsp;;
                 </li>
                 <li>
-                    [ pied de page à venir ].
+                    de grandes notes, affichant de manière isolée une phrase ou deux en grand, centrées, avec de généreuses marges, pour préciser un point
+                    important de manière bien visible&nbsp;;
+                </li>
+                <li>
+                    un bandeau rappelant l'adresse IP du serveur et sa version (textes libres).
                 </li>
             </ul>
 
@@ -217,6 +223,46 @@ add_action('admin_menu', function()
                     d'un écran, et assez haute pour le texte contenu.
                 </dd>
             </dl>
+
+            <h3 id="zcraft-help-home-big-notices">Grandes notes</h3>
+
+            <p>Par l'exemple : </p>
+            <pre>[zcraft_home_big_notices]
+[zcraft_home_big_notice]Texte d'une grande note. Il est possible d'en cumuler plusieurs, ou d'y mettre du HTML.[/zcraft_home_big_notice]
+[/zcraft_home_big_notices]</pre>
+
+            <h3 id="zcraft-help-home-ip">Adresse du serveur</h3>
+
+            <p>Par l'exemple : </p>
+            <pre>[zcraft_home_join_in title="Intéressé ?"]
+&lt;p&gt;Tout le monde peut visiter le serveur en se connectant à l'addresse&lt;/p&gt;
+[zcraft_home_join_in_ip version="Minecraft 1.11.2"]zcraft.fr[/zcraft_home_join_in_ip]
+&lt;p&gt;Pour contribuer, nous demandons aux membres de faire une &lt;a href="#"&gt;candidature sur notre forum.&lt;/a&gt;&lt;/p&gt;
+[/zcraft_home_join_in]</pre>
+
+            <p>Et dans le détail...</p>
+
+            <dl>
+                <dt><code>[zcraft_home_join_in title="&lt;titre&gt;"] ... [/zcraft_home_join_in]</code></dt>
+                <dd>
+                    Shortocde à mettre autour de la zone contenant les textes d'invite et le bloc d'adresse.
+                    Il est recommandé de mettre les paragraphes dans des balises <code>&lt;p&gt;</code>.<br />
+                    Options :
+                    <ul>
+                        <li>
+                            <code>title</code> : le titre de la section. Vous pouvez aussi ne pas le spécifier ici et
+                            mettre un titre de second niveau.
+                        </li>
+                    </ul>
+                </dd>
+
+                <dt><code>[zcraft_home_join_in_ip version="&lt;version&gt;"] ... adresse IP affichée en gros ... [/zcraft_home_join_in_ip]</code></dt>
+                <dd>
+                    Shortcode affichant le bandeau de l'IP en lui-même. La version est un texte libre affiché à droite
+                    (ou en dessous sur mobile).
+                </dd>
+            </dl>
+
 
             <h2 id="zcraft-help-articles">Articles</h2>
 

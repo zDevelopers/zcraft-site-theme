@@ -168,7 +168,7 @@ function zcraft_customize_css()
     ?>
     <style type="text/css">
         <?php if (get_theme_mod('zcraft-justify-content', false)): ?>
-        article p, #page-content > section {
+        body:not(#homepage) article p, #page-content > section {
             text-align: justify;
             text-justify: inter-word;
         }
