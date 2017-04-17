@@ -162,6 +162,14 @@ add_action('admin_menu', function()
                 </dd>
             </dl>
 
+            <p>
+                Vous pouvez également mettre des menus dans le pied de page, via un widget de type <em>Menu personnalisé</em>.<br />
+                Ces menus peuvent voir leurs éléments réduits à une simple icône en précisant dans l'attribut de titre du menu
+                <a href="http://fontawesome.io/icons/">le nom d'une classe de <em>Font Awesome</em></a> (<code>fa-nom-de-l-icone</code>, par exemple
+                <code>fa-twitter</code>). Il vous faut tout de même renseigner le titre principal du menu, car ce texte sera utilisé en
+                infobulle et pour les utilisateurs utilisant un lecteur d'écran.
+            </p>
+
             <h2 id="zcraft-help-home">Page d'accueil</h2>
 
             <p>La page d'accueil peut contenir&nbsp;: </p>
