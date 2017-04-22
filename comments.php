@@ -15,22 +15,19 @@
  * the visitor has not yet entered the password we will
  * return early without loading the comments.
  */
-if ( post_password_required() ) {
-    return;
-}
+if (post_password_required()) return;
 ?>
 
 <section id="comments" class="comments-area">
 
-    <?php if ( have_comments() ) : ?>
+    <?php if (have_comments()): ?>
         <h3 class="comments-title">
             <?php
             printf(_nx('Un commentaire', '%1$s commentaires', get_comments_number(), 'comments title', 'zcraft'), number_format_i18n(get_comments_number()));
             ?>
         </h3>
 
-
-        <ol class="comment-list">
+        <ol class="comment-list<?php if(!comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments')): ?> comment-list-closed<?php endif; ?>">
             <?php
 
             wp_list_comments([
@@ -83,7 +80,9 @@ if ( post_password_required() ) {
     <?php endif; ?>
 
     <?php if (!comments_open() && get_comments_number() && post_type_supports( get_post_type(), 'comments')): ?>
-        <p class="no-comments">Les commentaires sont fermés.</p>
+        <p class="no-comments">Commentaires fermés</p>
+    <?php elseif (get_comments_number() == 0): ?>
+        <p class="no-comments">Aucun commentaire</p>
     <?php endif; ?>
 
     <?php comment_form(['class_submit' => '']); ?>

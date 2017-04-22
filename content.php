@@ -16,7 +16,7 @@ wp_link_pages(array(
     'after'       => '</div>',
     'link_before' => '<span>',
     'link_after'  => '</span>',
-    'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'zcraft' ) . ' </span>%',
+    'pagelink'    => '<span class="screen-reader-text">' . __( 'Page', 'zcraft' ) . ' </span>',
     'separator'   => '<span class="screen-reader-text">, </span>',
 ));
 ?>

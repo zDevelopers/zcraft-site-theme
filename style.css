@@ -592,6 +592,12 @@ body > header {
     box-shadow: 0 0 15px rgba(0,0,0,.05);
 }
 
+#page-content > section > footer {
+    color: #666;
+    font-size: small;
+    padding-left: .2em;
+}
+
 #page-content > aside {
     order: 2;
     align-self: flex-start;
@@ -641,6 +647,79 @@ body > header {
     text-decoration: none;
 }
 
+
+/* ARCHIVES
+-------------------------------------------------- */
+
+#page-content.page-list > section {
+    box-shadow: none;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+#page-content.page-list > section > article.archive-in-list {
+    border: solid 1px #3f9718;
+    border-radius: 5px;
+
+    margin: 2em 0;
+    padding: .4em 0 0 0;
+}
+
+#page-content.page-list > section > article.archive-in-list:first-of-type {
+    margin-top: 0;
+}
+
+#page-content.page-list > section > article.archive-in-list h3 {
+    margin: 0;
+    border: none;
+}
+
+#page-content.page-list > section > article.archive-in-list aside.archive-permalink {
+    float: right;
+    padding: .9em 1.2em;
+}
+
+#page-content.page-list > section > article.archive-in-list aside.archive-permalink a {
+    font-size: 0;
+}
+
+#page-content.page-list > section > article.archive-in-list aside.archive-permalink a:before {
+    content: "\f0c1";
+    font-family: "FontAwesome";
+    padding: 0;
+    font-size: 14px;
+}
+
+#page-content.page-list > section > article.archive-in-list .archive-summary {
+    border-top: solid 1px #3f9718;
+}
+
+#page-content.page-list > section > article.archive-in-list .archive-summary:empty {
+    border: none;
+}
+
+#page-content.page-list > section > article.archive-in-list .archive-summary p:last-of-type {
+    margin-bottom: .5em;
+}
+
+#page-content.page-list > section > article.archive-in-list .archive-summary footer p:last-of-type { /* last-of-type for specificity */
+    color: #666;
+    font-size: small;
+    margin: 0 0 1em 1.2em;
+}
+
+#page-content.page-list nav.pagination .nav-links a.page-numbers {
+    display: inline-block;
+    padding: 0 .5em;
+}
+
+#page-content.page-list nav.pagination .nav-links a.page-numbers:first-child {
+    padding-left: 0;
+}
+
+#page-content.page-list nav.pagination .nav-links a.page-numbers:last-child {
+    padding-right: 0;
+}
 
 @media (max-width: 1150px) {
     #page-content {
@@ -1134,7 +1213,6 @@ body > header {
 
 #comments {
     margin-top: 100px;
-
     border-top: 2px dotted #cecece;
 }
 
@@ -1150,6 +1228,18 @@ body > header {
 
 #comments ol.comment-list {
     margin-right: 1em;
+}
+
+#comments ol.comment-list:not(.comment-list-closed) {
+    margin-bottom: 62px;
+}
+
+#comments p.no-comments {
+    color: #666;
+    margin: 3em 0;
+    text-align: center;
+    font-variant: small-caps;
+    letter-spacing: .2em;
 }
 
 #comments ul.children {
@@ -1232,7 +1322,6 @@ body > header {
 
 
 .comment-respond {
-    margin-top: 62px;
     border-top: 1px solid #ccc;
 }
 
@@ -1318,38 +1407,48 @@ div#respond.comment-respond > h3.comment-reply-title { /* grmbl specificity */
 }
 
 
-/* ARCHIVES
+/* SEARCH FORM
 -------------------------------------------------- */
 
-.archive-in-list {
-    border: solid 1px #ccc;
+form.search {
+    display: flex;
+    background: white;
+    border: solid 1px #3f9718;
     border-radius: 5px;
-
-    margin-top: 20px;
-    margin-bottom: 40px;
-    padding: 15px;
+    overflow: hidden;
 }
 
-.archive-in-list header {
-    margin: 0 0 15px;
+form.search input {
+    border: 0;
+    padding: .5em;
+    flex: 1;
 }
 
-.archive-in-list h1 {
-    margin-top: 0;
-    font-size: 1.6em;
+form.search button {
+    font-size: 0;
+    border: 0;
+    background: 0;
+    cursor: pointer;
+    background: #3f9718;
+    border-left: solid 1px #3f9718;
+    color: white;
+    padding: .5em;
+    transition: all .2s ease-in-out;
 }
 
-
-/* SEARCH RESULTS
--------------------------------------------------- */
-
-.search-result h2 {
-    border: none;
+form.search button:before {
+    content: "\f002";
+    font-family: "FontAwesome";
+    padding: 0 .5em;
+    font-size: 14px;
 }
 
-.search-result h2 a, .search-result h2 a:hover {
-    color: #1d1d1d;
+form.search button:hover {
+    color: #3f9718;
+    border-left-color: #3f9718;
+    background: white;
 }
+
 
 /* FOOTER
  - ------------------------------------------------- */
@@ -1392,43 +1491,7 @@ body > footer section h4 {
 }
 
 body > footer form.search {
-    display: flex;
-    background: white;
     margin: 1em 0;
-    border: solid 1px #3f9718;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-body > footer form.search input {
-    border: 0;
-    padding: .5em;
-    flex: 1;
-}
-
-body > footer form.search button {
-    font-size: 0;
-    border: 0;
-    background: 0;
-    cursor: pointer;
-    background: #3f9718;
-    border-left: solid 1px #3f9718;
-    color: white;
-    padding: .5em;
-    transition: all .2s ease-in-out;
-}
-
-body > footer form.search button:before {
-    content: "\f002";
-    font-family: "FontAwesome";
-    padding: 0 .5em;
-    font-size: 14px;
-}
-
-body > footer form.search button:hover {
-    color: #3f9718;
-    border-left-color: #3f9718;
-    background: white;
 }
 
 body > footer section ul {
@@ -1525,4 +1588,16 @@ body > footer .status-indicator.red:hover {
     body > footer section.footer-center {
         order: -1;
     }
+}
+
+
+.screen-reader-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
 }

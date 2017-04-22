@@ -17,6 +17,10 @@
     <section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <?php get_template_part('content', get_post_format()); ?>
 
+        <footer>
+            <p>Billet publié le <?=the_date(); ?> par <?=the_author_link(); ?>.</p>
+        </footer>
+
         <?php
             if (comments_open() || get_comments_number())
                 comments_template();
