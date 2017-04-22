@@ -7,9 +7,11 @@
 </header>
 
 <div id="page-content" class="page-list">
+    <?php if (have_posts()): ?>
     <aside>
         <?php zcraft_inject_widgets('sidebar-search', 'complementary'); ?>
     </aside>
+    <?php endif; ?>
     <section>
         <?php if (have_posts()): ?>
             <?php while (have_posts()): the_post(); ?>
@@ -17,7 +19,7 @@
             <?php endwhile; ?>
         <?php else: ?>
             <p class="page-list-empty">
-                <?php echo __('Aucun résultat trouvé.', 'zcraft'); ?>
+                <?php echo __('Aucun résultat trouvé', 'zcraft'); ?>
             </p>
         <?php endif; ?>
 
