@@ -27,7 +27,7 @@ class Zcraft_CachetStatus_Widget extends Zcraft_Widget
             'text-major-outage'        => esc_html__('Panne majeure', 'zcraft'),
             'text-investigating'       => esc_html__('Problème rencontré', 'zcraft'),
             'text-identified'          => esc_html__('Problème en cours de résolution', 'zcraft'),
-            'text-watching'            => esc_html__('Problème réglé, sous surveillance', 'zcraft')
+            'text-watching'            => esc_html__('Problème récent, sous surveillance', 'zcraft')
         ];
     }
 
