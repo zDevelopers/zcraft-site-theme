@@ -41,7 +41,7 @@
 
             <?php
                 wp_nav_menu(array(
-                    'menu'              => 'Top Left Menu',
+                    'theme_location'    => 'top-left-menu',
                     'depth'             => 0,
                     'container'         => '',
                     'menu_class'        => '',
@@ -52,7 +52,7 @@
                 ));
 
                 wp_nav_menu(array(
-                    'menu'              => 'Top Right Menu',
+                    'theme_location'    => 'top-right-menu',
                     'depth'             => 0,
                     'container'         => '',
                     'menu_class'        => '',

@@ -210,7 +210,10 @@ add_action('customize_register', 'zcraft_customize_register');
 add_action('widgets_init', 'zcraft_widgets_init');
 add_action('wp_head', 'zcraft_customize_css');
 
-register_nav_menus(array(
-    'Top Left Menu' => __('Menu principal gauche'),
-    'Top Right Menu' => __('Menu principal droit'),
-));
+add_action('init', function ()
+{
+    register_nav_menus(array(
+        'top-left-menu' => __('Menu principal gauche'),
+        'top-right-menu' => __('Menu principal droit'),
+    ));
+});
