@@ -910,6 +910,16 @@ body > header {
     border-left: solid 2px #2a640f;
 }
 
+#page-content > section code:not(:first-child){
+    border-left: none;
+}
+#page-content > section code:not(:first-node) {
+    border-left: none;
+}
+#page-content > section code:not(:-moz-first-node) {
+    border-left: none;
+}
+
 #page-content > section kbd {
     background-color: black;
     padding: .3em .5em;

@@ -2,7 +2,9 @@
 
     <section id="page-headings">
         <h2><?php
-            if ($title = single_cat_title('', false)):
+            if (is_home()):
+                echo wp_title('');
+            elseif ($title = single_cat_title('', false)):
                 echo $title;
             elseif (is_date()):
                 echo ucfirst(get_the_date('F Y'));
@@ -10,7 +12,13 @@
                 echo the_author_link();
             endif;
         ?></h2>
-        <h3>Liste des articles</h3>
+        <h3><?php
+            if ($GLOBALS['wp_query']->max_num_pages > 1):
+                ?>Page <?php echo get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1; ?> sur <?php echo $GLOBALS['wp_query']->max_num_pages;
+            else:
+                ?>Liste des articles<?php
+            endif;
+        ?></h3>
     </section>
 </header>
 
