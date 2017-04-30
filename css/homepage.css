@@ -112,19 +112,17 @@
 }
 
 #homepage #serveur-presentation {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
     text-align: center;
     list-style-type: none;
-    vertical-align: middle;
-    margin: 3em 1%;
+    margin: 3em 0;
 }
 
 #homepage #serveur-presentation li {
+    display: inline-block;
     position: relative;
+    width: 33%;
+    vertical-align: top;
     z-index: 0;
-    flex-basis: 33%;
     padding-bottom: 21px;
 }
 
@@ -258,7 +256,7 @@
 
 @media (max-width: 1000px) {
     #homepage #serveur-presentation li {
-        flex-basis: 50%;
+        width: 49%;
     }
 
     #homepage #featurettes article {
@@ -290,8 +288,9 @@
         padding: .5em;
     }
 
-    #homepage #serveur-presentation {
+    #homepage #serveur-presentation li {
         display: block;
+        width: auto;
     }
 
     #homepage #serveur-presentation li img {

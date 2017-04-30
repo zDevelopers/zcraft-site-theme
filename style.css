@@ -153,6 +153,7 @@ body > header nav ul {
 body > header nav ul li {
     position: relative;
     color: #2a640f;
+    text-align: center;
 }
 
 body > header nav > ul > li > ul li a {
@@ -336,7 +337,7 @@ body > header nav ul hr {
 
     body > header nav > ul > li > ul li span {
         color: #666;
-        font-size: .95em;
+        font-size: 14px;
         padding: .2em 2em;
     }
 
@@ -387,9 +388,8 @@ body > header nav ul hr {
     }
 
     body > header nav h1 {
-        position: absolute;
-        display: inline-block;
         left: 1em;
+        margin-left: 0;
     }
 
     #main-dropdown {
@@ -501,7 +501,6 @@ body > header nav ul hr {
 
 
 @media (max-width: 600px) {
-
     body > header nav {
         justify-content: stretch;
     }
