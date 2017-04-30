@@ -16,7 +16,7 @@ add_shortcode('zcraft_home_presentation', function($args, $content)
 
 add_shortcode('zcraft_home_featurettes', function($args, $content)
 {
-    return '<section id="featurettes">' . do_shortcode($content) . '</section>';
+    return '<div id="featurettes">' . do_shortcode($content) . '</div>';
 });
 
 add_shortcode('zcraft_home_featurette', function($args, $content)
@@ -32,7 +32,7 @@ add_shortcode('zcraft_home_featurette', function($args, $content)
 
 add_shortcode('zcraft_home_big_notices', function($args, $content)
 {
-    return '<section id="big-notices">' . do_shortcode($content) . '</section>';
+    return '<div id="big-notices">' . do_shortcode($content) . '</div>';
 });
 
 add_shortcode('zcraft_home_big_notice', function($args, $content)

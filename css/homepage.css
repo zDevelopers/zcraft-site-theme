@@ -55,12 +55,12 @@
     margin-bottom: .3em;
 }
 
-#homepage #online-status dd {
+#homepage #online-status dt {
     float: left;
     clear: left;
 }
 
-#homepage #online-status dt {
+#homepage #online-status dd {
     text-align: right;
 }
 

@@ -904,9 +904,6 @@ body > header {
     margin-top: .4em;
 }
 
-#page-content > section dl dt {
-}
-
 #page-content > section code {
     margin: .1em;
     padding: .3em;
@@ -914,10 +911,7 @@ body > header {
     border-left: solid 2px #2a640f;
 }
 
-#page-content > section code:not(:first-child){
-    border-left: none;
-}
-#page-content > section code:not(:first-node) {
+#page-content > section code:not(:first-child) {
     border-left: none;
 }
 #page-content > section code:not(:-moz-first-node) {

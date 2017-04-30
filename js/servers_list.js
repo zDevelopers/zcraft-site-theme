@@ -69,12 +69,12 @@
 
         };
 
-        httpRequest.open('GET', minecraft_ping_API.replace('{ip}', server.hostname));
+        httpRequest.open('GET', minecraft_ping_API.replace('{ip}', server.hostName));
         httpRequest.send();
     }
 
 
-    var servers_status_elmts = document.getElementById('online-status').getElementsByTagName('dd');
+    var servers_status_elmts = document.getElementById('online-status').getElementsByTagName('dt');
     var servers = [];
 
     for (var i = 0; i < servers_status_elmts.length; i++)
