@@ -3,11 +3,6 @@
 require_once(dirname(__FILE__) . '/libs/WP_Zcraft_Nav_Walker.php');
 require_once(dirname(__FILE__) . '/libs/WP_Zcraft_Footer_Nav_Walker.php');
 
-
-remove_filter( 'the_content', 'wpautop' );
-add_filter( 'the_content', 'wpautop' , 99);
-add_filter( 'the_content', 'shortcode_unautop',100 );
-
 add_action('after_setup_theme', function()
 {
     add_theme_support('title-tag');
