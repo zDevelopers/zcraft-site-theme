@@ -34,5 +34,5 @@ add_filter('wp_nav_menu_args', function($args)
 });
 
 remove_filter('the_content', 'wpautop');
-add_filter('the_content', 'wpautop' , 99);
+add_filter('the_content', 'wpautop', 99);
 add_filter('the_content', 'shortcode_unautop',100);

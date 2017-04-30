@@ -38,7 +38,12 @@ Text Domain: zcraft
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 400;
-    src: local('Open Sans'), local('OpenSans'), url('fonts/OpenSans-latin.woff2') format('woff2');
+    src: url('fonts/OpenSans-latin.eot');
+    src: local('Open Sans'), local('OpenSans'),
+         url('fonts/OpenSans-latin.woff2') format('woff2'),
+         url('fonts/OpenSans-latin.eot?#iefix') format('embedded-opentype'),
+         url('fonts/OpenSans-latin.woff') format('woff'),
+         url('fonts/OpenSans-latin.ttf') format('truetype');
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 
@@ -74,13 +79,16 @@ a {
     text-decoration: none;
     color: #3f9718;
     transition: color .15s ease-in-out, background-color .15s ease-in-out;
+    border: 0 !important;
 }
 
 a:hover {
     color: #2a640f;
 }
 
-
+img {
+    border: 0;
+}
 
 
 /* GLOBAL MINECRAFT STYLE
@@ -122,15 +130,12 @@ a:hover {
 -------------------------------------------------- */
 
 body > header nav {
+    display: block;
     border-bottom: solid 2px #3f9718;
-    display: flex;
-    justify-content: space-around;
-    align-items: stretch;
     text-align: center;
     height: 48px;
 
-    background: rgba(255,255,255,.9);
-    background-position:  center top;
+    background: rgba(255, 255, 255, .9) center top;
     box-shadow: 0 -10px 10px 10px rgba(0,0,0,.5);
 
     border-radius: 0 0 30px 30px / 10px;
@@ -141,12 +146,11 @@ body > header nav ul {
     list-style-type: none;
 
     align-items: stretch;
-    display: flex;
+    font-size: 0;
     order: 2;
 }
 
 body > header nav ul li {
-    display: flex;
     position: relative;
     color: #2a640f;
 }
@@ -180,14 +184,12 @@ body > header nav ul li a:before, #secondary-menu-button:before {
 
 
 body > header nav ul li a, #secondary-menu-button:after {
-    display: flex;
+    display: inline-block;
     position: relative;
-    align-items: center;
-    justify-content: center;
 
     min-width: 5em;
 
-    padding: .3em .5em ;
+    padding: .3em .5em;
 
     font-size: medium;
     font-weight: bold;
@@ -205,8 +207,9 @@ body > header nav > ul > li:hover > a, #secondary-menu-button:hover, body > head
 }
 
 body > header nav h1 {
-    position: relative;
-    order: 2;
+    position: absolute;
+    left: 50%;
+    margin-left: -44px;
 }
 
 body > header nav h1 a {
@@ -249,12 +252,23 @@ body > header nav h1 a:hover:before {
     border-color: rgba(63,151,24,1);
 }
 
-/*body > header nav ul*/ #primary-menu {
-    order: 1;
+#primary-menu, #secondary-menu {
+    display: inline-block;
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    height: 48px;
+    white-space: nowrap;
 }
 
-/*body > header nav ul*/ #secondary-menu {
-    order: 3;
+#primary-menu > li, #secondary-menu > li {
+    display: inline-block;
+}
+
+#primary-menu > li > a, #secondary-menu > li > a {
+    height: 48px;
+    line-height: 48px;
+    padding: 0 .5em;
 }
 
 #secondary-menu-button {
