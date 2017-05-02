@@ -153,7 +153,7 @@ body > header nav ul {
 body > header nav ul li {
     position: relative;
     color: #2a640f;
-    text-align: center;
+    transition: all .15s ease-out;
 }
 
 body > header nav > ul > li > ul li a {
@@ -202,9 +202,13 @@ body > header nav ul li a, #secondary-menu-button:after {
     transition: all .15s ease-out;
 }
 
-body > header nav > ul > li:hover > a, #secondary-menu-button:hover, body > header nav > ul > li > ul li a:hover {
+body > header nav > ul > li:hover, #secondary-menu-button:hover, body > header nav > ul > li > ul li a:hover {
     color: white;
     background: #3f9718;
+}
+
+body > header nav > ul > li:hover > a {
+    color: white;
 }
 
 body > header nav h1 {
@@ -264,12 +268,14 @@ body > header nav h1 a:hover:before {
 
 #primary-menu > li, #secondary-menu > li {
     display: inline-block;
+    vertical-align: middle;
 }
 
 #primary-menu > li > a, #secondary-menu > li > a {
     height: 48px;
     line-height: 48px;
     padding: 0 .5em;
+    text-align: center;
 }
 
 #secondary-menu-button {
@@ -412,6 +418,7 @@ body > header nav ul hr {
         visibility: hidden;
         height: 100%;
         background: white;
+        font-size: 1rem;
         top: 0;
         right: 0;
         min-width: 40%;
@@ -482,15 +489,20 @@ body > header nav ul hr {
         transform: translateX(0);
     }
 
+    #primary-menu {
+        padding-right: 48px;
+    }
+
     #secondary-menu-button {
         position: absolute;
-        display: flex;
         right: 0em;
         height: 48px;
         width: 48px;
+        margin-left: auto;
         border-bottom-right-radius: 25px 7px;
         color: #2a640f;
         cursor: pointer;
+        z-index: 5001;
     }
 
     #secondary-menu-button:before {
@@ -499,23 +511,11 @@ body > header nav ul hr {
     }
 }
 
-
 @media (max-width: 600px) {
-    body > header nav {
-        justify-content: stretch;
-    }
-
     body > header nav h1 {
         left: 50%;
         top: 32px;
         margin-left: -44px;
-    }
-
-    #secondary-menu-button {
-        position: relative;
-        height: 48px;
-        border-bottom-right-radius: 0;
-        color: #2a640f;
     }
 
     body > header nav ul li a, body > header nav ul li h2, #secondary-menu-button:after {
@@ -524,13 +524,7 @@ body > header nav ul hr {
     }
 
     #primary-menu {
-        align-items: inherit;
-        align-content: stretch;
-        width: 100%;
-    }
-
-    #primary-menu > *, #primary-menu a {
-        flex-grow: 1;
+        width: auto;
     }
 }
 
