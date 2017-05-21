@@ -1189,13 +1189,14 @@ body > header {
 #page-content > section ol.help-steps li .step-image-large img {
     position: absolute;
     top: 0;
-    right: 20px;
+    right: 38px;
 
     margin: 0;
     max-width: 600px;
 
     background-color: white;
-    box-shadow: 0 0 30px rgba(0,0,0,.4);
+    box-shadow: 0 0 100px rgba(0,0,0,.8), 0 0 7px 1px rgba(0,0,0,.3);
+    border: solid 1px #3f9718;
 }
 
 #page-content > section ol.help-steps li .step-image-large span {
@@ -1203,15 +1204,51 @@ body > header {
     top: 0;
     right: 0;
 
-    color: #999;
-    font-size: x-large;
+    color: white;
+    font-size: 32px;
+    line-height: 16px;
+    background: #3f9718;
+    padding: .25em;
+    border-radius: 5px;
+    border: solid 1px #3f9718;
+    transition: all .2s ease-in-out;
+    box-shadow: 0 0 5px rgba(0,0,0,.1), 0 0 3px 1px rgba(0,0,0,.2);
+    overflow: hidden;
+
 }
 
-#page-content > section ol.help-steps li .step-image-large:hover span {
-    color: #777;
+#page-content > section ol.help-steps li .step-image-large span:hover {
+    color: #3f9718;
+    background: white;
 }
 
 @media(max-width: 1000px) {
+    #page-content > section ol.help-steps li .step-image-large {
+        display: flex;
+        position: fixed;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        justify-content: space-around;
+        background: rgba(0,0,0,.7);
+
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
+
+    #page-content > section ol.help-steps li .step-image-large img {
+        position: static;
+        overflow: hidden;
+        max-height: 100%;
+        max-width: 100%;
+    }
+
+    #page-content > section ol.help-steps li .step-image-large span {
+        margin: 2%;
+    }
+
     #page-content > section .info-box {
         margin-top: 2em;
         text-align: center;
