@@ -156,9 +156,6 @@ body > header nav ul li {
     transition: all .15s ease-out;
 }
 
-body > header nav > ul > li > ul li a {
-}
-
 body > header nav ul li > .header:after {
     content: "\f0d7";
     font-family: FontAwesome;
@@ -293,6 +290,30 @@ body > header nav ul hr {
     margin: 1em 0;
 }
 
+body > header nav > ul > li > ul li span {
+    color: #666 !important;
+    font-size: 14px;
+    padding: .2em 2em;
+}
+
+body > header nav > ul > li > ul li .header:after {
+    padding: 0;
+    content: "";
+    border-top: solid 1px #ccc;
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+body > header nav > ul > li > ul ul li .header:after {
+    width: 80%;
+    height: 100%;
+    left: 20%;
+}
+
 
 @media (min-width: 1000px) {
     body > header nav > ul > li ul ul a {
@@ -343,30 +364,6 @@ body > header nav ul hr {
         padding: .4em 2em;
         font-weight: normal;
         z-index: 190;
-    }
-
-    body > header nav > ul > li > ul li span {
-        color: #666;
-        font-size: 14px;
-        padding: .2em 2em;
-    }
-
-    body > header nav > ul > li > ul li .header:after {
-        padding: 0;
-        content: "";
-        border-top: solid 1px #ccc;
-        display: block;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-    }
-
-    body > header nav > ul > li > ul ul li .header:after {
-        width: 80%;
-        height: 100%;
-        left: 20%;
     }
 
     body > header nav > ul > li > ul li a:before {
@@ -422,6 +419,7 @@ body > header nav ul hr {
         visibility: hidden;
         height: 100%;
         background: white;
+        font-size: medium;
         font-size: 1rem;
         top: 0;
         right: 0;
