@@ -945,6 +945,13 @@ body > header {
     top: -1px;
 }
 
+#page-content > section pre {
+    margin: 1.5em;
+    padding: .6em;
+    background: #efefef;
+    border-left: solid 2px #2a640f;
+}
+
 #page-content > section .info-box {
     margin: 1em 2em 2em 2em;
     padding: .5em 1em;
