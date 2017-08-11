@@ -950,6 +950,8 @@ body > header {
     padding: .6em;
     background: #efefef;
     border-left: solid 2px #2a640f;
+    max-width: 50em;
+    overflow-x: auto;
 }
 
 #page-content > section .info-box {
