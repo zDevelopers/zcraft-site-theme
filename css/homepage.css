@@ -12,7 +12,7 @@
     padding: .5em;
     font-weight: normal;
     color: white;
-    text-shadow: 1px 1px 0px black, 0 0 2px black;
+    text-shadow: 1px 1px 0 black, 0 0 2px black;
     background: rgba(0,0,0,.6);
     border-radius: 0 0 15px 15px;
 }
@@ -55,12 +55,12 @@
     margin-bottom: .3em;
 }
 
-#homepage #online-status dd {
+#homepage #online-status dt {
     float: left;
     clear: left;
 }
 
-#homepage #online-status dt {
+#homepage #online-status dd {
     text-align: right;
 }
 
@@ -79,6 +79,11 @@
 #homepage #online-status p.online:after {
     background: green;
     box-shadow: 0 0 1em green;
+}
+
+#homepage #online-status p.error:after {
+    background: orange;
+    box-shadow: 0 0 1em orange;
 }
 
 #homepage #online-status p.offline:after {
@@ -107,20 +112,17 @@
 }
 
 #homepage #serveur-presentation {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: top;
-    justify-content: center;
     text-align: center;
     list-style-type: none;
-    vertical-align: middle;
-    margin: 3em 1%;
+    margin: 3em 0;
 }
 
 #homepage #serveur-presentation li {
+    display: inline-block;
     position: relative;
+    width: 33%;
+    vertical-align: top;
     z-index: 0;
-    flex-basis: 33%;
     padding-bottom: 21px;
 }
 
@@ -254,7 +256,7 @@
 
 @media (max-width: 1000px) {
     #homepage #serveur-presentation li {
-        flex-basis: 50%;
+        width: 49%;
     }
 
     #homepage #featurettes article {
@@ -286,8 +288,9 @@
         padding: .5em;
     }
 
-    #homepage #serveur-presentation {
+    #homepage #serveur-presentation li {
         display: block;
+        width: auto;
     }
 
     #homepage #serveur-presentation li img {
@@ -306,7 +309,7 @@
     }
 
     #homepage #join-in #server-ip em {
-        position: initial;
+        position: static;
         margin-top: -14px;
     }
 }

@@ -1,106 +1,106 @@
-(function ()
-{
+(function () {
     'use strict';
-
     var minecraft_ping_API = 'index.php/wp-json/zcraft/v1/minecraft-ping/{ip}';
-
     var update_delay = 60; // seconds
-
     var herobrine_probability = 0.0008;
-    var herobrine_ghost_list_item = '<li data-tooltip="Herobrine"><img src="img/herobrine-head.png" alt="Herobrine" /></li>';
 
+    if (!window.XMLHttpRequest) {
+        console.error("No support for XMLHttpRequest, what's that strange browser you're using?");
+        return;
+    }
 
-    function load_server(server_ip, element_count, element_list)
-    {
+    function makePlayerElement(playerName) {
+        var li = document.createElement('li');
+        var img = li.appendChild(document.createElement('img'));
+        img.src = playerName === 'Herobrine' ? 'img/herobrine-head.png' : 'https://minotar.net/helm/' + playerName + '/32';
+        img.alt = playerName;
+        li.setAttribute('data-tooltip', playerName);
+        return li;
+    }
+
+    function load_server(server) {
         var httpRequest = new XMLHttpRequest();
-        if (!httpRequest)
-        {
-            console.error('No support for XMLHttpRequest, what\'s that strange browser you\'re using?');
-            return;
-        }
 
-        httpRequest.onreadystatechange = function()
-        {
-            if (httpRequest.readyState === XMLHttpRequest.DONE)
+        httpRequest.onreadystatechange = function() {
+            if(httpRequest.readyState !== XMLHttpRequest.DONE) {
+                return;
+            }
+
+            var ping;
+            try {
+                ping = JSON.parse(httpRequest.responseText);
+            } catch (e) {
+                console.warn('Could not parse response from server : %s', e);
+                server.countElement.className = 'error';
+                server.countElement.setAttribute('data-tooltip', 'Impossible de récupérer les informations du serveur.');
+                return;
+            }
+
+            if (httpRequest.status === 200)
             {
-                var ping = JSON.parse(httpRequest.responseText);
+                server.countElement.className = 'online';
+                server.countElement.innerHTML = ping.online_players + ' / ' + ping.max_players;
+                server.listElement.innerHTML = '';
 
-                element_count.classList.remove('online');
-                element_count.classList.remove('offline');
-
-                if (httpRequest.status === 200)
-                {
-                    element_count.classList.add('online');
-                    element_count.innerHTML = ping.online_players + ' / ' + ping.max_players;
-
-                    // Players sorted by lower-cased name
-                    ping.players.sort(function (a, b) {
-                        return a.toLowerCase().localeCompare(b.toLowerCase());
-                    });
-
-                    var players_list = '';
-                    ping.players.forEach(function(player_name)
-                    {
-                        players_list += '<li data-tooltip="' + player_name + '"><img src="https://minotar.net/helm/' + player_name + '/32" alt="' + player_name + '" /></li>';
-                    });
-
-                    // Brrrr...
-                    if (ping.players.length == 0 && Math.random() <= herobrine_probability)
-                    {
-                        players_list += herobrine_ghost_list_item;
-                    }
-
-                    element_list.innerHTML = players_list ? players_list : '';
+                // Brrrr...
+                if (ping.players.length === 0 && Math.random() <= herobrine_probability) {
+                    ping.players = ['Herobrine'];
                 }
-                else
-                {
-                    element_count.classList.add('offline');
-                    element_count.innerHTML = 'Hors-ligne';
-                    element_count.setAttribute('title', ping.data);
 
-                    if (Math.random() <= herobrine_probability)
-                    {
-                        element_list.innerHTML = herobrine_ghost_list_item;
-                    }
+                // Players sorted by lower-cased name
+                ping.players.sort(function (a, b) {
+                    return a.toLowerCase().localeCompare(b.toLowerCase());
+                })
+                .map(makePlayerElement).forEach(function(element) {
+                    server. listElement.appendChild(element);
+                });
+            }
+            else
+            {
+                server.countElement.className = 'offline';
+                server.countElement.textContent = 'Hors-ligne';
+                server.countElement.setAttribute('title', ping.data);
+
+                if (Math.random() <= herobrine_probability)
+                {
+                    server.listElement.appendChild(makePlayerElement('Herobrine'));
                 }
             }
-        }
 
-        httpRequest.open('GET', minecraft_ping_API.replace('{ip}', server_ip));
+        };
+
+        httpRequest.open('GET', minecraft_ping_API.replace('{ip}', server.hostName));
         httpRequest.send();
     }
 
 
-    var servers_status_elmts = document.getElementById('online-status').getElementsByTagName('dd');
+    var servers_status_elmts = document.getElementById('online-status').getElementsByTagName('dt');
     var servers = [];
 
     for (var i = 0; i < servers_status_elmts.length; i++)
     {
-        var server       = servers_status_elmts[i];
-        var server_ip    = server.getAttribute('data-hostname');
-        var server_block = server.nextElementSibling;
+        var serverElement = servers_status_elmts[i];
+        var serverHostname = serverElement.getAttribute('data-hostname');
+        var server_block = serverElement.nextElementSibling;
+
+        var server = {
+            hostName: serverHostname,
+            countElement: server_block.appendChild(document.createElement('p')),
+            listElement: server_block.appendChild(document.createElement('ul'))
+        };
 
         // Add tooltip with IP if it differs from the displayed title
-        if (server_ip.toLowerCase() != server.innerHTML.toLowerCase())
+        if (serverHostname.toLowerCase() !== serverElement.innerHTML.toLowerCase())
         {
-            server.setAttribute('data-tooltip', server_ip);
-            server.classList.add('tooltip-for-text');
+            serverElement.setAttribute('data-tooltip', serverHostname);
+            serverElement.classList.add('tooltip-for-text');
         }
 
-        var server_count = server_block.appendChild(document.createElement('p'));
-        var server_list = server_block.appendChild(document.createElement('ul'));
-
-        load_server(server_ip, server_count, server_list);
-
-        servers.push([server_ip, server_count, server_list]);
+        load_server(server);
+        servers.push(server);
     }
 
-
-    setInterval(function()
-    {
-        for (var i = 0; i < servers.length; i++)
-        {
-            load_server(servers[i][0], servers[i][1], servers[i][2]);
-        }
+    setInterval(function() {
+        servers.forEach(load_server);
     }, update_delay * 1000);
 })();

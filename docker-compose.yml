@@ -13,3 +13,5 @@ services:
     image: mariadb
     environment:
       MYSQL_ROOT_PASSWORD: example
+    volumes:
+     - /home/adrien/.local/share/zcraft-site-theme/mysql:/var/lib/mysql

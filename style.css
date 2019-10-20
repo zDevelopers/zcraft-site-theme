@@ -38,7 +38,12 @@ Text Domain: zcraft
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 400;
-    src: local('Open Sans'), local('OpenSans'), url('fonts/OpenSans-latin.woff2') format('woff2');
+    src: url('fonts/OpenSans-latin.eot');
+    src: local('Open Sans'), local('OpenSans'),
+         url('fonts/OpenSans-latin.woff2') format('woff2'),
+         url('fonts/OpenSans-latin.eot?#iefix') format('embedded-opentype'),
+         url('fonts/OpenSans-latin.woff') format('woff'),
+         url('fonts/OpenSans-latin.ttf') format('truetype');
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 
@@ -74,13 +79,16 @@ a {
     text-decoration: none;
     color: #3f9718;
     transition: color .15s ease-in-out, background-color .15s ease-in-out;
+    border: 0 !important;
 }
 
 a:hover {
     color: #2a640f;
 }
 
-
+img {
+    border: 0;
+}
 
 
 /* GLOBAL MINECRAFT STYLE
@@ -122,15 +130,12 @@ a:hover {
 -------------------------------------------------- */
 
 body > header nav {
+    display: block;
     border-bottom: solid 2px #3f9718;
-    display: flex;
-    justify-content: space-around;
-    align-items: stretch;
     text-align: center;
     height: 48px;
 
-    background: rgba(255,255,255,.9);
-    background-position:  center top;
+    background: rgba(255, 255, 255, .9) center top;
     box-shadow: 0 -10px 10px 10px rgba(0,0,0,.5);
 
     border-radius: 0 0 30px 30px / 10px;
@@ -141,18 +146,14 @@ body > header nav ul {
     list-style-type: none;
 
     align-items: stretch;
-    display: flex;
+    font-size: 0;
     order: 2;
 }
 
 body > header nav ul li {
-    display: flex;
     position: relative;
     color: #2a640f;
-}
-
-body > header nav > ul > li > ul li a {
-    transition: none;
+    transition: all .15s ease-out;
 }
 
 body > header nav ul li > .header:after {
@@ -180,14 +181,12 @@ body > header nav ul li a:before, #secondary-menu-button:before {
 
 
 body > header nav ul li a, #secondary-menu-button:after {
-    display: flex;
+    display: inline-block;
     position: relative;
-    align-items: center;
-    justify-content: center;
 
     min-width: 5em;
 
-    padding: .3em .5em ;
+    padding: .3em .5em;
 
     font-size: medium;
     font-weight: bold;
@@ -199,14 +198,19 @@ body > header nav ul li a, #secondary-menu-button:after {
     transition: all .15s ease-out;
 }
 
-body > header nav > ul > li:hover > a, #secondary-menu-button:hover, body > header nav > ul > li > ul li a:hover {
+body > header nav > ul > li:hover, #secondary-menu-button:hover, body > header nav > ul > li > ul li a:hover {
     color: white;
     background: #3f9718;
 }
 
+body > header nav > ul > li:hover > a {
+    color: white;
+}
+
 body > header nav h1 {
-    position: relative;
-    order: 2;
+    position: absolute;
+    left: 50%;
+    margin-left: -44px;
 }
 
 body > header nav h1 a {
@@ -249,12 +253,25 @@ body > header nav h1 a:hover:before {
     border-color: rgba(63,151,24,1);
 }
 
-/*body > header nav ul*/ #primary-menu {
-    order: 1;
+#primary-menu, #secondary-menu {
+    display: inline-block;
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    height: 48px;
+    white-space: nowrap;
 }
 
-/*body > header nav ul*/ #secondary-menu {
-    order: 3;
+#primary-menu > li, #secondary-menu > li {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#primary-menu > li > a, #secondary-menu > li > a {
+    height: 48px;
+    line-height: 48px;
+    padding: 0 .5em;
+    text-align: center;
 }
 
 #secondary-menu-button {
@@ -271,6 +288,30 @@ body > header nav ul hr {
     height: 1px;
     background-color: #ccc;
     margin: 1em 0;
+}
+
+body > header nav > ul > li > ul li span {
+    color: #666 !important;
+    font-size: 14px;
+    padding: .2em 2em;
+}
+
+body > header nav > ul > li > ul li .header:after {
+    padding: 0;
+    content: "";
+    border-top: solid 1px #ccc;
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+body > header nav > ul > li > ul ul li .header:after {
+    width: 80%;
+    height: 100%;
+    left: 20%;
 }
 
 
@@ -293,11 +334,16 @@ body > header nav ul hr {
         min-width: 100%;
         box-shadow: 0 0 10px rgba(0,0,0,.5);
         visibility: hidden;
+        opacity: 0;
+        transition: opacity .2s ease-in-out, visibility .2s ease-in-out;
+        transition-delay: 0s, .1s;
         z-index: 100;
     }
 
     body > header nav > ul > li:hover > ul {
         visibility: visible;
+        transition-delay: 0s, 0s;
+        opacity: 1;
     }
 
     body > header nav > ul > li > ul li {
@@ -318,30 +364,6 @@ body > header nav ul hr {
         padding: .4em 2em;
         font-weight: normal;
         z-index: 190;
-    }
-
-    body > header nav > ul > li > ul li span {
-        color: #666;
-        font-size: .95em;
-        padding: .2em 2em;
-    }
-
-    body > header nav > ul > li > ul li .header:after {
-        padding: 0;
-        content: "";
-        border-top: solid 1px #ccc;
-        display: block;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-    }
-
-    body > header nav > ul > li > ul ul li .header:after {
-        width: 80%;
-        height: 100%;
-        left: 20%;
     }
 
     body > header nav > ul > li > ul li a:before {
@@ -373,9 +395,8 @@ body > header nav ul hr {
     }
 
     body > header nav h1 {
-        position: absolute;
-        display: inline-block;
         left: 1em;
+        margin-left: 0;
     }
 
     #main-dropdown {
@@ -398,8 +419,11 @@ body > header nav ul hr {
         visibility: hidden;
         height: 100%;
         background: white;
+        font-size: medium;
+        font-size: 1rem;
         top: 0;
         right: 0;
+        width: auto;
         min-width: 40%;
         max-width: 80%;
         z-index: 9999;
@@ -427,7 +451,8 @@ body > header nav ul hr {
     }
 
     #secondary-menu ul {
-        margin-left: 2em;
+        margin-left: 12px;
+        margin-left: 1rem;
     }
 
     #secondary-menu li > a:before {
@@ -436,6 +461,12 @@ body > header nav ul hr {
 
     #secondary-menu li {
         display: block;
+    }
+
+    #secondary-menu li a {
+        height: auto;
+        line-height: normal;
+        text-align: left;
     }
 
     #secondary-menu li > a, #secondary-menu li > span {
@@ -468,15 +499,20 @@ body > header nav ul hr {
         transform: translateX(0);
     }
 
+    #primary-menu {
+        padding-right: 48px;
+    }
+
     #secondary-menu-button {
         position: absolute;
-        display: flex;
         right: 0em;
         height: 48px;
         width: 48px;
+        margin-left: auto;
         border-bottom-right-radius: 25px 7px;
         color: #2a640f;
         cursor: pointer;
+        z-index: 5001;
     }
 
     #secondary-menu-button:before {
@@ -485,24 +521,11 @@ body > header nav ul hr {
     }
 }
 
-
 @media (max-width: 600px) {
-
-    body > header nav {
-        justify-content: stretch;
-    }
-
     body > header nav h1 {
         left: 50%;
         top: 32px;
         margin-left: -44px;
-    }
-
-    #secondary-menu-button {
-        position: relative;
-        height: 48px;
-        border-bottom-right-radius: 0;
-        color: #2a640f;
     }
 
     body > header nav ul li a, body > header nav ul li h2, #secondary-menu-button:after {
@@ -511,13 +534,7 @@ body > header nav ul hr {
     }
 
     #primary-menu {
-        align-items: inherit;
-        align-content: stretch;
-        width: 100%;
-    }
-
-    #primary-menu > *, #primary-menu a {
-        flex-grow: 1;
+        width: auto;
     }
 }
 
@@ -904,9 +921,6 @@ body > header {
     margin-top: .4em;
 }
 
-#page-content > section dl dt {
-}
-
 #page-content > section code {
     margin: .1em;
     padding: .3em;
@@ -924,9 +938,7 @@ body > header {
 #page-content > section code:not(:first-child){
     border-left: none;
 }
-#page-content > section code:not(:first-node) {
-    border-left: none;
-}
+#page-content > section code:not(:first-node),
 #page-content > section code:not(:-moz-first-node) {
     border-left: none;
 }
@@ -939,6 +951,15 @@ body > header {
 
     position: relative;
     top: -1px;
+}
+
+#page-content > section pre {
+    margin: 1.5em;
+    padding: .6em;
+    background: #efefef;
+    border-left: solid 2px #2a640f;
+    max-width: 50em;
+    overflow-x: auto;
 }
 
 #page-content > section .info-box {
@@ -1189,13 +1210,14 @@ body > header {
 #page-content > section ol.help-steps li .step-image-large img {
     position: absolute;
     top: 0;
-    right: 20px;
+    right: 38px;
 
     margin: 0;
     max-width: 600px;
 
     background-color: white;
-    box-shadow: 0 0 30px rgba(0,0,0,.4);
+    box-shadow: 0 0 100px rgba(0,0,0,.8), 0 0 7px 1px rgba(0,0,0,.3);
+    border: solid 1px #3f9718;
 }
 
 #page-content > section ol.help-steps li .step-image-large span {
@@ -1203,15 +1225,51 @@ body > header {
     top: 0;
     right: 0;
 
-    color: #999;
-    font-size: x-large;
+    color: white;
+    font-size: 32px;
+    line-height: 16px;
+    background: #3f9718;
+    padding: .25em;
+    border-radius: 5px;
+    border: solid 1px #3f9718;
+    transition: all .2s ease-in-out;
+    box-shadow: 0 0 5px rgba(0,0,0,.1), 0 0 3px 1px rgba(0,0,0,.2);
+    overflow: hidden;
+
 }
 
-#page-content > section ol.help-steps li .step-image-large:hover span {
-    color: #777;
+#page-content > section ol.help-steps li .step-image-large span:hover {
+    color: #3f9718;
+    background: white;
 }
 
 @media(max-width: 1000px) {
+    #page-content > section ol.help-steps li .step-image-large {
+        display: flex;
+        position: fixed;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        justify-content: space-around;
+        background: rgba(0,0,0,.7);
+
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
+
+    #page-content > section ol.help-steps li .step-image-large img {
+        position: static;
+        overflow: hidden;
+        max-height: 100%;
+        max-width: 100%;
+    }
+
+    #page-content > section ol.help-steps li .step-image-large span {
+        margin: 2%;
+    }
+
     #page-content > section .info-box {
         margin-top: 2em;
         text-align: center;

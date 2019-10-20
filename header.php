@@ -47,7 +47,7 @@
                     'menu_class'        => '',
                     'menu_id'           => 'primary-menu',
                     'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-                    'items_wrap'        => '<ul role="menu" id="%1$s" class="%2$s">%3$s<span id="secondary-menu-button" data-title="" data-drawer="secondary-menu" class="fa-list"></span></ul>',
+                    'items_wrap'        => '<ul role="menu" id="%1$s" class="%2$s">%3$s<li id="secondary-menu-button" data-title="" data-drawer="secondary-menu" class="fa-list"></li></ul>',
                     'walker'            => new WP_Zcraft_Nav_Walker()
                 ));
 
