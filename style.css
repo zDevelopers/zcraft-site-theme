@@ -925,7 +925,7 @@ body > header {
     margin: .1em;
     padding: .3em;
     background: #efefef;
-    border-left: solid 2px #2a640f;
+    border-radius: 4px;
 }
 
 #page-content > section pre > code {
@@ -935,12 +935,8 @@ body > header {
     border: none;
 }
 
-#page-content > section code:not(:first-child){
-    border-left: none;
-}
-#page-content > section code:not(:first-node),
-#page-content > section code:not(:-moz-first-node) {
-    border-left: none;
+#page-content > section dt > code {
+    border-left: solid 2px #2a640f;
 }
 
 #page-content > section kbd {
@@ -958,7 +954,8 @@ body > header {
     padding: .6em;
     background: #efefef;
     border-left: solid 2px #2a640f;
-    max-width: 50em;
+    border-radius: 4px;
+    max-width: 42rem;
     overflow-x: auto;
 }
 
@@ -978,31 +975,31 @@ body > header {
 #page-content > section h3 {
     color: #2a640f;
     font-size: x-large;
-    padding: .5em;
-    margin: 1em .5em;
+    padding: .5rem;
+    margin: 1rem .5rem;
     border-bottom: solid 1px #ccc;
 }
 
 #page-content > section h4 {
     color: #2a640f;
     font-size: large;
-    padding: .5em;
-    margin: 1em .5em;
+    padding: .5rem;
+    margin: 1rem .5rem;
     border-bottom: solid 1px #eee;
 }
 
 #page-content > section h5 {
     color: #2a640f;
     font-size: .9em;
-    padding: .1em;
-    margin: 1.4em 0 1em .5em;
+    padding: .5rem;
+    margin: 1.4rem 0 1rem .5rem;
 }
 
 #page-content > section h6 {
     color: #2a640f;
     font-size: small;
-    padding: .1em;
-    margin: 1em 0 1em .5em;
+    padding: .5rem;
+    margin: 1rem 0 1rem .5rem;
 }
 
 
